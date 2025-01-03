@@ -33,9 +33,9 @@
             }
           },
           {
-            "name": "linkedin_url",
+            "name": "include_skills",
             "in": "query",
-            "description": "The maximum number of results to return",
+            "description": "Include skills in the response",
             "schema": {
               "type": "integer",
               "format": "int32"
