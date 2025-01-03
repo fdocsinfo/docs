@@ -69,7 +69,15 @@
       ]
     },
     {
-      "group": "Endpoint Demo",
+      "group": "Personal Data",
+      "pages": [
+        "api-reference/endpoint/get_linkedin_profile",
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/delete"
+      ]
+    },
+    {
+      "group": "Company Data",
       "pages": [
         "api-reference/endpoint/get",
         "api-reference/endpoint/get_linkedin_profile",
