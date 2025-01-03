@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Fresh LinkedIn Data API",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/freshdata-logo.png",
+    "light": "/logo/freshdata-logo.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/freshdata-logo.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -15,50 +15,49 @@
       "to": "#07C983"
     }
   },
+  
+  "topbarCtaButton": {
+    "name": "Try it now",
+    "url": "https://rapidapi.com/freshdata-freshdata-default/api/fresh-linkedin-profile-data"
+  },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@fdocs.info"
     }
   ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
+
   "tabs": [
     {
       "name": "API Reference",
       "url": "api-reference"
     }
   ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
+  
+  "primaryTab": {
+    "name": "Home"
+  },
+
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Overview",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "quickstart"
+        
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Featured Posts",
+      "pages": [
+        "tutorials/search-employees-using-sales-navigator",
+        "tutorials/search-companies-using-sales-navigator",
+        "tutorials/enrich-a-lead-list-with-linkedin-data",
+        "tutorials/enrich-companies-with-linkedin-data"
+      ]
+    },
+    {
+      "group": "How-To Wiki",
       "pages": [
         "essentials/markdown",
         "essentials/code",
@@ -75,7 +74,7 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Endpoint Demo",
       "pages": [
         "api-reference/endpoint/get",
         "api-reference/endpoint/create",
@@ -83,9 +82,8 @@
       ]
     }
   ],
+ 
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    
   }
 }
