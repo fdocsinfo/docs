@@ -33,7 +33,7 @@
             }
           },
           {
-            "name": "include_skills",
+            "name": "linkedin_url",
             "in": "query",
             "description": "The maximum number of results to return",
             "schema": {
