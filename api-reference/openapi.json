@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://fresh-linkedin-profile-data.p.rapidapi.com"
+      "url": "http://sandbox.mintlify.com"
     }
   ],
   "security": [
@@ -19,12 +19,12 @@
     }
   ],
   "paths": {
-    "/get-linkedin-profile": {
+    "/plants": {
       "get": {
-        "description": "Get comprehensive profile data, including experience, education history, and current company details. 1 credit per call. Using each extra option will cost another 0.5 credits.",
+        "description": "Returns all plants from the system that the user has access to",
         "parameters": [
           {
-            "name": "linkedin_url",
+            "name": "limit",
             "in": "query",
             "description": "The maximum number of results to return",
             "schema": {
