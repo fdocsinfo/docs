@@ -18,6 +18,11 @@
       "x-rapidapi-key": "YOUR_API_KEY"
     }
   ],
+  "header": [
+    {
+      "x-rapidapi-key": "YOUR_API_KEY"
+    }
+  ],
   "paths": {
     "/get-linkedin-profile": {
       "get": {
