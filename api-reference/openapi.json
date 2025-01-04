@@ -13,11 +13,6 @@
       "url": "https://fresh-linkedin-profile-data.p.rapidapi.com"
     }
   ],
-  "security": [
-    {
-      "x-rapidapi-key": "YOUR_API_KEY"
-    }
-  ],
   "header": [
     {
       "x-rapidapi-key": "YOUR_API_KEY"
