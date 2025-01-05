@@ -25,11 +25,12 @@
       "url": "mailto:support@fdocs.info"
     }
   ],
-  "tabs": [
+  "anchors": [
     {
       "name": "API Reference",
+      "openapi": "/api-reference/openapi.json",
       "url": "api-reference",
-      "openapi": "/api-reference/openapi.json"
+      "icon": "square-terminal"
     }
   ],
   "primaryTab": {
