@@ -34,11 +34,6 @@
   "primaryTab": {
     "name": "Home"
   },
-  "api": {
-    "auth": {
-        "name": "x-rapidapi-key"
-    }
-  },
   "navigation": [
     {
       "group": "Overview",
