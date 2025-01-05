@@ -22,7 +22,11 @@
     "/get-linkedin-profile": {
       "get": {
         "security": {
-          "ApiKeyAuth": []
+          "ApiKeyAuth": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "x-rapidapi-key"
+          }
         },
         "description": "Get comprehensive profile data, including experience, education history, and current company details. 1 credit per call. Using each extra option will cost another 0.5 credits.",
         "parameters": [
@@ -203,9 +207,6 @@
         "in": "header",
         "name": "x-rapidapi-key"
       }
-    },
-    "security": {
-      "ApiKeyAuth": []
     }
   }
 }
