@@ -31,6 +31,14 @@
       "url": "api-reference"
     }
   ],
+  "anchors": [
+    {
+      "name": "API Reference",
+      "openapi": "api-reference/openapi.json",
+      "url": "api-reference",
+      "icon": "square-terminal"
+    }
+  ],
   "primaryTab": {
     "name": "Home"
   },
