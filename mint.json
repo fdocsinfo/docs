@@ -34,6 +34,11 @@
   "primaryTab": {
     "name": "Home"
   },
+  "api": {
+    "auth": {
+        "method": "basic"
+    }
+  },
   "navigation": [
     {
       "group": "Overview",
