@@ -48,7 +48,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "$ref": "#/components/schemas/PersonalProfile"
                   }
                 }
               }
@@ -139,18 +139,21 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
+      "PersonalProfile": {
         "type": "object",
         "properties": {
-          "name": {
+          "data": {
+            "type": "object",
             "description": "The name of the plant",
-            "type": "string"
+            "properties":{
+              "linkedin_url":{
+                "type": "string"    
+              }
+            }
           },
-          "tag": {
+          "message": {
             "description": "Tag to specify the type",
+            "value": "ok",
             "type": "string"
           }
         }
