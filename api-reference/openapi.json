@@ -30,7 +30,7 @@
           {
             "name": "include_skills",
             "in": "query",
-            "description": "Include skills in the response",
+            "description": "Include skills in the response. Possible values: true, false. Default value: false.",
             "type": "string"
           }
         ],
