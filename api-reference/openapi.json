@@ -195,11 +195,14 @@
       }
     },
     "securitySchemes": {
-      "apiKey": {
+      "ApiKeyAuth": {
         "type": "apiKey",
         "in": "header",
         "name": "x-rapidapi-key"
       }
+    },
+    "security": {
+      "ApiKeyAuth": []
     }
   }
 }
