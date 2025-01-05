@@ -16,22 +16,28 @@
   "paths": {
     "/get-linkedin-profile": {
       "get": {
-        "security": {
-          "ApiKeyAuth": []
-        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
         "description": "Get comprehensive profile data, including experience, education history, and current company details. 1 credit per call. Using each extra option will cost another 0.5 credits.",
         "parameters": [
           {
             "name": "linkedin_url",
             "in": "query",
             "description": "The maximum number of results to return",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "include_skills",
             "in": "query",
             "description": "Include skills in the response. Possible values: true, false. Default value: false.",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -111,30 +117,9 @@
           },
           "message": {
             "description": "Tag to specify the type",
-            "value": "ok",
             "type": "string"
           }
         }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
       },
       "Error": {
         "required": [
