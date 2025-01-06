@@ -140,7 +140,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/InvalidURL"
                 }
               }
             }
@@ -173,7 +173,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/InvalidURL"
                 }
               }
             }
@@ -607,16 +607,16 @@
           "linkedin_url"
         ]
       },
-      "Error": {
+      "InvalidURL": {
         "required": [
           "error",
           "message"
         ],
         "type": "object",
         "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
+          "data": {
+            "type": "object",
+            "nullable": true
           },
           "message": {
             "type": "string"
