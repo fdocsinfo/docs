@@ -619,7 +619,8 @@
             "nullable": true
           },
           "message": {
-            "type": "string"
+            "type": "string",
+            "example": "Bad request: Invalid linkedin_url."
           }
         }
       }
