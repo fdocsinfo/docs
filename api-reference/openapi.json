@@ -127,17 +127,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "items": {
-                    "data": {
-                      "type": "object",
-                      "$ref": "#/components/schemas/PersonalProfile"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "ok"
-                    }
-                  }
+                  "$ref": "#/components/schemas/PersonalProfile"
                 }
               }
             }
@@ -194,414 +184,423 @@
       "PersonalProfile": {
         "type": "object",
         "properties": {
-          "about": {
+          "message": {
             "type": "string",
-            "example": "Experienced leader in marketing and technology."
+            "example": "ok"
           },
-          "certifications": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "example": "Project Management Professional (PMP)"
-                },
-                "authority": {
-                  "type": "string",
-                  "example": "PMI"
-                },
-                "issued": {
-                  "type": "string",
-                  "format": "date",
-                  "example": "2021-01"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "example": "https://example.com/certificate"
-                }
-              }
-            }
-          },
-          "city": {
-            "type": "string",
-            "example": "Sydney"
-          },
-          "company": {
-            "type": "string",
-            "example": "Trinity Consulting Services"
-          },
-          "company_description": {
-            "type": "string",
-            "example": "A global leader in technology consulting."
-          },
-          "company_domain": {
-            "type": "string",
-            "example": "trinity.com"
-          },
-          "company_employee_range": {
-            "type": "string",
-            "example": "201-500"
-          },
-          "company_industry": {
-            "type": "string",
-            "example": "Technology Consulting"
-          },
-          "company_linkedin_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://linkedin.com/company/trinity"
-          },
-          "company_logo_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://example.com/logo.png"
-          },
-          "company_website": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://trinity.com"
-          },
-          "company_year_founded": {
-            "type": "integer",
-            "example": 1990
-          },
-          "connection_count": {
-            "type": "integer",
-            "example": 15000
-          },
-          "country": {
-            "type": "string",
-            "example": "Australia"
-          },
-          "courses": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "string",
-                  "example": "Advanced Marketing Strategies"
-                },
-                "associated": {
-                  "type": "string",
-                  "example": "Harvard Business School"
-                }
-              }
-            }
-          },
-          "current_company_join_month": {
-            "type": "integer",
-            "example": 3
-          },
-          "current_company_join_year": {
-            "type": "integer",
-            "example": 2015
-          },
-          "current_job_duration": {
-            "type": "string",
-            "example": "8 years 2 months"
-          },
-          "educations": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "school": {
-                  "type": "string",
-                  "example": "University of Technology Sydney"
-                },
-                "degree": {
-                  "type": "string",
-                  "example": "MBA"
-                },
-                "field_of_study": {
-                  "type": "string",
-                  "example": "Business Administration"
-                },
-                "start_year": {
-                  "type": "integer",
-                  "example": 2005
-                },
-                "end_year": {
-                  "type": "integer",
-                  "example": 2007
-                },
-                "activities": {
-                  "type": "string",
-                  "example": "Student Union President"
-                }
-              }
-            }
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "example@example.com"
-          },
-          "experiences": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "company": {
-                  "type": "string",
-                  "example": "ABC Tech"
-                },
-                "title": {
-                  "type": "string",
-                  "example": "Senior Consultant"
-                },
-                "location": {
-                  "type": "string",
-                  "example": "Melbourne, Australia"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Led multiple IT projects."
-                },
-                "start_year": {
-                  "type": "integer",
-                  "example": 2010
-                },
-                "end_year": {
-                  "type": "integer",
-                  "example": 2015
-                },
-                "duration": {
-                  "type": "string",
-                  "example": "5 years"
-                }
-              }
-            }
-          },
-          "first_name": {
-            "type": "string",
-            "example": "Anthony"
-          },
-          "follower_count": {
-            "type": "integer",
-            "example": 20000
-          },
-          "full_name": {
-            "type": "string",
-            "example": "Anthony James"
-          },
-          "headline": {
-            "type": "string",
-            "example": "Technology Leader & Innovator"
-          },
-          "honors_and_awards": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "string",
-                  "example": "Top Innovator 2022"
-                },
-                "issuer": {
-                  "type": "string",
-                  "example": "Forbes"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Recognized for contributions to technology innovation."
-                },
-                "date": {
-                  "type": "string",
-                  "format": "date",
-                  "example": "2022-10-01"
-                }
-              }
-            }
-          },
-          "hq_city": {
-            "type": "string",
-            "example": "Sydney"
-          },
-          "hq_country": {
-            "type": "string",
-            "example": "Australia"
-          },
-          "hq_region": {
-            "type": "string",
-            "example": "New South Wales"
-          },
-          "job_title": {
-            "type": "string",
-            "example": "CEO"
-          },
-          "languages": {
-            "type": "string",
-            "example": "English, French"
-          },
-          "last_name": {
-            "type": "string",
-            "example": "James"
-          },
-          "linkedin_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://linkedin.com/in/anthonyjames"
-          },
-          "location": {
-            "type": "string",
-            "example": "Sydney, Australia"
-          },
-          "organizations": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "example": "Rotary Club"
-                },
-                "role": {
-                  "type": "string",
-                  "example": "Member"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Community Service and Leadership Development"
-                }
-              }
-            }
-          },
-          "patents": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "example": "AI-powered Scheduling Tool"
-                },
-                "patent_number": {
-                  "type": "string",
-                  "example": "US12345678B2"
-                },
-                "issued": {
-                  "type": "string",
-                  "format": "date",
-                  "example": "2020-06-01"
-                }
-              }
-            }
-          },
-          "phone": {
-            "type": "string",
-            "example": "+61234567890"
-          },
-          "profile_id": {
-            "type": "string",
-            "example": "profile123"
-          },
-          "profile_image_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://example.com/profile.jpg"
-          },
-          "profile_status": {
+          "data": {
             "type": "object",
             "properties": {
-              "joined_date": {
+              "about": {
                 "type": "string",
-                "example": "2008-01-01"
+                "example": "Experienced leader in marketing and technology."
               },
-              "verified": {
-                "type": "boolean",
-                "example": true
-              },
-              "profile_photo_updated": {
-                "type": "boolean",
-                "example": true
-              },
-              "contact_info_updated": {
-                "type": "boolean",
-                "example": true
-              }
-            }
-          },
-          "projects": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "example": "Project Apollo"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Developed a cloud-based platform."
+              "certifications": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Project Management Professional (PMP)"
+                    },
+                    "authority": {
+                      "type": "string",
+                      "example": "PMI"
+                    },
+                    "issued": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-01"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://example.com/certificate"
+                    }
+                  }
                 }
-              }
-            }
-          },
-          "public_id": {
-            "type": "string",
-            "example": "anthony-james"
-          },
-          "publications": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "string",
-                  "example": "Innovating in the Digital Age"
-                },
-                "publisher": {
-                  "type": "string",
-                  "example": "TechWorld"
-                },
-                "date": {
-                  "type": "string",
-                  "format": "date",
-                  "example": "2022-07-15"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Exploring trends in technology innovation."
+              },
+              "city": {
+                "type": "string",
+                "example": "Sydney"
+              },
+              "company": {
+                "type": "string",
+                "example": "Trinity Consulting Services"
+              },
+              "company_description": {
+                "type": "string",
+                "example": "A global leader in technology consulting."
+              },
+              "company_domain": {
+                "type": "string",
+                "example": "trinity.com"
+              },
+              "company_employee_range": {
+                "type": "string",
+                "example": "201-500"
+              },
+              "company_industry": {
+                "type": "string",
+                "example": "Technology Consulting"
+              },
+              "company_linkedin_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://linkedin.com/company/trinity"
+              },
+              "company_logo_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://example.com/logo.png"
+              },
+              "company_website": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://trinity.com"
+              },
+              "company_year_founded": {
+                "type": "integer",
+                "example": 1990
+              },
+              "connection_count": {
+                "type": "integer",
+                "example": 15000
+              },
+              "country": {
+                "type": "string",
+                "example": "Australia"
+              },
+              "courses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "example": "Advanced Marketing Strategies"
+                    },
+                    "associated": {
+                      "type": "string",
+                      "example": "Harvard Business School"
+                    }
+                  }
                 }
-              }
-            }
-          },
-          "school": {
-            "type": "string",
-            "example": "University of Technology Sydney"
-          },
-          "skills": {
-            "type": "string",
-            "example": "Leadership, Innovation, Marketing"
-          },
-          "state": {
-            "type": "string",
-            "example": "New South Wales"
-          },
-          "urn": {
-            "type": "string",
-            "example": "urn:li:person:12345"
-          },
-          "volunteers": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "organization": {
-                  "type": "string",
-                  "example": "Local Library"
-                },
-                "role": {
-                  "type": "string",
-                  "example": "Volunteer Tutor"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Assisted students with learning challenges."
+              },
+              "current_company_join_month": {
+                "type": "integer",
+                "example": 3
+              },
+              "current_company_join_year": {
+                "type": "integer",
+                "example": 2015
+              },
+              "current_job_duration": {
+                "type": "string",
+                "example": "8 years 2 months"
+              },
+              "educations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "school": {
+                      "type": "string",
+                      "example": "University of Technology Sydney"
+                    },
+                    "degree": {
+                      "type": "string",
+                      "example": "MBA"
+                    },
+                    "field_of_study": {
+                      "type": "string",
+                      "example": "Business Administration"
+                    },
+                    "start_year": {
+                      "type": "integer",
+                      "example": 2005
+                    },
+                    "end_year": {
+                      "type": "integer",
+                      "example": 2007
+                    },
+                    "activities": {
+                      "type": "string",
+                      "example": "Student Union President"
+                    }
+                  }
+                }
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "example": "example@example.com"
+              },
+              "experiences": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "company": {
+                      "type": "string",
+                      "example": "ABC Tech"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Senior Consultant"
+                    },
+                    "location": {
+                      "type": "string",
+                      "example": "Melbourne, Australia"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Led multiple IT projects."
+                    },
+                    "start_year": {
+                      "type": "integer",
+                      "example": 2010
+                    },
+                    "end_year": {
+                      "type": "integer",
+                      "example": 2015
+                    },
+                    "duration": {
+                      "type": "string",
+                      "example": "5 years"
+                    }
+                  }
+                }
+              },
+              "first_name": {
+                "type": "string",
+                "example": "Anthony"
+              },
+              "follower_count": {
+                "type": "integer",
+                "example": 20000
+              },
+              "full_name": {
+                "type": "string",
+                "example": "Anthony James"
+              },
+              "headline": {
+                "type": "string",
+                "example": "Technology Leader & Innovator"
+              },
+              "honors_and_awards": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "example": "Top Innovator 2022"
+                    },
+                    "issuer": {
+                      "type": "string",
+                      "example": "Forbes"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Recognized for contributions to technology innovation."
+                    },
+                    "date": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2022-10-01"
+                    }
+                  }
+                }
+              },
+              "hq_city": {
+                "type": "string",
+                "example": "Sydney"
+              },
+              "hq_country": {
+                "type": "string",
+                "example": "Australia"
+              },
+              "hq_region": {
+                "type": "string",
+                "example": "New South Wales"
+              },
+              "job_title": {
+                "type": "string",
+                "example": "CEO"
+              },
+              "languages": {
+                "type": "string",
+                "example": "English, French"
+              },
+              "last_name": {
+                "type": "string",
+                "example": "James"
+              },
+              "linkedin_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://linkedin.com/in/anthonyjames"
+              },
+              "location": {
+                "type": "string",
+                "example": "Sydney, Australia"
+              },
+              "organizations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Rotary Club"
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "Member"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Community Service and Leadership Development"
+                    }
+                  }
+                }
+              },
+              "patents": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "AI-powered Scheduling Tool"
+                    },
+                    "patent_number": {
+                      "type": "string",
+                      "example": "US12345678B2"
+                    },
+                    "issued": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2020-06-01"
+                    }
+                  }
+                }
+              },
+              "phone": {
+                "type": "string",
+                "example": "+61234567890"
+              },
+              "profile_id": {
+                "type": "string",
+                "example": "profile123"
+              },
+              "profile_image_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://example.com/profile.jpg"
+              },
+              "profile_status": {
+                "type": "object",
+                "properties": {
+                  "joined_date": {
+                    "type": "string",
+                    "example": "2008-01-01"
+                  },
+                  "verified": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "profile_photo_updated": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "contact_info_updated": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Project Apollo"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Developed a cloud-based platform."
+                    }
+                  }
+                }
+              },
+              "public_id": {
+                "type": "string",
+                "example": "anthony-james"
+              },
+              "publications": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "example": "Innovating in the Digital Age"
+                    },
+                    "publisher": {
+                      "type": "string",
+                      "example": "TechWorld"
+                    },
+                    "date": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2022-07-15"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Exploring trends in technology innovation."
+                    }
+                  }
+                }
+              },
+              "school": {
+                "type": "string",
+                "example": "University of Technology Sydney"
+              },
+              "skills": {
+                "type": "string",
+                "example": "Leadership, Innovation, Marketing"
+              },
+              "state": {
+                "type": "string",
+                "example": "New South Wales"
+              },
+              "urn": {
+                "type": "string",
+                "example": "urn:li:person:12345"
+              },
+              "volunteers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "organization": {
+                      "type": "string",
+                      "example": "Local Library"
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "Volunteer Tutor"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Assisted students with learning challenges."
+                    }
+                  }
                 }
               }
             }
@@ -609,10 +608,6 @@
         }
       },
       "InvalidURL": {
-        "required": [
-          "error",
-          "message"
-        ],
         "type": "object",
         "properties": {
           "data": {
