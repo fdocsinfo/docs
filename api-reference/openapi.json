@@ -129,7 +129,14 @@
                 "schema": {
                   "type": "object",
                   "items": {
-                    "$ref": "#/components/schemas/PersonalProfile"
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/PersonalProfile"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "ok"
+                    }
                   }
                 }
               }
@@ -599,13 +606,7 @@
               }
             }
           }
-        },
-        "required": [
-          "about",
-          "first_name",
-          "last_name",
-          "linkedin_url"
-        ]
+        }
       },
       "InvalidURL": {
         "required": [
