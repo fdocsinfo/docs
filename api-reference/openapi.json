@@ -616,7 +616,8 @@
         "properties": {
           "data": {
             "type": "object",
-            "nullable": true
+            "nullable": true,
+            "example": null
           },
           "message": {
             "type": "string",
