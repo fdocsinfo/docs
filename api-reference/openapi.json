@@ -21,12 +21,13 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "Get comprehensive profile data, including experience, education history, and current company details. 1 credit per call. Using each extra option will cost another 0.5 credits.",
+        "description": "Get comprehensive profile data, including experience, education history, and current company details.\n 1 credit per call.\n Using each extra option will cost another 0.5 credits.",
         "parameters": [
           {
             "name": "linkedin_url",
             "in": "query",
-            "description": "The maximum number of results to return",
+            "description": "",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -34,7 +35,87 @@
           {
             "name": "include_skills",
             "in": "query",
-            "description": "Include skills in the response. Possible values: true, false. Default value: false.",
+            "description": "Include skills in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_certifications",
+            "in": "query",
+            "description": "Include certifications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_publications",
+            "in": "query",
+            "description": "Include publications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_honors",
+            "in": "query",
+            "description": "Include honors in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_volunteers",
+            "in": "query",
+            "description": "Include volunteers in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_projects",
+            "in": "query",
+            "description": "Include projects in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_patents",
+            "in": "query",
+            "description": "Include patents in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_courses",
+            "in": "query",
+            "description": "Include courses in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_organizations",
+            "in": "query",
+            "description": "Include organizations in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_profile_status",
+            "in": "query",
+            "description": "Include profile status in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_company_public_url",
+            "in": "query",
+            "description": "Possible values: true, false. Default value: false. This option is free of charge.",
             "schema": {
               "type": "string"
             }
@@ -109,9 +190,9 @@
           "data": {
             "type": "object",
             "description": "The name of the plant",
-            "properties":{
-              "linkedin_url":{
-                "type": "string"    
+            "properties": {
+              "linkedin_url": {
+                "type": "string"
               }
             }
           },
