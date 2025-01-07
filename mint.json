@@ -72,6 +72,7 @@
       "group": "Personal Data",
       "pages": [
         "api-reference/endpoint/get-linkedin-profile",
+        "api-reference/endpoint/get-profile-by-sales-nav-url",
         "api-reference/endpoint/get",
         "api-reference/endpoint/delete"
       ]
