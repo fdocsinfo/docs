@@ -330,32 +330,62 @@
         }
       }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+    "/get-profile-recent-activity-time": {
+      "get": {
+        "description": "Get the time of the latest profile activity",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
+            "name": "linkedin_url",
+            "in": "query",
+            "description": "",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileActivity"
+                }
+              }
+            }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Invalid linkedin url",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
                 }
               }
             }
@@ -803,6 +833,24 @@
           "message": {
             "type": "string",
             "example": "Bad request: Invalid linkedin_url."
+          }
+        }
+      },
+      "ProfileActivity": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "recent_activity_time": {
+                "type": "string",
+                "example": "4d"
+              }
+            }
           }
         }
       },
