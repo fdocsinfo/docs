@@ -39,7 +39,8 @@
             "description": "Include skills in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
             "schema": {
               "type": "string"
-            }
+            },
+            "x-hidden": true
           },
           {
             "name": "include_certifications",
@@ -48,7 +49,8 @@
             "description": "Include certifications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
             "schema": {
               "type": "string"
-            }
+            },
+            "x-hidden": true
           },
           {
             "name": "include_publications",
@@ -57,7 +59,8 @@
             "description": "Include publications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
             "schema": {
               "type": "string"
-            }
+            },
+            "x-hidden": true
           },
           {
             "name": "include_honors",
