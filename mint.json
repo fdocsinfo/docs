@@ -76,6 +76,18 @@
         "api-reference/endpoint/get-profile-recent-activity-time",
         "api-reference/endpoint/google-full-profiles"
       ]
+    },
+    {
+      "group": "Company Data",
+      "pages": [
+        "api-reference/endpoint/get-company-by-linkedinurl",
+        "api-reference/endpoint/get-company-by-domain",
+        "api-reference/endpoint/get-company-by-id",
+        "api-reference/endpoint/get-company-insights",
+        "api-reference/endpoint/get-account-iq",
+        "api-reference/endpoint/find-custom-headcount",
+        "api-reference/endpoint/get-company-jobs-count"
+      ]
     }
   ],
   "footerSocials": {}

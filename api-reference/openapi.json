@@ -438,9 +438,7 @@
                 },
                 "required": [
                   "name",
-                  "job_title",
-                  "location",
-                  "limit"
+                  "job_title"
                 ]
               }
             }
@@ -520,6 +518,469 @@
           },
           "503": {
             "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-company-by-linkedinurl": {
+      "get": {
+        "description": "1 credit per call.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "linkedin_url",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyByLinkedin"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid linkedin url",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-company-by-id": {
+      "get": {
+        "description": "1 credit per call.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyByLinkedin"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid company_id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidCompanyID"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-company-insights": {
+      "get": {
+        "description": "1 credit per call.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyInsight"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid company_id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidCompanyID"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IDNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-account-iq": {
+      "get": {
+        "description": "5 credit per call.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "linkedin_url",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyInsight"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid linkedin URL.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "System error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-company-jobs-count": {
+      "get": {
+        "description": "1 credit per call.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyJobsCount"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid company_id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidCompanyID"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IDNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "System Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/find-custom-headcount": {
+      "post": {
+        "summary": "Custom headcount by filters",
+        "description": "1 credit per call.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "linkedin_url": {
+                    "type": "string",
+                    "description": "LinkedIn URL of the company.",
+                    "example": "https://www.linkedin.com/company/amazon"
+                  },
+                  "keywords": {
+                    "type": "string",
+                    "description": "Keywords to refine the search.",
+                    "example": ""
+                  },
+                  "where_they_live": {
+                    "type": "array",
+                    "description": "Location IDs representing where the individuals live.",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      103644278,
+                      102713980
+                    ]
+                  },
+                  "where_they_studied": {
+                    "type": "array",
+                    "description": "School IDs representing where the individuals studied.",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      2584,
+                      3084
+                    ]
+                  },
+                  "what_they_do": {
+                    "type": "array",
+                    "description": "Industry or job function IDs representing what the individuals do.",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      18,
+                      8
+                    ]
+                  },
+                  "what_they_are_skilled_at": {
+                    "type": "array",
+                    "description": "Skill IDs representing what the individuals are skilled at.",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      1346,
+                      147
+                    ]
+                  },
+                  "what_they_studied": {
+                    "type": "array",
+                    "description": "Field of study IDs representing what the individuals studied.",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      100189
+                    ]
+                  },
+                  "include_subsidiaries": {
+                    "type": "string",
+                    "description": "Include subsidiaries in the search. Possible values: 'true', 'false'.",
+                    "example": "false"
+                  }
+                },
+                "required": [
+                  "linkedin_url",
+                  "include_subsidiaries"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "ok"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "headcount": {
+                          "type": "integer",
+                          "example": 2146
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidPayload"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Company not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "System Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -974,6 +1435,20 @@
           }
         }
       },
+      "InvalidCompanyID": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "nullable": true,
+            "example": null
+          },
+          "message": {
+            "type": "string",
+            "example": "Bad request: Invalid company_id."
+          }
+        }
+      },
       "InvalidPayload": {
         "type": "object",
         "properties": {
@@ -1020,6 +1495,20 @@
           }
         }
       },
+      "IDNotFound": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "nullable": true,
+            "example": null
+          },
+          "message": {
+            "type": "string",
+            "example": "The id was not found on Linkedin."
+          }
+        }
+      },
       "NoProfileFound": {
         "type": "object",
         "properties": {
@@ -1045,6 +1534,730 @@
           "message": {
             "type": "string",
             "example": "System error. We will fix it soon!"
+          }
+        }
+      },
+      "CompanyByLinkedin": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "affiliated_companies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": []
+              },
+              "company_id": {
+                "type": "string",
+                "example": "162479"
+              },
+              "company_name": {
+                "type": "string",
+                "example": "Apple"
+              },
+              "description": {
+                "type": "string",
+                "example": "We\u2019re a diverse collective of thinkers and doers, continually reimagining what\u2019s possible to help us all do what we love in new ways. And the same innovation that goes into our products also applies to our practices \u2014 strengthening our commitment to leave the world better than we found it. This is where your work can make a difference in people\u2019s lives. Including your own.\n\nApple is an equal opportunity employer that is committed to inclusion and diversity. Visit apple.com/careers to learn more."
+              },
+              "domain": {
+                "type": "string",
+                "example": "apple.com"
+              },
+              "email": {
+                "type": "string",
+                "example": ""
+              },
+              "employee_count": {
+                "type": "integer",
+                "example": 165036
+              },
+              "employee_range": {
+                "type": "string",
+                "example": "10001+"
+              },
+              "follower_count": {
+                "type": "integer",
+                "example": 17689006
+              },
+              "funding_info": {
+                "type": "string",
+                "example": {
+                  "crunchbase_url": "https://www.crunchbase.com/organization/apple",
+                  "last_funding_round_amount": null,
+                  "last_funding_round_currency": null,
+                  "last_funding_round_month": 4,
+                  "last_funding_round_type": "Post IPO equity",
+                  "last_funding_round_year": 2021,
+                  "num_funding_rounds": null
+                }
+              },
+              "hq_address_line1": {
+                "type": "string",
+                "example": "1 Apple Park Way"
+              },
+              "hq_address_line2": {
+                "type": "string",
+                "example": ""
+              },
+              "hq_city": {
+                "type": "string",
+                "example": "Cupertino"
+              },
+              "hq_country": {
+                "type": "string",
+                "example": "US"
+              },
+              "hq_full_address": {
+                "type": "string",
+                "example": "1 Apple Park Way, Cupertino, California 95014, US"
+              },
+              "hq_postalcode": {
+                "type": "string",
+                "example": "95014"
+              },
+              "hq_region": {
+                "type": "string",
+                "example": "California"
+              },
+              "industries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "Computers and Electronics Manufacturing"
+                ]
+              },
+              "linkedin_url": {
+                "type": "string",
+                "example": "https://www.linkedin.com/company/apple/"
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "city": "Cupertino",
+                    "country": "US",
+                    "full_address": "1 Apple Park Way, Cupertino, California 95014, US",
+                    "is_headquarter": true,
+                    "line1": "1 Apple Park Way",
+                    "line2": "",
+                    "region": "California",
+                    "zipcode": "95014"
+                  }
+                ]
+              },
+              "logo_url": {
+                "type": "string",
+                "example": "https://media.licdn.com/dms/image/v2/C560BAQHdAaarsO-eyA/company-logo_400_400/company-logo_400_400/0/1630637844948/apple_logo?e=1744243200&v=beta&t=UZPODQ4VLm4xKooGWuiYIUtapnfYcfNDEc_gYgqNZN8"
+              },
+              "phone": {
+                "type": "string",
+                "example": ""
+              },
+              "specialties": {
+                "type": "string",
+                "example": "Innovative Product Development, World-Class Operations, Retail, Telephone Support"
+              },
+              "tagline": {
+                "type": "string",
+                "example": ""
+              },
+              "website": {
+                "type": "string",
+                "example": "http://www.apple.com/careers"
+              },
+              "year_founded": {
+                "type": "integer",
+                "example": 1976
+              }
+            }
+          }
+        }
+      },
+      "CompanyInsight": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "headcount_by_function": {
+                "type": "string",
+                "example": {
+                  "Administrative": {
+                    "count": 5592,
+                    "percentage": 2
+                  },
+                  "Arts and Design": {
+                    "count": 6198,
+                    "percentage": 3
+                  },
+                  "Business Development": {
+                    "count": 9530,
+                    "percentage": 4
+                  },
+                  "Consulting": {
+                    "count": 3698,
+                    "percentage": 2
+                  },
+                  "Customer Success and Support": {
+                    "count": 5145,
+                    "percentage": 2
+                  },
+                  "Education": {
+                    "count": 4584,
+                    "percentage": 2
+                  },
+                  "Engineering": {
+                    "count": 93335,
+                    "percentage": 38
+                  },
+                  "Human Resources": {
+                    "count": 4330,
+                    "percentage": 2
+                  },
+                  "Information Technology": {
+                    "count": 29252,
+                    "percentage": 12
+                  },
+                  "Marketing": {
+                    "count": 4928,
+                    "percentage": 2
+                  },
+                  "Operations": {
+                    "count": 8343,
+                    "percentage": 3
+                  },
+                  "Product Management": {
+                    "count": 8635,
+                    "percentage": 4
+                  },
+                  "Program and Project Management": {
+                    "count": 19242,
+                    "percentage": 8
+                  },
+                  "Research": {
+                    "count": 4057,
+                    "percentage": 2
+                  },
+                  "Sales": {
+                    "count": 20092,
+                    "percentage": 8
+                  }
+                }
+              },
+              "headcount_growth": {
+                "type": "string",
+                "example": {
+                  "1y": "2%",
+                  "2y": "-2%",
+                  "6m": "0%"
+                }
+              },
+              "headcount_growth_by_function": {
+                "type": "string",
+                "example": {
+                  "Administrative": {
+                    "1y": "-5%",
+                    "6m": "-5%"
+                  },
+                  "Arts and Design": {
+                    "1y": "5%",
+                    "6m": "2%"
+                  },
+                  "Business Development": {
+                    "1y": "0%",
+                    "6m": "-1%"
+                  },
+                  "Consulting": {
+                    "1y": "-4%",
+                    "6m": "-3%"
+                  },
+                  "Customer Success and Support": {
+                    "1y": "-6%",
+                    "6m": "-4%"
+                  },
+                  "Education": {
+                    "1y": "1%",
+                    "6m": "-5%"
+                  },
+                  "Engineering": {
+                    "1y": "4%",
+                    "6m": "3%"
+                  },
+                  "Human Resources": {
+                    "1y": "8%",
+                    "6m": "-3%"
+                  },
+                  "Information Technology": {
+                    "1y": "3%",
+                    "6m": "1%"
+                  },
+                  "Marketing": {
+                    "1y": "-3%",
+                    "6m": "-1%"
+                  },
+                  "Operations": {
+                    "1y": "5%",
+                    "6m": "2%"
+                  },
+                  "Product Management": {
+                    "1y": "3%",
+                    "6m": "2%"
+                  },
+                  "Program and Project Management": {
+                    "1y": "2%",
+                    "6m": "1%"
+                  },
+                  "Research": {
+                    "1y": "3%",
+                    "6m": "2%"
+                  },
+                  "Sales": {
+                    "1y": "1%",
+                    "6m": "0%"
+                  }
+                }
+              },
+              "job_openings": {
+                "type": "string",
+                "example": {
+                  "job_openings_by_function": [
+                    {
+                      "count_by_function": {
+                        "Arts and Design": {
+                          "count": 1258,
+                          "percentage": 3
+                        },
+                        "Business Development": {
+                          "count": 1701,
+                          "percentage": 4
+                        },
+                        "Engineering": {
+                          "count": 14851,
+                          "percentage": 37
+                        },
+                        "Human Resources": {
+                          "count": 770,
+                          "percentage": 2
+                        },
+                        "Information Technology": {
+                          "count": 6372,
+                          "percentage": 16
+                        },
+                        "Marketing": {
+                          "count": 1146,
+                          "percentage": 3
+                        },
+                        "Operations": {
+                          "count": 866,
+                          "percentage": 2
+                        },
+                        "Product Management": {
+                          "count": 1901,
+                          "percentage": 5
+                        },
+                        "Program and Project Management": {
+                          "count": 3187,
+                          "percentage": 8
+                        },
+                        "Research": {
+                          "count": 932,
+                          "percentage": 2
+                        },
+                        "Sales": {
+                          "count": 3902,
+                          "percentage": 10
+                        },
+                        "other": {
+                          "count": 3466,
+                          "percentage": 9
+                        }
+                      },
+                      "date": "2024-9-1",
+                      "total_count": 40352
+                    },
+                    {
+                      "count_by_function": {
+                        "Arts and Design": {
+                          "count": 1229,
+                          "percentage": 4
+                        },
+                        "Business Development": {
+                          "count": 774,
+                          "percentage": 3
+                        },
+                        "Engineering": {
+                          "count": 11574,
+                          "percentage": 42
+                        },
+                        "Human Resources": {
+                          "count": 58,
+                          "percentage": 0
+                        },
+                        "Information Technology": {
+                          "count": 4490,
+                          "percentage": 16
+                        },
+                        "Marketing": {
+                          "count": 496,
+                          "percentage": 2
+                        },
+                        "Operations": {
+                          "count": 532,
+                          "percentage": 2
+                        },
+                        "Product Management": {
+                          "count": 990,
+                          "percentage": 4
+                        },
+                        "Program and Project Management": {
+                          "count": 2586,
+                          "percentage": 9
+                        },
+                        "Research": {
+                          "count": 509,
+                          "percentage": 2
+                        },
+                        "Sales": {
+                          "count": 2196,
+                          "percentage": 8
+                        },
+                        "other": {
+                          "count": 2282,
+                          "percentage": 8
+                        }
+                      },
+                      "date": "2024-6-1",
+                      "total_count": 27716
+                    },
+                    {
+                      "count_by_function": {
+                        "Arts and Design": {
+                          "count": 437,
+                          "percentage": 3
+                        },
+                        "Business Development": {
+                          "count": 263,
+                          "percentage": 2
+                        },
+                        "Engineering": {
+                          "count": 6633,
+                          "percentage": 46
+                        },
+                        "Human Resources": {
+                          "count": 82,
+                          "percentage": 1
+                        },
+                        "Information Technology": {
+                          "count": 2105,
+                          "percentage": 14
+                        },
+                        "Marketing": {
+                          "count": 145,
+                          "percentage": 1
+                        },
+                        "Operations": {
+                          "count": 518,
+                          "percentage": 4
+                        },
+                        "Product Management": {
+                          "count": 577,
+                          "percentage": 4
+                        },
+                        "Program and Project Management": {
+                          "count": 1193,
+                          "percentage": 8
+                        },
+                        "Research": {
+                          "count": 419,
+                          "percentage": 3
+                        },
+                        "Sales": {
+                          "count": 667,
+                          "percentage": 5
+                        },
+                        "other": {
+                          "count": 1497,
+                          "percentage": 10
+                        }
+                      },
+                      "date": "2024-3-1",
+                      "total_count": 14536
+                    },
+                    {
+                      "count_by_function": {
+                        "Arts and Design": {
+                          "count": 62,
+                          "percentage": 3
+                        },
+                        "Business Development": {
+                          "count": 75,
+                          "percentage": 3
+                        },
+                        "Engineering": {
+                          "count": 893,
+                          "percentage": 39
+                        },
+                        "Human Resources": {
+                          "count": 10,
+                          "percentage": 0
+                        },
+                        "Information Technology": {
+                          "count": 308,
+                          "percentage": 13
+                        },
+                        "Marketing": {
+                          "count": 36,
+                          "percentage": 2
+                        },
+                        "Operations": {
+                          "count": 94,
+                          "percentage": 4
+                        },
+                        "Product Management": {
+                          "count": 112,
+                          "percentage": 5
+                        },
+                        "Program and Project Management": {
+                          "count": 236,
+                          "percentage": 10
+                        },
+                        "Research": {
+                          "count": 39,
+                          "percentage": 2
+                        },
+                        "Sales": {
+                          "count": 214,
+                          "percentage": 9
+                        },
+                        "other": {
+                          "count": 228,
+                          "percentage": 10
+                        }
+                      },
+                      "date": "2023-9-1",
+                      "total_count": 2307
+                    }
+                  ],
+                  "job_openings_growth": {
+                    "1y": "1649%",
+                    "3m": "46%",
+                    "6m": "178%"
+                  },
+                  "job_openings_growth_by_function": {
+                    "Arts and Design": {
+                      "1y": "1929%",
+                      "3m": "2%",
+                      "6m": "188%"
+                    },
+                    "Business Development": {
+                      "1y": "2168%",
+                      "3m": "120%",
+                      "6m": "547%"
+                    },
+                    "Engineering": {
+                      "1y": "1563%",
+                      "3m": "28%",
+                      "6m": "124%"
+                    },
+                    "Human Resources": {
+                      "1y": "7600%",
+                      "3m": "1228%",
+                      "6m": "839%"
+                    },
+                    "Information Technology": {
+                      "1y": "1969%",
+                      "3m": "42%",
+                      "6m": "203%"
+                    },
+                    "Marketing": {
+                      "1y": "3083%",
+                      "3m": "131%",
+                      "6m": "690%"
+                    },
+                    "Operations": {
+                      "1y": "821%",
+                      "3m": "63%",
+                      "6m": "67%"
+                    },
+                    "Product Management": {
+                      "1y": "1597%",
+                      "3m": "92%",
+                      "6m": "229%"
+                    },
+                    "Program and Project Management": {
+                      "1y": "1250%",
+                      "3m": "23%",
+                      "6m": "167%"
+                    },
+                    "Research": {
+                      "1y": "2290%",
+                      "3m": "83%",
+                      "6m": "122%"
+                    },
+                    "Sales": {
+                      "1y": "1723%",
+                      "3m": "78%",
+                      "6m": "485%"
+                    }
+                  }
+                }
+              },
+              "median_employee_tenure": {
+                "type": "number",
+                "example": 4.5
+              },
+              "new_hires": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "date": "2022-11",
+                    "senior_hires": 0,
+                    "total_hires": 2410
+                  }
+                ]
+              },
+              "total_employees": {
+                "type": "integer",
+                "example": 244416
+              }
+            }
+          }
+        }
+      },
+      "AccountIQ": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "Business challenges": {
+                "type": "string",
+                "example": {
+                  "Expansion Risks": "Amazon's expansion into new products, services, technologies, and geographic regions subjects it to additional risks, including technology challenges, customer adoption issues, and potential failure to recoup investments.",
+                  "Intense Competition": "Amazon faces intense competition across various industries, including e-commerce, cloud services, and digital content, which may require increased spending or lower prices, potentially reducing sales and profits.",
+                  "Navigating Economic Challenges": "Amazon faces economic challenges that impact its strategic growth initiatives and stock outlook."
+                }
+              },
+              "Competitive landscape": {
+                "type": "string",
+                "example": {
+                  "competitors": [
+                    {
+                      "industry": "Retail",
+                      "link": "https://www.linkedin.com/company/walmart/",
+                      "name": "Walmart"
+                    },
+                    {
+                      "industry": "Software Development",
+                      "link": "https://www.linkedin.com/company/chinese-alibaba-group/",
+                      "name": "Alibaba Group"
+                    },
+                    {
+                      "industry": "Internet Publishing",
+                      "link": "https://www.linkedin.com/company/ebay/",
+                      "name": "eBay"
+                    }
+                  ],
+                  "description": "Amazon.com operates in a highly competitive landscape across multiple sectors including e-commerce, cloud computing, digital streaming, and artificial intelligence. Key competitors in the e-commerce space include Walmart, Alibaba, and eBay, each offering unique value propositions and targeting different market segments. Amazon's competitive strategy focuses on technological innovation, customer-centric solutions, and expanding its ecosystem through services like Amazon Prime and AWS."
+                }
+              },
+              "Decision makers": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "headline": "marketing digital",
+                    "linkedin_url": "https://www.linkedin.com/in/ACoAADb-yQ8BDpm26lZnutUfG5LG3aqoFjYeOtk",
+                    "name": "Dembare T"
+                  }
+                ]
+              },
+              "Estimated revenue": {
+                "type": "string",
+                "example": {
+                  "recent_Q": {
+                    "Q": "Q2 2024",
+                    "revenue": "$148B"
+                  },
+                  "recent_year": {
+                    "revenue": "$574.8B",
+                    "year": "2023"
+                  }
+                }
+              },
+              "Headcount insights": {
+                "type": "string",
+                "example": null
+              },
+              "How the company makes money": {
+                "type": "string",
+                "example": "Amazon makes money through a diverse range of revenue streams including online and physical retail sales, subscription services like Amazon Prime, and its cloud computing division, Amazon Web Services (AWS). Their target market includes consumers, sellers, developers, enterprises, content creators, and advertisers. Top solutions include the Amazon marketplace, AWS cloud services, Amazon Prime, and devices like Kindle and Echo. They focus on providing a wide selection, competitive pricing, and convenience to their customers."
+              },
+              "Related news": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "link": "https://www.msn.com/en-us/money/markets/amazoncom-inc-stock-underperforms-wednesday-when-compared-to-competitors/ar-BB1qayjh",
+                    "source": "www.msn.com",
+                    "title": "Amazon.com Inc. stock underperforms Wednesday when compared to competitors"
+                  }
+                ]
+              },
+              "Strategic priorities": {
+                "type": "string",
+                "example": {
+                  "Customer Experience Enhancement": "Amazon focuses on improving all aspects of the customer experience, including lowering prices, improving availability, offering faster delivery and performance times, increasing selection, and producing original content.",
+                  "Customer Obsession": "Amazon's primary strategic priority is customer obsession, focusing on delighting customers at every touchpoint and innovating based on their needs.",
+                  "Technology and Infrastructure Investment": "Amazon invests in technology and infrastructure, including AWS, to support a variety of product and service offerings, geographic expansion, and to enhance the customer experience and improve process efficiencies."
+                }
+              }
+            }
+          }
+        }
+      },
+      "CompanyJobsCount": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "jobs_count": {
+                "type": "integer",
+                "example": 3764
+              }
+            }
           }
         }
       }
