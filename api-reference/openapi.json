@@ -36,7 +36,7 @@
             "name": "include_skills",
             "in": "query",
             "required": false,
-            "description": "Include skills in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             },
@@ -46,7 +46,7 @@
             "name": "include_certifications",
             "in": "query",
             "required": false,
-            "description": "Include certifications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             },
@@ -56,7 +56,7 @@
             "name": "include_publications",
             "in": "query",
             "required": false,
-            "description": "Include publications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             },
@@ -66,7 +66,7 @@
             "name": "include_honors",
             "in": "query",
             "required": false,
-            "description": "Include honors in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -75,7 +75,7 @@
             "name": "include_volunteers",
             "in": "query",
             "required": false,
-            "description": "Include volunteers in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -84,7 +84,7 @@
             "name": "include_projects",
             "in": "query",
             "required": false,
-            "description": "Include projects in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -93,7 +93,7 @@
             "name": "include_patents",
             "in": "query",
             "required": false,
-            "description": "Include patents in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -102,7 +102,7 @@
             "name": "include_courses",
             "in": "query",
             "required": false,
-            "description": "Include courses in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -111,7 +111,7 @@
             "name": "include_organizations",
             "in": "query",
             "required": false,
-            "description": "Include organizations in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -120,7 +120,7 @@
             "name": "include_profile_status",
             "in": "query",
             "required": false,
-            "description": "Include profile status in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -186,7 +186,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "Get comprehensive profile data, including experience, education history, and current company details.\n 1 credit per call.\n Using each extra option will cost another 0.5 credits.",
+        "description": "1 credit per call.\n Using each extra option will cost another 0.5 credits.",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -200,7 +200,7 @@
           {
             "name": "include_skills",
             "in": "query",
-            "description": "Include skills in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -208,7 +208,7 @@
           {
             "name": "include_certifications",
             "in": "query",
-            "description": "Include certifications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -216,7 +216,7 @@
           {
             "name": "include_publications",
             "in": "query",
-            "description": "Include publications in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -224,7 +224,7 @@
           {
             "name": "include_honors",
             "in": "query",
-            "description": "Include honors in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -232,7 +232,7 @@
           {
             "name": "include_volunteers",
             "in": "query",
-            "description": "Include volunteers in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -240,7 +240,7 @@
           {
             "name": "include_projects",
             "in": "query",
-            "description": "Include projects in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -248,7 +248,7 @@
           {
             "name": "include_patents",
             "in": "query",
-            "description": "Include patents in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -256,7 +256,7 @@
           {
             "name": "include_courses",
             "in": "query",
-            "description": "Include courses in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -264,7 +264,7 @@
           {
             "name": "include_organizations",
             "in": "query",
-            "description": "Include organizations in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -272,7 +272,7 @@
           {
             "name": "include_profile_status",
             "in": "query",
-            "description": "Include profile status in the response. Possible values: true, false. Default value: false. Enabling this option will cost an additional 0.5 credits.",
+            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
               "type": "string"
             }
@@ -376,6 +376,144 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/google-full-profiles": {
+      "post": {
+        "summary": "Retrieve Google full profiles",
+        "description": "Fetch Google profiles based on the provided parameters.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Full name of the person.",
+                    "example": "Anthony James"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "Name of the company.",
+                    "example": ""
+                  },
+                  "job_title": {
+                    "type": "string",
+                    "description": "Job title of the person.",
+                    "example": "CEO"
+                  },
+                  "location": {
+                    "type": "string",
+                    "description": "Location of the person.",
+                    "example": "US"
+                  },
+                  "keywords": {
+                    "type": "string",
+                    "description": "Keywords to refine the search.",
+                    "example": ""
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "description": "Maximum number of profiles to retrieve.",
+                    "example": 5,
+                    "default": 5
+                  }
+                },
+                "required": [
+                  "name",
+                  "job_title",
+                  "location",
+                  "limit"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved profiles.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Status of the operation.",
+                      "example": "success"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "List of retrieved profiles.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the person.",
+                            "example": "Anthony James"
+                          },
+                          "company_name": {
+                            "type": "string",
+                            "description": "Name of the company.",
+                            "example": "TechCorp Inc."
+                          },
+                          "job_title": {
+                            "type": "string",
+                            "description": "Job title of the person.",
+                            "example": "CEO"
+                          },
+                          "location": {
+                            "type": "string",
+                            "description": "Location of the person.",
+                            "example": "US"
+                          },
+                          "profile_url": {
+                            "type": "string",
+                            "description": "URL of the profile.",
+                            "example": "https://google.com/profiles/anthony-james"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidPayload"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No profile found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoProfileFound"
                 }
               }
             }
@@ -836,6 +974,20 @@
           }
         }
       },
+      "InvalidPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "nullable": true,
+            "example": null
+          },
+          "message": {
+            "type": "string",
+            "example": "Bad request: Invalid payload."
+          }
+        }
+      },
       "ProfileActivity": {
         "type": "object",
         "properties": {
@@ -865,6 +1017,20 @@
           "message": {
             "type": "string",
             "example": "The url was not found on Linkedin."
+          }
+        }
+      },
+      "NoProfileFound": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "nullable": true,
+            "example": null
+          },
+          "message": {
+            "type": "string",
+            "example": "there are no people match your search."
           }
         }
       },
