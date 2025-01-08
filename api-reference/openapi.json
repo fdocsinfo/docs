@@ -450,48 +450,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "description": "Status of the operation.",
-                      "example": "success"
-                    },
-                    "data": {
-                      "type": "array",
-                      "description": "List of retrieved profiles.",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "Name of the person.",
-                            "example": "Anthony James"
-                          },
-                          "company_name": {
-                            "type": "string",
-                            "description": "Name of the company.",
-                            "example": "TechCorp Inc."
-                          },
-                          "job_title": {
-                            "type": "string",
-                            "description": "Job title of the person.",
-                            "example": "CEO"
-                          },
-                          "location": {
-                            "type": "string",
-                            "description": "Location of the person.",
-                            "example": "US"
-                          },
-                          "profile_url": {
-                            "type": "string",
-                            "description": "URL of the profile.",
-                            "example": "https://google.com/profiles/anthony-james"
-                          }
-                        }
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/GoogleFullProfiles"
                 }
               }
             }
@@ -581,6 +540,69 @@
           },
           "503": {
             "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-company-by-domain": {
+      "get": {
+        "description": "1 credit per call.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyByDomain"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid domain",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidDomain"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Company not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -955,6 +977,497 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidPayload"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Company not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "System Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-profile-posts": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "description": "2 credits per call.",
+        "parameters": [
+          {
+            "name": "linkedin_url",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "posts/comments/reactions",
+            "schema": {
+              "type": "string"
+            },
+            "example": "posts"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "description": "Use this param to fetch posts of the next result page: 0 for page 1, 50 for page 2, etc.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 0
+          },
+          {
+            "name": "pagination_token",
+            "in": "query",
+            "required": false,
+            "description": "Required when fetching the next result page. Please use the token from the result of your previous call.",
+            "schema": {
+              "type": "string"
+            },
+            "example": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Personal profile response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfilePosts"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid linkedin url",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-post-comments": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "description": "2 credits per call.",
+        "parameters": [
+          {
+            "name": "urn",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "description": "Default value: Most relevant. Possible values: Most relevant, Most recent.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Most relevant"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 0
+          },
+          {
+            "name": "pagination_token",
+            "in": "query",
+            "required": false,
+            "description": "Required when fetching the next result page. Please use the token from the result of your previous call.",
+            "schema": {
+              "type": "string"
+            },
+            "example": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostComments"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid urn",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURN"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-post-reactions": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "description": "2 credits per call.",
+        "parameters": [
+          {
+            "name": "urn",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Default value: ALL. Possible values: ALL,LIKE,EMPATHY,APPRECIATION,INTEREST,PRAISE.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ALL"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostReactions"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid urn",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURN"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-company-posts": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "description": "2 credits per call.",
+        "parameters": [
+          {
+            "name": "linkedin_url",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "description": "Use this param to fetch posts of the next result page: 0 for page 1, 50 for page 2, etc.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "posts"
+          },
+          {
+            "name": "pagination_token",
+            "in": "query",
+            "required": false,
+            "description": "Required when fetching the next result page. Please use the token from the result of your previous call.",
+            "schema": {
+              "type": "string"
+            },
+            "example": 0
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "description": "Possible values: top, recent",
+            "schema": {
+              "type": "string"
+            },
+            "example": "top"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyPosts"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid linkedin url",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search-posts": {
+      "post": {
+        "summary": "",
+        "description": "2 credit per call.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search_keywords": {
+                    "type": "string",
+                    "description": "Keywords to search for in posts.",
+                    "example": "marketing"
+                  },
+                  "sort_by": {
+                    "type": "string",
+                    "description": "Sort order for results (e.g., Latest or Relevance).",
+                    "example": "Latest"
+                  },
+                  "date_posted": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts by a specific date or date range.",
+                    "example": ""
+                  },
+                  "content_type": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts by content type (e.g., photo, article, video).",
+                    "example": ""
+                  },
+                  "from_member": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts from a specific LinkedIn member.",
+                    "example": ""
+                  },
+                  "from_company": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts from a specific company.",
+                    "example": ""
+                  },
+                  "mentioning_member": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts mentioning a specific LinkedIn member.",
+                    "example": ""
+                  },
+                  "mentioning_company": {
+                    "type": "integer",
+                    "nullable": true,
+                    "description": "Filter posts mentioning a specific company by ID.",
+                    "example": 162479
+                  },
+                  "author_company": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts by the company of the author.",
+                    "example": ""
+                  },
+                  "author_industry": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts by the industry of the author.",
+                    "example": ""
+                  },
+                  "author_keyword": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Filter posts by a specific keyword in the author's profile.",
+                    "example": ""
+                  },
+                  "page": {
+                    "type": "integer",
+                    "description": "Pagination page number.",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchPosts"
                 }
               }
             }
@@ -1435,6 +1948,34 @@
           }
         }
       },
+      "InvalidURN": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "nullable": true,
+            "example": null
+          },
+          "message": {
+            "type": "string",
+            "example": "Bad request: Invalid URN."
+          }
+        }
+      },
+      "InvalidDomain": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "nullable": true,
+            "example": null
+          },
+          "message": {
+            "type": "string",
+            "example": "Bad request: Invalid domain."
+          }
+        }
+      },
       "InvalidCompanyID": {
         "type": "object",
         "properties": {
@@ -1585,6 +2126,160 @@
               "follower_count": {
                 "type": "integer",
                 "example": 17689006
+              },
+              "funding_info": {
+                "type": "string",
+                "example": {
+                  "crunchbase_url": "https://www.crunchbase.com/organization/apple",
+                  "last_funding_round_amount": null,
+                  "last_funding_round_currency": null,
+                  "last_funding_round_month": 4,
+                  "last_funding_round_type": "Post IPO equity",
+                  "last_funding_round_year": 2021,
+                  "num_funding_rounds": null
+                }
+              },
+              "hq_address_line1": {
+                "type": "string",
+                "example": "1 Apple Park Way"
+              },
+              "hq_address_line2": {
+                "type": "string",
+                "example": ""
+              },
+              "hq_city": {
+                "type": "string",
+                "example": "Cupertino"
+              },
+              "hq_country": {
+                "type": "string",
+                "example": "US"
+              },
+              "hq_full_address": {
+                "type": "string",
+                "example": "1 Apple Park Way, Cupertino, California 95014, US"
+              },
+              "hq_postalcode": {
+                "type": "string",
+                "example": "95014"
+              },
+              "hq_region": {
+                "type": "string",
+                "example": "California"
+              },
+              "industries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "Computers and Electronics Manufacturing"
+                ]
+              },
+              "linkedin_url": {
+                "type": "string",
+                "example": "https://www.linkedin.com/company/apple/"
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "city": "Cupertino",
+                    "country": "US",
+                    "full_address": "1 Apple Park Way, Cupertino, California 95014, US",
+                    "is_headquarter": true,
+                    "line1": "1 Apple Park Way",
+                    "line2": "",
+                    "region": "California",
+                    "zipcode": "95014"
+                  }
+                ]
+              },
+              "logo_url": {
+                "type": "string",
+                "example": "https://media.licdn.com/dms/image/v2/C560BAQHdAaarsO-eyA/company-logo_400_400/company-logo_400_400/0/1630637844948/apple_logo?e=1744243200&v=beta&t=UZPODQ4VLm4xKooGWuiYIUtapnfYcfNDEc_gYgqNZN8"
+              },
+              "phone": {
+                "type": "string",
+                "example": ""
+              },
+              "specialties": {
+                "type": "string",
+                "example": "Innovative Product Development, World-Class Operations, Retail, Telephone Support"
+              },
+              "tagline": {
+                "type": "string",
+                "example": ""
+              },
+              "website": {
+                "type": "string",
+                "example": "http://www.apple.com/careers"
+              },
+              "year_founded": {
+                "type": "integer",
+                "example": 1976
+              }
+            }
+          }
+        }
+      },
+      "CompanyByDomain": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "confident_score": {
+            "type": "string",
+            "example": "100%"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "affiliated_companies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "https://www.linkedin.com/company/123456"
+                ]
+              },
+              "company_id": {
+                "type": "string",
+                "example": "162479"
+              },
+              "company_name": {
+                "type": "string",
+                "example": "Apple"
+              },
+              "description": {
+                "type": "string",
+                "example": "We\u2019re a diverse collective of thinkers and doers, continually reimagining what\u2019s possible to help us all do what we love in new ways. And the same innovation that goes into our products also applies to our practices \u2014 strengthening our commitment to leave the world better than we found it. This is where your work can make a difference in people\u2019s lives. Including your own.\n\nApple is an equal opportunity employer that is committed to inclusion and diversity. Visit apple.com/careers to learn more."
+              },
+              "domain": {
+                "type": "string",
+                "example": "apple.com"
+              },
+              "email": {
+                "type": "string",
+                "example": ""
+              },
+              "employee_count": {
+                "type": "integer",
+                "example": 165935
+              },
+              "employee_range": {
+                "type": "string",
+                "example": "10001+"
+              },
+              "follower_count": {
+                "type": "integer",
+                "example": 17691680
               },
               "funding_info": {
                 "type": "string",
@@ -2260,6 +2955,994 @@
             }
           }
         }
+      },
+      "GoogleFullProfiles": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_match_score": {
+                  "type": "integer",
+                  "example": 100
+                },
+                "about": {
+                  "type": "string",
+                  "example": "C-Level with military discipline and focus who specializes in B2B partnerships and B2B client acquisitions. I have an extensive background in profit center management, strategic planning, business development, and tech startups."
+                },
+                "city": {
+                  "type": "string",
+                  "example": ""
+                },
+                "company": {
+                  "type": "string",
+                  "example": "ADS Healthcare Solutions"
+                },
+                "company_description": {
+                  "type": "string"
+                },
+                "company_domain": {
+                  "type": "string",
+                  "example": ""
+                },
+                "company_employee_range": {
+                  "type": "string"
+                },
+                "company_industry": {
+                  "type": "string"
+                },
+                "company_linkedin_url": {
+                  "type": "string",
+                  "example": ""
+                },
+                "company_logo_url": {
+                  "type": "string"
+                },
+                "company_website": {
+                  "type": "string"
+                },
+                "company_year_founded": {
+                  "type": "string"
+                },
+                "connection_count": {
+                  "type": "integer",
+                  "example": 1215
+                },
+                "country": {
+                  "type": "string",
+                  "example": "United States"
+                },
+                "current_company_join_month": {
+                  "type": "string"
+                },
+                "current_company_join_year": {
+                  "type": "integer",
+                  "example": 2022
+                },
+                "current_job_duration": {
+                  "type": "string",
+                  "example": "2 yrs 11 mos"
+                },
+                "educations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "activities": {
+                        "type": "string",
+                        "example": "Activities and societies: Community College of the Air Force\nAir Force Electronic Principles Technical School\nAir Force Missile Systems Journeyman"
+                      },
+                      "date_range": {
+                        "type": "string",
+                        "example": "1988 - 1995"
+                      },
+                      "degree": {
+                        "type": "string",
+                        "example": "Air Launched Missile Systems"
+                      },
+                      "end_month": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "end_year": {
+                        "type": "integer",
+                        "example": 1995
+                      },
+                      "field_of_study": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "school": {
+                        "type": "string",
+                        "example": "U.S. Air Force"
+                      },
+                      "school_id": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "school_linkedin_url": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "school_logo_url": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "start_month": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "start_year": {
+                        "type": "integer",
+                        "example": 1988
+                      }
+                    }
+                  }
+                },
+                "email": {
+                  "type": "string",
+                  "example": ""
+                },
+                "experiences": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "company": {
+                        "type": "string",
+                        "example": "ADS Healthcare Solutions"
+                      },
+                      "company_id": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "company_linkedin_url": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "company_logo_url": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "company_public_url": {
+                        "type": "string"
+                      },
+                      "date_range": {
+                        "type": "string",
+                        "example": "2022 - Present"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Empowering Healthcare Through Financial Precision!\n\nADS Healthcare Solutions is a U.S. owned and operated, BBB A+ Rated, woman & veteran owned company which provides Full-Service RCM coding, medical billing, denial management, and credentialing services to Hospital Internist Groups, ER/Trauma Teams, Mental Health, and private practice owners. ADS specializes in all major commercial insurance payors, Medicare, Medicaid, and VA TRICARE. \n\nPartnerships:\n•\tAdvancedMD\n•\tModio Health\n•\tMediMobile\n•\tArmor Defense\n•\tGSA\n•\tSquared Compass"
+                      },
+                      "duration": {
+                        "type": "string",
+                        "example": "2 yrs 11 mos"
+                      },
+                      "end_month": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "end_year": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "is_current": {
+                        "type": "integer",
+                        "example": true
+                      },
+                      "job_type": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "location": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "skills": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "start_month": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "start_year": {
+                        "type": "integer",
+                        "example": 2022
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "CEO"
+                      }
+                    }
+                  }
+                },
+                "first_name": {
+                  "type": "string",
+                  "example": "Anthony"
+                },
+                "follower_count": {
+                  "type": "integer",
+                  "example": 1224
+                },
+                "full_name": {
+                  "type": "string",
+                  "example": "Anthony James"
+                },
+                "headline": {
+                  "type": "string",
+                  "example": "CEO, ADS Healthcare Solutions | Executive Leadership | U.S. Air Force"
+                },
+                "hq_city": {
+                  "type": "string"
+                },
+                "hq_country": {
+                  "type": "string"
+                },
+                "hq_region": {
+                  "type": "string"
+                },
+                "job_title": {
+                  "type": "string",
+                  "example": "CEO"
+                },
+                "languages": {
+                  "type": "string",
+                  "example": ""
+                },
+                "last_name": {
+                  "type": "string",
+                  "example": "James"
+                },
+                "linkedin_url": {
+                  "type": "string",
+                  "example": "https://www.linkedin.com/in/anthony-james-tx"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "United States"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": ""
+                },
+                "profile_id": {
+                  "type": "string",
+                  "example": "22157504"
+                },
+                "profile_image_url": {
+                  "type": "string",
+                  "example": "https://media.licdn.com/dms/image/v2/C5603AQGLWfTUIfS0Pg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516320688162?e=1736985600&v=beta&t=IUZKnLS8R2m91ZMU0JlVQuvvmaJ9ZXQ22RrJb_AKBcA"
+                },
+                "public_id": {
+                  "type": "string",
+                  "example": "anthony-james-tx"
+                },
+                "redirected_url": {
+                  "type": "string",
+                  "example": "https://www.linkedin.com/in/anthony-james-tx"
+                },
+                "school": {
+                  "type": "string",
+                  "example": "U.S. Air Force"
+                },
+                "state": {
+                  "type": "string",
+                  "example": ""
+                },
+                "urn": {
+                  "type": "string",
+                  "example": "ACoAAAFSGMAB4-IheJnWQNR52wRWQa3Yj6X6VKk"
+                }
+              }
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "ok"
+          }
+        },
+        "required": [
+          "data",
+          "message",
+          "total_count",
+          "total_employees"
+        ]
+      },
+      "ProfilePosts": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "images": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "example": "https://media.licdn.com/dms/image/D5622AQH9fVqca5uEnw/feedshare-shrink_2048_1536/0/1700673956174?e=1703721600&v=beta&t=JeLAXcbzLFQuqjQbRlCIn6a3wZBhNr7A2XFjrPdN6F0"
+                      }
+                    }
+                  }
+                },
+                "num_appreciations": {
+                  "type": "integer",
+                  "example": 6
+                },
+                "num_comments": {
+                  "type": "integer",
+                  "example": 63
+                },
+                "num_empathy": {
+                  "type": "integer",
+                  "example": 6
+                },
+                "num_interests": {
+                  "type": "integer",
+                  "example": 6
+                },
+                "num_likes": {
+                  "type": "integer",
+                  "example": 253
+                },
+                "num_reposts": {
+                  "type": "integer",
+                  "example": 30
+                },
+                "num_praises": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "post_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/feed/update/urn:li:activity:7133388569078894592/"
+                },
+                "reshared": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "text": {
+                  "type": "string",
+                  "example": "💥Amazing Website's That Will Make You Smarter!!!💡"
+                },
+                "time": {
+                  "type": "string",
+                  "example": "1d"
+                },
+                "urn": {
+                  "type": "string",
+                  "example": "7133388569078894592"
+                },
+                "video": {
+                  "type": "object",
+                  "properties": {
+                    "duration": {
+                      "type": "integer",
+                      "example": 51400
+                    },
+                    "stream_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://dms.licdn.com/playlist/vid/D5605AQEACEREwfcYgA/feedshare-ambry-analyzed_servable_progressive_video/0/1700796656388?e=1701417600&v=beta&t=8fHfRtgXo83IpbsO26QWT7f23N3MJhMDpEhr4KAhF_M"
+                    }
+                  }
+                },
+                "document": {
+                  "type": "object",
+                  "properties": {
+                    "page_count": {
+                      "type": "integer",
+                      "example": 9
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "swipe 👉 "
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://media.licdn.com/dms/document/media/D561FAQGBoHA1k6ak2Q/feedshare-document-url-metadata-scrapper-pdf/0/1700753313013?e=1701417600&v=beta&t=-uoAo8eq6_DmkAtagaLrssQ1UWke4V4nPFF0SwcNeRE"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "ok."
+          },
+          "paging": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "example": 50
+              },
+              "pagination_token": {
+                "type": "string",
+                "example": "dXJuOmxpOmFjdGl2aXR5OjcxMzI3MzQzMzU0Njc2MTQyMDgtMTcwMDU3NjM4NTM2Mg=="
+              },
+              "start": {
+                "type": "integer",
+                "example": 0
+              }
+            }
+          }
+        },
+        "required": [
+          "data",
+          "message",
+          "paging"
+        ]
+      },
+      "Employees": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "about": {
+                  "type": "string",
+                  "example": "Experienced Store Manager with a history in the retail fashion industry."
+                },
+                "city": {
+                  "type": "string",
+                  "example": "Paris"
+                },
+                "company": {
+                  "type": "string",
+                  "example": "Aubade Paris"
+                },
+                "company_domain": {
+                  "type": "string",
+                  "example": "aubade.fr"
+                },
+                "company_employee_range": {
+                  "type": "string",
+                  "example": "201 - 500"
+                },
+                "company_id": {
+                  "type": "string",
+                  "example": "1324737"
+                },
+                "company_industry": {
+                  "type": "string",
+                  "example": "Retail Apparel and Fashion"
+                },
+                "company_linkedin_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/company/aubade"
+                },
+                "company_logo_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://example.com/logo.png"
+                },
+                "company_website": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "http://www.aubade.fr"
+                },
+                "company_year_founded": {
+                  "type": "integer",
+                  "example": 1958
+                },
+                "country": {
+                  "type": "string",
+                  "example": "France"
+                },
+                "educations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "degree": {
+                        "type": "string",
+                        "example": "Master of Science"
+                      },
+                      "field_of_study": {
+                        "type": "string",
+                        "example": "Marketing"
+                      },
+                      "school": {
+                        "type": "string",
+                        "example": "Université Paris Dauphine"
+                      },
+                      "start_year": {
+                        "type": "integer",
+                        "example": 2016
+                      },
+                      "end_year": {
+                        "type": "integer",
+                        "example": 2018
+                      }
+                    }
+                  }
+                },
+                "experiences": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "company": {
+                        "type": "string",
+                        "example": "Aubade Paris"
+                      },
+                      "date_range": {
+                        "type": "string",
+                        "example": "Jan 2018 - Present"
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "Store Manager"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Managed operations and team of 10 staff."
+                      },
+                      "duration": {
+                        "type": "string",
+                        "example": "5 years"
+                      },
+                      "location": {
+                        "type": "string",
+                        "example": "Paris, France"
+                      }
+                    }
+                  }
+                },
+                "first_name": {
+                  "type": "string",
+                  "example": "Alexia"
+                },
+                "last_name": {
+                  "type": "string",
+                  "example": "Routier"
+                },
+                "job_title": {
+                  "type": "string",
+                  "example": "Directrice boutique"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Cannes, France"
+                },
+                "linkedin_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/in/alexia-routier"
+                }
+              }
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "Success"
+          },
+          "search_params": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "example": "store manager"
+              },
+              "filters": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "location:Paris"
+                }
+              },
+              "sort": {
+                "type": "string",
+                "example": "relevance"
+              }
+            }
+          },
+          "total_count": {
+            "type": "integer",
+            "example": 123
+          },
+          "total_employees": {
+            "type": "integer",
+            "example": 500
+          }
+        },
+        "required": [
+          "data",
+          "message",
+          "total_count",
+          "total_employees"
+        ]
+      },
+      "PostComments": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "annotation": {
+                  "type": "string",
+                  "nullable": true,
+                  "example": null
+                },
+                "commenter": {
+                  "type": "object",
+                  "properties": {
+                    "headline": {
+                      "type": "string",
+                      "example": "Procurement | Certified Functional Analyst | Product Design & Engineering"
+                    },
+                    "linkedin_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://www.linkedin.com/in/ssgoh"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Goh Swee Siong"
+                    }
+                  }
+                },
+                "created_at": {
+                  "type": "integer",
+                  "example": 1732656234066
+                },
+                "created_datetime": {
+                  "type": "string",
+                  "example": "11/26/2024, 1:23:54 PM"
+                },
+                "permalink": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/feed/update/urn:li:activity:7267273010393358336?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7267273010393358336%2C7267286973164187649%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287267286973164187649%2Curn%3Ali%3Aactivity%3A7267273010393358336%29"
+                },
+                "pinned": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "replies": {
+                  "type": "array",
+                  "items": {}
+                },
+                "text": {
+                  "type": "string",
+                  "example": "This happened all the time in high performance culture nowadays. Nothing new. As the doer, we need to seek clarification and pin down to do or not to do even at the expense of irking the manager."
+                },
+                "thread_urn": {
+                  "type": "string",
+                  "nullable": true,
+                  "example": null
+                }
+              }
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "pagination_token": {
+            "type": "string",
+            "example": "1388203668-1733209092407-fec4cb84fb5d80c384f61dba04a4f290"
+          },
+          "total": {
+            "type": "integer",
+            "example": 10
+          }
+        },
+        "required": [
+          "data",
+          "message",
+          "pagination_token",
+          "total"
+        ]
+      },
+      "PostReactions": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "following_state": {
+                  "type": "string",
+                  "nullable": true,
+                  "example": null
+                },
+                "reactor": {
+                  "type": "object",
+                  "properties": {
+                    "headline": {
+                      "type": "string",
+                      "example": "A research Engineer at aeronautics company working with multi scale simulations (from FEM through Dislocation dynamics down to Quantum mechanics) as well as thinking with innovative ideas"
+                    },
+                    "linkedin_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://www.linkedin.com/in/ACoAABQcMlMBXO-SUcqXCk2C5PBvpUWJ53ejdVY"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Hyung-Jun Chang"
+                    },
+                    "urn": {
+                      "type": "string",
+                      "example": "ACoAABQcMlMBXO-SUcqXCk2C5PBvpUWJ53ejdVY"
+                    }
+                  },
+                  "required": [
+                    "headline",
+                    "linkedin_url",
+                    "name",
+                    "urn"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "example": "LIKE"
+                }
+              },
+              "required": [
+                "reactor",
+                "type"
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "total": {
+            "type": "integer",
+            "example": 74
+          }
+        },
+        "required": [
+          "data",
+          "message",
+          "total"
+        ]
+      },
+      "CompanyPosts": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "images": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "example": "https://media.licdn.com/dms/image/example.png"
+                      }
+                    }
+                  }
+                },
+                "num_appreciations": {
+                  "type": "integer",
+                  "example": 32
+                },
+                "num_comments": {
+                  "type": "integer",
+                  "example": 173
+                },
+                "num_empathy": {
+                  "type": "integer",
+                  "example": 139
+                },
+                "num_interests": {
+                  "type": "integer",
+                  "example": 4
+                },
+                "num_likes": {
+                  "type": "integer",
+                  "example": 4084
+                },
+                "num_praises": {
+                  "type": "integer",
+                  "example": 264
+                },
+                "num_reposts": {
+                  "type": "integer",
+                  "example": 68
+                },
+                "posted": {
+                  "type": "string",
+                  "example": "2024-06-06 14:40:25"
+                },
+                "poster": {
+                  "type": "object",
+                  "properties": {
+                    "linkedin_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://www.linkedin.com/company/example/"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Amazon"
+                    }
+                  }
+                },
+                "reshared": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "text": {
+                  "type": "string",
+                  "example": "🏋️‍♂️ Meet Amazon's very own strongman!"
+                },
+                "time": {
+                  "type": "string",
+                  "example": "6 days ago"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/posts/example_post"
+                },
+                "urn": {
+                  "type": "string",
+                  "example": "7204492333600440320"
+                },
+                "video": {
+                  "type": "object",
+                  "nullable": true,
+                  "properties": {
+                    "duration": {
+                      "type": "integer",
+                      "example": 70033
+                    },
+                    "stream_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://dms.licdn.com/playlist/vid/example.mp4"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "num_comments",
+                "text",
+                "poster"
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "Request successful."
+          },
+          "paging": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer",
+                "example": 100
+              },
+              "per_page": {
+                "type": "integer",
+                "example": 10
+              },
+              "current_page": {
+                "type": "integer",
+                "example": 1
+              },
+              "next_page": {
+                "type": "integer",
+                "example": 2
+              }
+            }
+          }
+        },
+        "required": [
+          "data",
+          "message",
+          "paging"
+        ]
+      },
+      "SearchPosts": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "num_comments": {
+                  "type": "integer",
+                  "nullable": true,
+                  "example": null
+                },
+                "num_likes": {
+                  "type": "integer",
+                  "nullable": true,
+                  "example": null
+                },
+                "num_shares": {
+                  "type": "integer",
+                  "nullable": true,
+                  "example": null
+                },
+                "post_type": {
+                  "type": "string",
+                  "example": "photo"
+                },
+                "post_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/feed/update/urn:li:activity:7206932158031003648/"
+                },
+                "posted": {
+                  "type": "string",
+                  "example": "2024-06-13 08:15:24"
+                },
+                "poster_linkedin_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/in/ACoAAAJcHacBGQdA-cxEAGl5Q1swIHXwixZMAK4?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAJcHacBGQdA-cxEAGl5Q1swIHXwixZMAK4"
+                },
+                "poster_name": {
+                  "type": "string",
+                  "example": "Ron Bar El"
+                },
+                "poster_title": {
+                  "type": "string",
+                  "example": "Chief TechStoryteller Officer | Founder of turba, Tech storytelling & Brand strategy agency | Speaker"
+                },
+                "text": {
+                  "type": "string",
+                  "example": "The #AI #Narrative War: Beyond the technological battle for AI supremacy among the tech giants..."
+                },
+                "urn": {
+                  "type": "string",
+                  "example": "7206932158031003648"
+                }
+              },
+              "required": [
+                "post_type",
+                "post_url",
+                "posted",
+                "poster_name",
+                "urn"
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "total": {
+            "type": "integer",
+            "example": 397
+          }
+        },
+        "required": [
+          "data",
+          "message",
+          "total"
+        ]
       }
     },
     "securitySchemes": {

@@ -88,6 +88,41 @@
         "api-reference/endpoint/find-custom-headcount",
         "api-reference/endpoint/get-company-jobs-count"
       ]
+    },
+    {
+      "group": "Post Data",
+      "pages": [
+        "api-reference/endpoint/get-profile-posts",
+        "api-reference/endpoint/get-post-comments",
+        "api-reference/endpoint/get-post-reactions",
+        "api-reference/endpoint/search-posts",
+        "api-reference/endpoint/get-company-posts"
+      ]
+    },
+    {
+      "group": "Employee Search (Sales Nav)",
+      "pages": [
+        "api-reference/endpoint/search-employees",
+        "api-reference/endpoint/search-employees-by-sales-nav-url",
+        "api-reference/endpoint/check-search-status",
+        "api-reference/endpoint/get-search-results"
+      ]
+    },
+    {
+      "group": "Company Search (Sales Nav)",
+      "pages": [
+        "api-reference/endpoint/search-companies",
+        "api-reference/endpoint/search-companies-by-sales-nav-url",
+        "api-reference/endpoint/check-search-companies-status",
+        "api-reference/endpoint/get-search-companies-results"
+      ]
+    },
+    {
+      "group": "Job Search",
+      "pages": [
+        "api-reference/endpoint/search-jobs",
+        "api-reference/endpoint/get-job-details"
+      ]
     }
   ],
   "footerSocials": {}
