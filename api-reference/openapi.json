@@ -21,269 +21,172 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "Get comprehensive profile data, including experience, education history, and current company details.\n 1 credit per call.\n Using each extra option will cost another 0.5 credits.",
+        "description": "",
         "parameters": [
           {
             "name": "linkedin_url",
             "in": "query",
-            "description": "",
             "required": true,
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "format": "uri",
+              "example": "https://www.linkedin.com/in/cjfollini/"
+            },
+            "description": ""
           },
           {
             "name": "include_skills",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
             },
-            "x-hidden": true
+            "description": "Whether to include skills in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_certifications",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
             },
-            "x-hidden": true
+            "description": "Whether to include certifications in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_publications",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
             },
-            "x-hidden": true
+            "description": "Whether to include publications in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_honors",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include honors in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_volunteers",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include volunteer experience in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_projects",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include projects in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_patents",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include patents in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_courses",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include courses in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_organizations",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include organizations in the profile details. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_profile_status",
             "in": "query",
             "required": false,
-            "description": "Enabling this option will consume more 0.5 credits.",
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include the profile status. Enabling this option will consume 0.5 more credits."
           },
           {
             "name": "include_company_public_url",
             "in": "query",
             "required": false,
-            "description": "Possible values: true, false. Default value: false. This option is free of charge.",
             "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Personal profile response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonalProfile"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid linkedin url",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InvalidURL"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Profile not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProfileNotFound"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Profile not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SystemError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/get-linkedin-profile-by-salesnavurl": {
-      "get": {
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ],
-        "description": "1 credit per call.\n Using each extra option will cost another 0.5 credits.",
-        "parameters": [
-          {
-            "name": "linkedin_url",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_skills",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_certifications",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_publications",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_honors",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_volunteers",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_projects",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_patents",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_courses",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_organizations",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_profile_status",
-            "in": "query",
-            "description": "Enabling this option will consume more 0.5 credits.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "include_company_public_url",
-            "in": "query",
-            "description": "Possible values: true, false. Default value: false. This option is free of charge.",
-            "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include the public URL of the company associated with the profile. Free"
           }
         ],
         "responses": {
@@ -393,10 +296,229 @@
         }
       }
     },
+    "/get-linkedin-profile-by-salesnavurl": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "linkedin_url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://www.linkedin.com/in/cjfollini/"
+            },
+            "description": ""
+          },
+          {
+            "name": "include_skills",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include skills in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_certifications",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include certifications in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_publications",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include publications in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_honors",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include honors in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_volunteers",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include volunteer experience in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_projects",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include projects in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_patents",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include patents in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_courses",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include courses in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_organizations",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include organizations in the profile details. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_profile_status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include the profile status. Enabling this option will consume 0.5 more credits."
+          },
+          {
+            "name": "include_company_public_url",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include the public URL of the company associated with the profile. Free"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Personal profile response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalProfile"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid linkedin url",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/google-full-profiles": {
       "post": {
-        "summary": "Retrieve Google full profiles",
-        "description": "Fetch Google profiles based on the provided parameters.",
+        "summary": "",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
@@ -446,7 +568,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully retrieved profiles.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -490,7 +612,7 @@
     },
     "/get-company-by-linkedinurl": {
       "get": {
-        "description": "1 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -553,7 +675,7 @@
     },
     "/get-company-by-domain": {
       "get": {
-        "description": "1 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -591,16 +713,6 @@
               }
             }
           },
-          "404": {
-            "description": "Company not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProfileNotFound"
-                }
-              }
-            }
-          },
           "503": {
             "description": "Error",
             "content": {
@@ -616,7 +728,7 @@
     },
     "/get-company-by-id": {
       "get": {
-        "description": "1 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -659,7 +771,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProfileNotFound"
+                  "$ref": "#/components/schemas/IDNotFound"
                 }
               }
             }
@@ -679,7 +791,7 @@
     },
     "/get-company-insights": {
       "get": {
-        "description": "1 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -742,7 +854,7 @@
     },
     "/get-account-iq": {
       "get": {
-        "description": "5 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -805,7 +917,7 @@
     },
     "/get-company-jobs-count": {
       "get": {
-        "description": "1 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -869,7 +981,7 @@
     "/find-custom-headcount": {
       "post": {
         "summary": "Custom headcount by filters",
-        "description": "1 credit per call.",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
@@ -1021,7 +1133,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "2 credits per call.",
+        "description": "",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -1036,11 +1148,16 @@
             "name": "type",
             "in": "query",
             "required": false,
-            "description": "posts/comments/reactions",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "posts",
+                "comments",
+                "reactions"
+              ],
+              "example": "posts"
             },
-            "example": "posts"
+            "description": ""
           },
           {
             "name": "start",
@@ -1065,7 +1182,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Personal profile response",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1114,7 +1231,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "2 credits per call.",
+        "description": "",
         "parameters": [
           {
             "name": "urn",
@@ -1207,7 +1324,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "2 credits per call.",
+        "description": "",
         "parameters": [
           {
             "name": "urn",
@@ -1222,11 +1339,19 @@
             "name": "type",
             "in": "query",
             "required": false,
-            "description": "Default value: ALL. Possible values: ALL,LIKE,EMPATHY,APPRECIATION,INTEREST,PRAISE.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "ALL",
+                "LIKE",
+                "EMPATHY",
+                "APPRECIATION",
+                "INTEREST",
+                "PRAISE"
+              ],
+              "example": "ALL"
             },
-            "example": "ALL"
+            "description": ""
           },
           {
             "name": "page",
@@ -1290,7 +1415,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "2 credits per call.",
+        "description": "",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -1305,11 +1430,11 @@
             "name": "start",
             "in": "query",
             "required": false,
-            "description": "Use this param to fetch posts of the next result page: 0 for page 1, 50 for page 2, etc.",
+            "description": "",
             "schema": {
               "type": "integer"
             },
-            "example": "posts"
+            "example": 0
           },
           {
             "name": "pagination_token",
@@ -1327,9 +1452,13 @@
             "required": false,
             "description": "Possible values: top, recent",
             "schema": {
-              "type": "string"
-            },
-            "example": "top"
+              "type": "string",
+              "enum": [
+                "top",
+                "recent"
+              ],
+              "example": "top"
+            }
           }
         ],
         "responses": {
@@ -1379,7 +1508,7 @@
     "/search-posts": {
       "post": {
         "summary": "",
-        "description": "2 credit per call.",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
@@ -1389,7 +1518,7 @@
                 "properties": {
                   "search_keywords": {
                     "type": "string",
-                    "description": "Keywords to search for in posts.",
+                    "description": "",
                     "example": "marketing"
                   },
                   "sort_by": {
@@ -2775,7 +2904,7 @@
               },
               "urn": {
                 "type": "string",
-                "example": "urn:li:person:12345"
+                "example": "ACoAAAGafwYBi3pXOoVVwIyAFc453DuIv50jfTA"
               },
               "volunteers": {
                 "type": "array",
