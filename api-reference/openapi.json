@@ -1504,6 +1504,252 @@
           }
         }
       }
+    },
+    "/search-jobs": {
+      "post": {
+        "summary": "",
+        "description": "2 credit per call.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keywords": {
+                    "type": "string",
+                    "description": "Keywords to search for jobs.",
+                    "example": "marketing"
+                  },
+                  "geo_code": {
+                    "type": "integer",
+                    "description": "Geographical code for filtering jobs.",
+                    "example": 92000000
+                  },
+                  "date_posted": {
+                    "type": "string",
+                    "description": "Filter jobs by date posted.",
+                    "example": "Any time"
+                  },
+                  "experience_levels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Filter jobs by experience levels.",
+                    "example": []
+                  },
+                  "company_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "Filter jobs by specific company IDs.",
+                    "example": [
+                      1035
+                    ]
+                  },
+                  "title_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Filter jobs by specific title IDs.",
+                    "example": []
+                  },
+                  "onsite_remotes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Filter jobs by work environment (e.g., onsite, remote).",
+                    "example": []
+                  },
+                  "functions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Filter jobs by specific functions.",
+                    "example": []
+                  },
+                  "industries": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Filter jobs by industries.",
+                    "example": []
+                  },
+                  "job_types": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Filter jobs by types (e.g., full-time, part-time).",
+                    "example": []
+                  },
+                  "sort_by": {
+                    "type": "string",
+                    "description": "Sort jobs by relevance or latest.",
+                    "example": "Most relevant"
+                  },
+                  "easy_apply": {
+                    "type": "string",
+                    "description": "Filter jobs with easy apply option.",
+                    "example": "false"
+                  },
+                  "under_10_applicants": {
+                    "type": "string",
+                    "description": "Filter jobs with less than 10 applicants.",
+                    "example": "false"
+                  },
+                  "start": {
+                    "type": "integer",
+                    "description": "Pagination start index.",
+                    "example": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchJobs"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidPayload"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No jobs not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "System Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get-job-details": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "description": "2 credits per call.",
+        "parameters": [
+          {
+            "name": "job_url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://www.linkedin.com/jobs/view/3766410207/"
+            },
+            "description": "The URL of the job listing."
+          },
+          {
+            "name": "include_skills",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include skills in the response."
+          },
+          {
+            "name": "include_hiring_team",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "example": "false"
+            },
+            "description": "Whether to include hiring team details in the response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid linkedin url",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidURL"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileNotFound"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Profile not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3943,6 +4189,234 @@
           "message",
           "total"
         ]
+      },
+      "SearchJobs": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "company": {
+                  "type": "string",
+                  "example": "Microsoft"
+                },
+                "company_linkedin_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/company/microsoft"
+                },
+                "company_logo": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://media.licdn.com/dms/image/v2/C560BAQE88xCsONDULQ/company-logo.png"
+                },
+                "job_title": {
+                  "type": "string",
+                  "example": "Marketing: MBA Internship Opportunities"
+                },
+                "job_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://www.linkedin.com/jobs/view/4052310093"
+                },
+                "job_urn": {
+                  "type": "string",
+                  "example": "4052310093"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Redmond, WA"
+                },
+                "posted_time": {
+                  "type": "string",
+                  "example": "2024-11-29 10:43:18"
+                },
+                "remote": {
+                  "type": "string",
+                  "example": "Hybrid"
+                },
+                "salary": {
+                  "type": "string",
+                  "example": "$11.2K/yr - $12.2K/yr"
+                }
+              }
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "ok"
+          },
+          "total": {
+            "type": "integer",
+            "example": 495
+          }
+        }
+      },
+      "JobDetails": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "company_description": {
+                "type": "string",
+                "example": "Building a Healthier Future..."
+              },
+              "company_id": {
+                "type": "string",
+                "example": "18940375"
+              },
+              "company_linkedin_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://www.linkedin.com/company/ossiumhealth"
+              },
+              "company_name": {
+                "type": "string",
+                "example": "Ossium Health"
+              },
+              "company_public_id": {
+                "type": "string",
+                "example": "ossiumhealth"
+              },
+              "employee_count": {
+                "type": "integer",
+                "example": 87
+              },
+              "employee_range": {
+                "type": "string",
+                "example": "51 - 200"
+              },
+              "experience_level": {
+                "type": "string",
+                "example": "Mid-Senior level"
+              },
+              "follower_count": {
+                "type": "integer",
+                "example": 1969
+              },
+              "hq_address_line1": {
+                "type": "string",
+                "example": "80 Tehama St"
+              },
+              "hq_city": {
+                "type": "string",
+                "example": "San Francisco"
+              },
+              "hq_country": {
+                "type": "string",
+                "example": "US"
+              },
+              "hq_full_address": {
+                "type": "string",
+                "example": "80 Tehama St, San Francisco, California 94105, US"
+              },
+              "hq_postalcode": {
+                "type": "string",
+                "example": "94105"
+              },
+              "hq_region": {
+                "type": "string",
+                "example": "California"
+              },
+              "industries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "Biotechnology Research"
+                ]
+              },
+              "job_description": {
+                "type": "string",
+                "example": "Ossium’s mission is to improve the health..."
+              },
+              "job_id": {
+                "type": "string",
+                "example": "3690897280"
+              },
+              "job_location": {
+                "type": "string",
+                "example": "San Francisco Bay Area"
+              },
+              "job_title": {
+                "type": "string",
+                "example": "Business Strategist"
+              },
+              "job_type": {
+                "type": "string",
+                "example": "Full-time"
+              },
+              "job_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://www.linkedin.com/jobs/view/3690897280/"
+              },
+              "remote_allow": {
+                "type": "boolean",
+                "example": false
+              },
+              "salary_details": {
+                "type": "object",
+                "properties": {
+                  "compensation_type": {
+                    "type": "string",
+                    "example": "BASE_SALARY"
+                  },
+                  "currency_code": {
+                    "type": "string",
+                    "example": "USD"
+                  },
+                  "max_salary": {
+                    "type": "number",
+                    "example": 186000
+                  },
+                  "min_salary": {
+                    "type": "number",
+                    "example": 108500
+                  },
+                  "pay_period": {
+                    "type": "string",
+                    "example": "YEARLY"
+                  }
+                }
+              },
+              "salary_display": {
+                "type": "string",
+                "example": "USD108500.0/yr - USD186000.0/yr"
+              },
+              "skills": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "Biotechnology",
+                  "Business Development",
+                  "Communication"
+                ]
+              },
+              "specialities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "Bone marrow banking",
+                  "Cryopreservation",
+                  "Stem cell therapy"
+                ]
+              }
+            }
+          },
+          "message": {
+            "type": "string",
+            "example": "ok"
+          }
+        }
       }
     },
     "securitySchemes": {
