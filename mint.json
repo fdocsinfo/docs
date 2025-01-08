@@ -45,21 +45,13 @@
     {
       "group": "Featured Posts",
       "pages": [
-        "tutorials/search-employees-using-sales-navigator",
-        "tutorials/search-companies-using-sales-navigator",
-        "tutorials/enrich-a-lead-list-with-linkedin-data",
-        "tutorials/enrich-companies-with-linkedin-data"
+        "tutorial/howto-search-leads"
       ]
     },
     {
       "group": "How-To Wiki",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "tutorial/markdown"
       ]
     },
     {
