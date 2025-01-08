@@ -4700,12 +4700,7 @@
         "properties": {
           "message": {
             "type": "string",
-            "description": "A message providing details about the search status.",
-            "examples": [
-              "Found 100/100 employees. Please use 'Get Search Results' endpoint to get your data!",
-              "Found 10/100 employees. Please use 'Get Search Results' endpoint to get your data!",
-              "Your search was added to queue. Please wait and try again later!"
-            ]
+            "description": "A message providing details about the search status."
           },
           "status": {
             "type": "string",
