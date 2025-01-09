@@ -36,11 +36,10 @@ Below is how you can do it easily in the Python language, step by step.
             "title_keywords": ["Owner", "Founder", "Director"],
             "industry_codes": [4],  # Software Development
             "company_headcounts": ["11-50", "51-200"],
-            "limit": 50
+            "limit": 50 #set max number of results to be scraped
         }
         headers = {
             "x-rapidapi-key": api_key,
-            "x-rapidapi-host": api_host,
             "Content-Type": "application/json"
         }
 
@@ -57,14 +56,13 @@ Below is how you can do it easily in the Python language, step by step.
         url = f"https://{api_host}/check-search-status"
         querystring = {"request_id": request_id}
         headers = {
-            "x-rapidapi-key": api_key,
-            "x-rapidapi-host": api_host
+            "x-rapidapi-key": api_key
         }
 
         response = requests.get(url, headers=headers, params=querystring)
         response_data = response.json()
         print("Check Search Status Response:", response_data)
-        return response_data.get("status")
+        return response_data.get("status") #pending, processing, or done
 
 
     ```
@@ -75,24 +73,24 @@ Below is how you can do it easily in the Python language, step by step.
     def get_search_results(request_id):
         url = f"https://{api_host}/get-search-results"
         headers = {
-            "x-rapidapi-key": api_key,
-            "x-rapidapi-host": api_host
+            "x-rapidapi-key": api_key
         }
-    
+
         all_results = []
         page = 1
-    
+
         while True:
-            querystring = {"request_id": request_id, "page": str(page)}
+            querystring = {"request_id": request_id, "page": page}
             response = requests.get(url, headers=headers, params=querystring)
             response_data = response.json()
-    
+
             if "results" in response_data and response_data["results"]:
                 all_results.extend(response_data["results"])
                 page += 1
             else:
+                #no more results
                 break
-    
+
         return all_results
 
     ```
@@ -100,25 +98,27 @@ Below is how you can do it easily in the Python language, step by step.
 
   <Step title="Put All Together">
     ```python
-   def main():
-        # Step 1: Initiate Search
+    def main():
+        # initiate search
         request_id = initiate_search()
         if not request_id:
             print("Failed to initiate search")
             return
-    
-        # Step 2: Monitor Search Progress
+
+        # monitor search progress
         while True:
             status = check_search_status(request_id)
             if status == "done":
+                #search completed
                 break
+            #sleep for a while    
             time.sleep(30)
-    
-        # Step 3: Retrieve Results (All Pages)
+
+        # ready to fetch results
         results = get_search_results(request_id)
         print(f"Total Results Fetched: {len(results)}")
         print("Results:", results)
-    
+
     if __name__ == "__main__":
         main()
     ```
