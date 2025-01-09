@@ -2589,6 +2589,24 @@
                 "type": "string",
                 "example": "Technology Leader & Innovator"
               },
+              "about": {
+                "type": "string",
+                "example": "Experienced leader in marketing and technology."
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "example": "example@example.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "+61234567890"
+              },
+              "profile_image_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://example.com/profile.jpg"
+              },
               "follower_count": {
                 "type": "integer",
                 "example": 20000
@@ -2597,18 +2615,9 @@
                 "type": "integer",
                 "example": 15000
               },
-              "about": {
-                "type": "string",
-                "example": "Experienced leader in marketing and technology."
-              },
               "job_title": {
                 "type": "string",
                 "example": "CEO"
-              },
-              "email": {
-                "type": "string",
-                "format": "email",
-                "example": "example@example.com"
               },
               "current_job_duration": {
                 "type": "string",
@@ -2621,11 +2630,6 @@
               "current_company_join_year": {
                 "type": "integer",
                 "example": 2015
-              },
-              "profile_image_url": {
-                "type": "string",
-                "format": "uri",
-                "example": "https://example.com/profile.jpg"
               },
               "company": {
                 "type": "string",
@@ -2677,6 +2681,18 @@
               "hq_region": {
                 "type": "string",
                 "example": "New South Wales"
+              },
+              "school": {
+                "type": "string",
+                "example": "University of Technology Sydney"
+              },
+              "skills": {
+                "type": "string",
+                "example": "Leadership, Innovation, Marketing"
+              },
+              "urn": {
+                "type": "string",
+                "example": "ACoAAAGafwYBi3pXOoVVwIyAFc453DuIv50jfTA"
               },
               "experiences": {
                 "type": "array",
@@ -2858,10 +2874,6 @@
                   }
                 }
               },
-              "phone": {
-                "type": "string",
-                "example": "+61234567890"
-              },
               "profile_id": {
                 "type": "string",
                 "example": "profile123"
@@ -2931,18 +2943,6 @@
                     }
                   }
                 }
-              },
-              "school": {
-                "type": "string",
-                "example": "University of Technology Sydney"
-              },
-              "skills": {
-                "type": "string",
-                "example": "Leadership, Innovation, Marketing"
-              },
-              "urn": {
-                "type": "string",
-                "example": "ACoAAAGafwYBi3pXOoVVwIyAFc453DuIv50jfTA"
               },
               "volunteers": {
                 "type": "array",
