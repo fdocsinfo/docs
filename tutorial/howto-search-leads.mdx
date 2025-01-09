@@ -87,4 +87,27 @@ Below is how you can do it easily in the Python language, step by step.
 
     ```
   </Step>
+  <Step title="Put All Together">
+  ```python
+    def main():
+    # Step 1: Initiate Search
+    request_id = initiate_search()
+    if not request_id:
+        print("Failed to initiate search")
+        return
+
+    # Step 2: Monitor Search Progress
+    while True:
+        status = check_search_status(request_id)
+        if status == "done":
+            break
+        time.sleep(30)
+
+    # Step 3: Retrieve Results
+    results = get_search_results(request_id)
+    print("Results:", results)
+
+  ```
+    
+  </Step>  
 </Steps>
