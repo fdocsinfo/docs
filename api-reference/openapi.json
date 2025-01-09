@@ -1591,7 +1591,7 @@
                   "author_industry": {
                     "type": "integer",
                     "nullable": true,
-                    "description": "Filter posts by the industry of the author. Get industry's codes here <a href='https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2' target='_blank'>here</a>.",
+                    "description": "",
                     "example": 14
                   },
                   "author_keyword": {
@@ -1906,7 +1906,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "<a href='https://rapidapi.com/freshdata-freshdata-default/api/fresh-linkedin-profile-data/tutorials/how-to-find-a-company_id-on-linkedin%3F' target='_blank'>How to find a company_id on Linkedin?</a>.",
+                    "description": "",
                     "example": [
                       162479,
                       1053
@@ -1967,7 +1967,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "<a href='https://rapidapi.com/freshdata-freshdata-default/api/fresh-linkedin-profile-data/tutorials/how-to-find-a-geo_code-(geoid)-on-linkedin%3F' target='_blank'>How to find a geo_code (geoId) on LinkedIn?</a>.",
+                    "description": "",
                     "example": [
                       103644278,
                       102299470
@@ -2246,9 +2246,20 @@
                   "company_headcounts": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Self-employed",
+                        "1-10",
+                        "11-50",
+                        "51-200",
+                        "201-500",
+                        "501-1000",
+                        "1001-5000",
+                        "5001-10000",
+                        "10001+"
+                      ]
                     },
-                    "description": "Filter companies by headcount range.",
+                    "description": "Filter companies by headcount range. Acceptable values are predefined headcount ranges.",
                     "example": [
                       "1001-5000",
                       "5001-10000"
@@ -2275,7 +2286,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Filter companies by headquarters location codes.",
+                    "description": "",
                     "example": [
                       103644278
                     ]
@@ -2285,7 +2296,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Filter companies by industry codes. <a href='https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2' target='_blank'>List industry codes</a>.",
+                    "description": "",
                     "example": [
                       3,
                       4
