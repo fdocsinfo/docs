@@ -1586,7 +1586,7 @@
                     "type": "string",
                     "nullable": true,
                     "description": "Filter posts by the company of the author.",
-                    "example": ""
+                    "example": "1441"
                   },
                   "author_industry": {
                     "type": "integer",
@@ -1926,9 +1926,37 @@
                   "functions": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Accounting",
+                        "Administrative",
+                        "Arts and Design",
+                        "Business Development",
+                        "Community and Social Services",
+                        "Consulting",
+                        "Education",
+                        "Engineering",
+                        "Entrepreneurship",
+                        "Finance",
+                        "Healthcare Services",
+                        "Human Resources",
+                        "Information Technology",
+                        "Legal",
+                        "Marketing",
+                        "Media and Communication",
+                        "Military and Protective Services",
+                        "Operations",
+                        "Product Management",
+                        "Program and Project Management",
+                        "Purchasing",
+                        "Quality Assurance",
+                        "Real Estate",
+                        "Research",
+                        "Sales",
+                        "Customer Success and Support"
+                      ]
                     },
-                    "description": "",
+                    "description": "Filter results by job functions. Acceptable values include a predefined list of functions.",
                     "example": [
                       "Accounting",
                       "Administrative"
@@ -2277,17 +2305,17 @@
                     "items": {
                       "type": "string"
                     },
-                    "description": "Filter companies by recent activities.",
+                    "description": "",
                     "example": []
                   },
                   "keywords": {
                     "type": "string",
-                    "description": "Search companies by keywords.",
+                    "description": "",
                     "example": ""
                   },
                   "limit": {
                     "type": "integer",
-                    "description": "Limit the number of results.",
+                    "description": "",
                     "example": 1000
                   }
                 },
@@ -2335,7 +2363,7 @@
     "/search-companies-by-sales-nav-url": {
       "post": {
         "summary": "",
-        "description": "30 credit per call.",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
@@ -2346,12 +2374,12 @@
                   "url": {
                     "type": "string",
                     "format": "uri",
-                    "description": "The LinkedIn Sales Navigator URL for searching employees.",
+                    "description": "",
                     "example": "https://www.linkedin.com/sales/search/people?coach=false&query=(filters%3AList((type%3AREGION%2Cvalues%3AList((id%3A103644278%2CselectionType%3AINCLUDED)))%2C(type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A82274765%2CselectionType%3AINCLUDED)))))"
                   },
                   "limit": {
                     "type": "integer",
-                    "description": "Limit the number of results.",
+                    "description": "",
                     "example": 25
                   }
                 }
@@ -2524,6 +2552,18 @@
           "data": {
             "type": "object",
             "properties": {
+              "first_name": {
+                "type": "string",
+                "example": "Anthony"
+              },
+              "follower_count": {
+                "type": "integer",
+                "example": 20000
+              },
+              "full_name": {
+                "type": "string",
+                "example": "Anthony James"
+              },
               "about": {
                 "type": "string",
                 "example": "Experienced leader in marketing and technology."
@@ -2705,18 +2745,6 @@
                     }
                   }
                 }
-              },
-              "first_name": {
-                "type": "string",
-                "example": "Anthony"
-              },
-              "follower_count": {
-                "type": "integer",
-                "example": 20000
-              },
-              "full_name": {
-                "type": "string",
-                "example": "Anthony James"
               },
               "headline": {
                 "type": "string",
