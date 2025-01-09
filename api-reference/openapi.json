@@ -877,7 +877,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyInsight"
+                  "$ref": "#/components/schemas/AccountIQ"
                 }
               }
             }
@@ -1764,10 +1764,21 @@
                   "job_types": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Full-time",
+                        "Part-time",
+                        "Contract",
+                        "Temporary",
+                        "Internship",
+                        "Other"
+                      ]
                     },
-                    "description": "Filter jobs by types (e.g., full-time, part-time).",
-                    "example": []
+                    "description": "Filter jobs by types. Acceptable values include predefined job types.",
+                    "example": [
+                      "Full-time",
+                      "Internship"
+                    ]
                   },
                   "sort_by": {
                     "type": "string",
