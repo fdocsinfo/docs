@@ -1523,20 +1523,40 @@
                   },
                   "sort_by": {
                     "type": "string",
-                    "description": "Sort order for results (e.g., Latest or Relevance).",
+                    "description": "Sort order for results.",
+                    "enum": [
+                      "Latest",
+                      "Relevance"
+                    ],
                     "example": "Latest"
                   },
                   "date_posted": {
                     "type": "string",
                     "nullable": true,
                     "description": "Filter posts by a specific date or date range.",
-                    "example": ""
+                    "enum": [
+                      "Past 24 hours",
+                      "Past week",
+                      "Past month",
+                      "past-year",
+                      "past-2y",
+                      "past-3y"
+                    ],
+                    "example": "Past week"
                   },
                   "content_type": {
                     "type": "string",
                     "nullable": true,
-                    "description": "Filter posts by content type (e.g., photo, article, video).",
-                    "example": ""
+                    "description": "Filter posts by content type.",
+                    "enum": [
+                      "Videos",
+                      "Images",
+                      "Job posts",
+                      "Live videos",
+                      "Documents",
+                      "Collaborative articles"
+                    ],
+                    "example": "Videos"
                   },
                   "from_member": {
                     "type": "string",
@@ -1569,10 +1589,10 @@
                     "example": ""
                   },
                   "author_industry": {
-                    "type": "string",
+                    "type": "integer",
                     "nullable": true,
-                    "description": "Filter posts by the industry of the author.",
-                    "example": ""
+                    "description": "Filter posts by the industry of the author. Get industry's codes here <a href='https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2' target='_blank'>here</a>.",
+                    "example": 14
                   },
                   "author_keyword": {
                     "type": "string",
@@ -1607,16 +1627,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/InvalidPayload"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Company not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InvalidURL"
                 }
               }
             }
@@ -1794,7 +1804,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "2 credits per call.",
+        "description": "",
         "parameters": [
           {
             "name": "job_url",
@@ -1819,7 +1829,7 @@
               ],
               "example": "false"
             },
-            "description": "Whether to include skills in the response."
+            "description": ""
           },
           {
             "name": "include_hiring_team",
@@ -1833,7 +1843,7 @@
               ],
               "example": "false"
             },
-            "description": "Whether to include hiring team details in the response."
+            "description": ""
           }
         ],
         "responses": {
@@ -1883,7 +1893,7 @@
     "/search-employees": {
       "post": {
         "summary": "",
-        "description": "2 credit per call.",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
@@ -1896,7 +1906,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Filter by current company IDs.",
+                    "description": "<a href='https://rapidapi.com/freshdata-freshdata-default/api/fresh-linkedin-profile-data/tutorials/how-to-find-a-company_id-on-linkedin%3F' target='_blank'>How to find a company_id on Linkedin?</a>.",
                     "example": [
                       162479,
                       1053
@@ -1907,7 +1917,7 @@
                     "items": {
                       "type": "string"
                     },
-                    "description": "Filter by title keywords.",
+                    "description": "",
                     "example": [
                       "Director",
                       "Operation"
@@ -1918,7 +1928,7 @@
                     "items": {
                       "type": "string"
                     },
-                    "description": "Filter by functions.",
+                    "description": "",
                     "example": [
                       "Accounting",
                       "Administrative"
@@ -1929,7 +1939,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Filter by geographical codes.",
+                    "description": "<a href='https://rapidapi.com/freshdata-freshdata-default/api/fresh-linkedin-profile-data/tutorials/how-to-find-a-geo_code-(geoid)-on-linkedin%3F' target='_blank'>How to find a geo_code (geoId) on LinkedIn?</a>.",
                     "example": [
                       103644278,
                       102299470
@@ -1940,7 +1950,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Exclude specific geographical codes.",
+                    "description": "",
                     "example": [
                       105080838,
                       102257491
@@ -1961,19 +1971,19 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Filter by past company IDs.",
+                    "description": "",
                     "example": [
                       1009
                     ]
                   },
                   "keywords": {
                     "type": "string",
-                    "description": "Search by keywords.",
+                    "description": "",
                     "example": "system"
                   },
                   "limit": {
                     "type": "integer",
-                    "description": "Limit the number of results.",
+                    "description": "",
                     "example": 25
                   }
                 }
@@ -2018,7 +2028,7 @@
     "/search-employees-by-sales-nav-url": {
       "post": {
         "summary": "",
-        "description": "2 credit per call.",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
@@ -2157,7 +2167,7 @@
               "type": "integer",
               "example": 1
             },
-            "description": "The page number for paginated results."
+            "description": ""
           }
         ],
         "responses": {
@@ -2247,7 +2257,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Filter companies by industry codes.",
+                    "description": "Filter companies by industry codes. <a href='https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2' target='_blank'>List industry codes</a>.",
                     "example": [
                       3,
                       4
