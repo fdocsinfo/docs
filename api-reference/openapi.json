@@ -1647,7 +1647,7 @@
     "/search-jobs": {
       "post": {
         "summary": "",
-        "description": "2 credit per call.",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
@@ -1667,16 +1667,33 @@
                   },
                   "date_posted": {
                     "type": "string",
-                    "description": "Filter jobs by date posted.",
+                    "description": "Filter jobs by date posted. Acceptable values include predefined date ranges.",
+                    "enum": [
+                      "Any time",
+                      "Past month",
+                      "Past week",
+                      "Past 24 hours"
+                    ],
                     "example": "Any time"
                   },
                   "experience_levels": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Internship",
+                        "Associate",
+                        "Director",
+                        "Entry level",
+                        "Mid-Senior level",
+                        "Executive"
+                      ]
                     },
-                    "description": "Filter jobs by experience levels.",
-                    "example": []
+                    "description": "Filter jobs by experience levels. Acceptable values include predefined experience levels.",
+                    "example": [
+                      "Internship",
+                      "Entry level"
+                    ]
                   },
                   "company_ids": {
                     "type": "array",
@@ -1699,18 +1716,42 @@
                   "onsite_remotes": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "On-site",
+                        "Remote",
+                        "Hybrid"
+                      ]
                     },
-                    "description": "Filter jobs by work environment (e.g., onsite, remote).",
-                    "example": []
+                    "description": "Filter jobs by work environment. Acceptable values include predefined options: On-site, Remote, or Hybrid.",
+                    "example": [
+                      "Remote",
+                      "Hybrid"
+                    ]
                   },
                   "functions": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Marketing",
+                        "Sales",
+                        "Business Development",
+                        "Other",
+                        "Strategy/Planning",
+                        "Writing/Editing",
+                        "Public Relations",
+                        "Information Technology",
+                        "Art/Creative",
+                        "Administrative",
+                        "Advertising"
+                      ]
                     },
-                    "description": "Filter jobs by specific functions.",
-                    "example": []
+                    "description": "Filter jobs by specific functions. Acceptable values include predefined job functions.",
+                    "example": [
+                      "Marketing",
+                      "Sales"
+                    ]
                   },
                   "industries": {
                     "type": "array",
@@ -1730,17 +1771,29 @@
                   },
                   "sort_by": {
                     "type": "string",
-                    "description": "Sort jobs by relevance or latest.",
+                    "description": "Sort jobs by relevance or most recent.",
+                    "enum": [
+                      "Most recent",
+                      "Most relevant"
+                    ],
                     "example": "Most relevant"
                   },
                   "easy_apply": {
                     "type": "string",
-                    "description": "Filter jobs with easy apply option.",
+                    "description": "Filter jobs with the easy apply option. Acceptable values are 'true' or 'false'.",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
                     "example": "false"
                   },
                   "under_10_applicants": {
                     "type": "string",
-                    "description": "Filter jobs with less than 10 applicants.",
+                    "description": "Filter jobs with less than 10 applicants. Acceptable values are 'true' or 'false'.",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
                     "example": "false"
                   },
                   "start": {
