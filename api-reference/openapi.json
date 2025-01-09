@@ -2552,51 +2552,80 @@
           "data": {
             "type": "object",
             "properties": {
+              "linkedin_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://linkedin.com/in/anthonyjames"
+              },
               "first_name": {
                 "type": "string",
                 "example": "Anthony"
               },
-              "follower_count": {
-                "type": "integer",
-                "example": 20000
+              "last_name": {
+                "type": "string",
+                "example": "James"
               },
               "full_name": {
                 "type": "string",
                 "example": "Anthony James"
               },
-              "about": {
+              "location": {
                 "type": "string",
-                "example": "Experienced leader in marketing and technology."
-              },
-              "certifications": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "example": "Project Management Professional (PMP)"
-                    },
-                    "authority": {
-                      "type": "string",
-                      "example": "PMI"
-                    },
-                    "issued": {
-                      "type": "string",
-                      "format": "date",
-                      "example": "2021-01"
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri",
-                      "example": "https://example.com/certificate"
-                    }
-                  }
-                }
+                "example": "Sydney, Australia"
               },
               "city": {
                 "type": "string",
                 "example": "Sydney"
+              },
+              "state": {
+                "type": "string",
+                "example": "New South Wales"
+              },
+              "country": {
+                "type": "string",
+                "example": "Australia"
+              },
+              "headline": {
+                "type": "string",
+                "example": "Technology Leader & Innovator"
+              },
+              "follower_count": {
+                "type": "integer",
+                "example": 20000
+              },
+              "connection_count": {
+                "type": "integer",
+                "example": 15000
+              },
+              "about": {
+                "type": "string",
+                "example": "Experienced leader in marketing and technology."
+              },
+              "job_title": {
+                "type": "string",
+                "example": "CEO"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "example": "example@example.com"
+              },
+              "current_job_duration": {
+                "type": "string",
+                "example": "8 years 2 months"
+              },
+              "current_company_join_month": {
+                "type": "integer",
+                "example": 3
+              },
+              "current_company_join_year": {
+                "type": "integer",
+                "example": 2015
+              },
+              "profile_image_url": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://example.com/profile.jpg"
               },
               "company": {
                 "type": "string",
@@ -2637,78 +2666,17 @@
                 "type": "integer",
                 "example": 1990
               },
-              "connection_count": {
-                "type": "integer",
-                "example": 15000
+              "hq_city": {
+                "type": "string",
+                "example": "Sydney"
               },
-              "country": {
+              "hq_country": {
                 "type": "string",
                 "example": "Australia"
               },
-              "courses": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "title": {
-                      "type": "string",
-                      "example": "Advanced Marketing Strategies"
-                    },
-                    "associated": {
-                      "type": "string",
-                      "example": "Harvard Business School"
-                    }
-                  }
-                }
-              },
-              "current_company_join_month": {
-                "type": "integer",
-                "example": 3
-              },
-              "current_company_join_year": {
-                "type": "integer",
-                "example": 2015
-              },
-              "current_job_duration": {
+              "hq_region": {
                 "type": "string",
-                "example": "8 years 2 months"
-              },
-              "educations": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "school": {
-                      "type": "string",
-                      "example": "University of Technology Sydney"
-                    },
-                    "degree": {
-                      "type": "string",
-                      "example": "MBA"
-                    },
-                    "field_of_study": {
-                      "type": "string",
-                      "example": "Business Administration"
-                    },
-                    "start_year": {
-                      "type": "integer",
-                      "example": 2005
-                    },
-                    "end_year": {
-                      "type": "integer",
-                      "example": 2007
-                    },
-                    "activities": {
-                      "type": "string",
-                      "example": "Student Union President"
-                    }
-                  }
-                }
-              },
-              "email": {
-                "type": "string",
-                "format": "email",
-                "example": "example@example.com"
+                "example": "New South Wales"
               },
               "experiences": {
                 "type": "array",
@@ -2746,9 +2714,53 @@
                   }
                 }
               },
-              "headline": {
-                "type": "string",
-                "example": "Technology Leader & Innovator"
+              "educations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "school": {
+                      "type": "string",
+                      "example": "University of Technology Sydney"
+                    },
+                    "degree": {
+                      "type": "string",
+                      "example": "MBA"
+                    },
+                    "field_of_study": {
+                      "type": "string",
+                      "example": "Business Administration"
+                    },
+                    "start_year": {
+                      "type": "integer",
+                      "example": 2005
+                    },
+                    "end_year": {
+                      "type": "integer",
+                      "example": 2007
+                    },
+                    "activities": {
+                      "type": "string",
+                      "example": "Student Union President"
+                    }
+                  }
+                }
+              },
+              "courses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "example": "Advanced Marketing Strategies"
+                    },
+                    "associated": {
+                      "type": "string",
+                      "example": "Harvard Business School"
+                    }
+                  }
+                }
               },
               "honors_and_awards": {
                 "type": "array",
@@ -2775,38 +2787,35 @@
                   }
                 }
               },
-              "hq_city": {
-                "type": "string",
-                "example": "Sydney"
-              },
-              "hq_country": {
-                "type": "string",
-                "example": "Australia"
-              },
-              "hq_region": {
-                "type": "string",
-                "example": "New South Wales"
-              },
-              "job_title": {
-                "type": "string",
-                "example": "CEO"
+              "certifications": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Project Management Professional (PMP)"
+                    },
+                    "authority": {
+                      "type": "string",
+                      "example": "PMI"
+                    },
+                    "issued": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-01"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://example.com/certificate"
+                    }
+                  }
+                }
               },
               "languages": {
                 "type": "string",
                 "example": "English, French"
-              },
-              "last_name": {
-                "type": "string",
-                "example": "James"
-              },
-              "linkedin_url": {
-                "type": "string",
-                "format": "uri",
-                "example": "https://linkedin.com/in/anthonyjames"
-              },
-              "location": {
-                "type": "string",
-                "example": "Sydney, Australia"
               },
               "organizations": {
                 "type": "array",
@@ -2856,11 +2865,6 @@
               "profile_id": {
                 "type": "string",
                 "example": "profile123"
-              },
-              "profile_image_url": {
-                "type": "string",
-                "format": "uri",
-                "example": "https://example.com/profile.jpg"
               },
               "profile_status": {
                 "type": "object",
@@ -2935,10 +2939,6 @@
               "skills": {
                 "type": "string",
                 "example": "Leadership, Innovation, Marketing"
-              },
-              "state": {
-                "type": "string",
-                "example": "New South Wales"
               },
               "urn": {
                 "type": "string",
