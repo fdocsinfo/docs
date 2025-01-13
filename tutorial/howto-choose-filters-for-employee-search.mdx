@@ -1,0 +1,42 @@
+---
+title: "How to choose filters for employee search?"
+description: ""
+---
+
+The endpoint <a href="https://rapidapi.com/freshdata-freshdata-default/api/fresh-linkedin-profile-data/playground/apiendpoint_f015adcb-0126-4ca6-8260-9912c1b9da5a" target="_blank">Search Employees</a> comes with a rich set of filters. Here you can find the complete reference to each input parameter. For demo code snippet, take a look at [this post](/tutorial/howto-search-leads).
+
+![](/images/employee-payload1.jpg)
+
+![](/images/employee-payload2.jpg)
+
+![](/images/employee-payload3.jpg)
+
+## Possible values for param functions: 
+"Accounting", "Administrative", "Arts and Design", "Business Development", "Community and Social Services", "Consulting", "Education", "Engineering", "Entrepreneurship", "Finance", "Healthcare Services", "Human Resources", "Information Technology", "Legal", "Marketing", "Media and Communication", "Military and Protective Services", "Operations", "Product Management", "Program and Project Management", "Purchasing", "Quality Assurance", "Real Estate", "Research", "Sales", "Customer Success and Support"
+
+## Possibl values for param company_headcount: 
+"Self-employed", "1-10", "11-50", "51-200", "201-500", "501-1000", "1001-5000", "5001-10000", "10001+"
+
+## Possible values for param seniority_level:
+"Owner/Partner", "CXO", "Vice President", "Director", "Experienced Manager", "Entry Level Manager", "Strategic", "Senior", "Entry Level", "In Training"
+
+## Possible values for param profile_language:
+"Arabic", "English", "Spanish", "Portuguese", "Chinese", "French", "Italian", "Russian", "German", "Dutch", "Turkish", "Tagalog", "Polish", "Korean", "Japanese", "Malay", "Norwegian", "Danish", "Romanian", "Swedish", "Bahasa Indonesia", "Czech"
+
+## Possible values for param industry_code: 
+All industry codes are listed on <a target="_blank" href="https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2">this page</a>.
+
+## Possible values for param year_of_experience: 
+"Less than 1 year", "1 to 2 years", "3 to 5 years", "6 to 10 years", "More than 10 years"
+
+## Possible values for param year_in_current_company: 
+"Less than 1 year", "1 to 2 years", "3 to 5 years", "6 to 10 years", "More than 10 years"
+
+## Possible values for param year_in_current_possition: 
+"Less than 1 year", "1 to 2 years", "3 to 5 years", "6 to 10 years", "More than 10 years"
+
+## Possible values for param limit: 
+Default value: 25. Maximum value: 2500
+
+## Excluded params:
+To apply excluded values to some filters above, use the _exclude version as below: current_company_ids_exclude, past_company_ids_exclude, company_headquarter_location_ids_exclude, functions_exclude, title_keywords_exclude, seniority_levels_exclude, past_job_titles_exclude, geo_codes_exclude, industry_codes_exclude, school_ids_exclude
