@@ -52,7 +52,10 @@
     {
       "group": "How-To Wiki",
       "pages": [
-        "tutorial/howto-geocode"
+        "tutorial/howto-geocode",
+        "tutorial/howto-find-company-id",
+        "tutorial/howto-custom-headcount-inputs"
+        
       ]
     },
     {
