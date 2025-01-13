@@ -54,7 +54,8 @@
       "pages": [
         "tutorial/howto-geocode",
         "tutorial/howto-find-company-id",
-        "tutorial/howto-custom-headcount-inputs"
+        "tutorial/howto-custom-headcount-inputs",
+        "tutotial/howto-choose-filters-for-employee-search"
         
       ]
     },
