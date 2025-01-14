@@ -1523,7 +1523,7 @@
                   },
                   "sort_by": {
                     "type": "string",
-                    "description": "Sort order for results.",
+                    "description": "",
                     "enum": [
                       "Latest",
                       "Relevance"
@@ -1547,7 +1547,7 @@
                   "content_type": {
                     "type": "string",
                     "nullable": true,
-                    "description": "Filter posts by content type.",
+                    "description": "",
                     "enum": [
                       "Videos",
                       "Images",
@@ -1556,53 +1556,87 @@
                       "Documents",
                       "Collaborative articles"
                     ],
-                    "example": "Videos"
+                    "example": "Images"
                   },
                   "from_member": {
-                    "type": "string",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
                     "nullable": true,
-                    "description": "Filter posts from a specific LinkedIn member.",
-                    "example": ""
+                    "description": "List of LinkedIn URNs.",
+                    "example": [
+                      "ACoAAAGafwYBi3pXOoVVwIyAFc453DuIv50jfTA"
+                    ]
                   },
                   "from_company": {
-                    "type": "string",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
                     "nullable": true,
-                    "description": "Filter posts from a specific company.",
-                    "example": ""
+                    "description": "List of company IDs.",
+                    "example": [
+                      1035,
+                      1586
+                    ]
                   },
                   "mentioning_member": {
-                    "type": "string",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
                     "nullable": true,
-                    "description": "Filter posts mentioning a specific LinkedIn member.",
-                    "example": ""
+                    "description": "List of LinkedIn URNs.",
+                    "example": [
+                      "ACoAAAGafwYBi3pXOoVVwIyAFc453DuIv50jfTA"
+                    ]
                   },
                   "mentioning_company": {
-                    "type": "integer",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
                     "nullable": true,
-                    "description": "Filter posts mentioning a specific company by ID.",
-                    "example": 162479
+                    "description": "List of company IDs mentioned in the posts.",
+                    "example": [
+                      1035,
+                      1586
+                    ]
                   },
                   "author_company": {
-                    "type": "string",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
                     "nullable": true,
-                    "description": "Filter posts by the company of the author.",
-                    "example": "1441"
+                    "description": "List of company IDs.",
+                    "example": [
+                      1035,
+                      1586
+                    ]
                   },
                   "author_industry": {
-                    "type": "integer",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
                     "nullable": true,
-                    "description": "",
-                    "example": 14
+                    "description": "List of industry codes.",
+                    "example": [
+                      3,
+                      4
+                    ]
                   },
                   "author_keyword": {
                     "type": "string",
                     "nullable": true,
-                    "description": "Filter posts by a specific keyword in the author's profile.",
-                    "example": ""
+                    "description": "Keyword to filter posts by author's title or profile.",
+                    "example": "marketing manager"
                   },
                   "page": {
                     "type": "integer",
-                    "description": "Pagination page number.",
+                    "description": "",
                     "example": 1
                   }
                 }
@@ -1970,68 +2004,97 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "",
                     "example": [
                       162479,
                       1053
                     ]
+                  },
+                  "current_company_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": []
                   },
                   "title_keywords": {
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "",
                     "example": [
                       "Director",
                       "Operation"
                     ]
                   },
+                  "title_keywords_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Sales"
+                    ]
+                  },
+                  "current_company_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Apple",
+                      "Microsoft"
+                    ]
+                  },
                   "functions": {
                     "type": "array",
                     "items": {
-                      "type": "string",
-                      "enum": [
-                        "Accounting",
-                        "Administrative",
-                        "Arts and Design",
-                        "Business Development",
-                        "Community and Social Services",
-                        "Consulting",
-                        "Education",
-                        "Engineering",
-                        "Entrepreneurship",
-                        "Finance",
-                        "Healthcare Services",
-                        "Human Resources",
-                        "Information Technology",
-                        "Legal",
-                        "Marketing",
-                        "Media and Communication",
-                        "Military and Protective Services",
-                        "Operations",
-                        "Product Management",
-                        "Program and Project Management",
-                        "Purchasing",
-                        "Quality Assurance",
-                        "Real Estate",
-                        "Research",
-                        "Sales",
-                        "Customer Success and Support"
-                      ]
+                      "type": "string"
                     },
-                    "description": "Filter results by job functions. Acceptable values include a predefined list of functions.",
+                    "enum": [
+                      "Accounting",
+                      "Administrative",
+                      "Arts and Design",
+                      "Business Development",
+                      "Community and Social Services",
+                      "Consulting",
+                      "Education",
+                      "Engineering",
+                      "Entrepreneurship",
+                      "Finance",
+                      "Healthcare Services",
+                      "Human Resources",
+                      "Information Technology",
+                      "Legal",
+                      "Marketing",
+                      "Media and Communication",
+                      "Military and Protective Services",
+                      "Operations",
+                      "Product Management",
+                      "Program and Project Management",
+                      "Purchasing",
+                      "Quality Assurance",
+                      "Real Estate",
+                      "Research",
+                      "Sales",
+                      "Customer Success and Support"
+                    ],
                     "example": [
                       "Accounting",
                       "Administrative"
                     ]
+                  },
+                  "functions_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": []
                   },
                   "geo_codes": {
                     "type": "array",
                     "items": {
                       "type": "integer"
                     },
-                    "description": "",
                     "example": [
                       103644278,
                       102299470
@@ -2042,20 +2105,9 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "",
                     "example": [
                       105080838,
                       102257491
-                    ]
-                  },
-                  "title_keywords_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "description": "Exclude specific title keywords.",
-                    "example": [
-                      "Sales"
                     ]
                   },
                   "past_company_ids": {
@@ -2063,19 +2115,265 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "",
                     "example": [
                       1009
                     ]
                   },
+                  "past_company_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      1009
+                    ]
+                  },
+                  "past_company_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Apple",
+                      "Microsoft"
+                    ]
+                  },
+                  "company_type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "enum": [
+                      "Public Company",
+                      "Privately Held",
+                      "Non Profit",
+                      "Educational Institution",
+                      "Partnership",
+                      "Self Employed",
+                      "Self Owned",
+                      "Government Agency"
+                    ],
+                    "example": []
+                  },
+                  "company_headquarter_location_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": []
+                  },
+                  "company_headquarter_location_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": []
+                  },
+                  "seniority_levels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "enum": [
+                      "Owner/Partner",
+                      "CXO",
+                      "Vice President",
+                      "Director",
+                      "Experienced Manager",
+                      "Entry Level Manager",
+                      "Strategic",
+                      "Senior",
+                      "Entry Level",
+                      "In Training"
+                    ],
+                    "example": []
+                  },
+                  "seniority_levels_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": []
+                  },
+                  "past_job_titles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "CEO"
+                    ]
+                  },
+                  "past_job_titles_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Founder"
+                    ]
+                  },
+                  "year_in_current_company": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "enum": [
+                      "Less than 1 year",
+                      "1 to 2 years",
+                      "3 to 5 years",
+                      "6 to 10 years",
+                      "More than 10 years"
+                    ],
+                    "example": []
+                  },
+                  "year_in_current_position": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "enum": [
+                      "Less than 1 year",
+                      "1 to 2 years",
+                      "3 to 5 years",
+                      "6 to 10 years",
+                      "More than 10 years"
+                    ],
+                    "example": []
+                  },
+                  "years_of_experience": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "enum": [
+                      "Less than 1 year",
+                      "1 to 2 years",
+                      "3 to 5 years",
+                      "6 to 10 years",
+                      "More than 10 years"
+                    ],
+                    "example": []
+                  },
+                  "industry_codes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      3,
+                      4
+                    ]
+                  },
+                  "industry_codes_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      5,
+                      6
+                    ]
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "profile_languages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "enum": [
+                      "Arabic",
+                      "English",
+                      "Spanish",
+                      "Portuguese",
+                      "Chinese",
+                      "French",
+                      "Italian",
+                      "Russian",
+                      "German",
+                      "Dutch",
+                      "Turkish",
+                      "Tagalog",
+                      "Polish",
+                      "Korean",
+                      "Japanese",
+                      "Malay",
+                      "Norwegian",
+                      "Danish",
+                      "Romanian",
+                      "Swedish",
+                      "Bahasa Indonesia",
+                      "Czech"
+                    ],
+                    "example": []
+                  },
+                  "school_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      123456
+                    ]
+                  },
+                  "school_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      654321
+                    ]
+                  },
+                  "changed_jobs": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "posted_on_linkedin": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "mentioned_in_news": {
+                    "type": "boolean",
+                    "example": true
+                  },
                   "keywords": {
                     "type": "string",
-                    "description": "",
                     "example": "system"
+                  },
+                  "zipcode_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      90001
+                    ]
+                  },
+                  "radius": {
+                    "type": "integer",
+                    "default": 5,
+                    "enum": [
+                      1,
+                      5,
+                      10,
+                      25,
+                      35,
+                      50,
+                      75,
+                      100
+                    ],
+                    "example": 5
                   },
                   "limit": {
                     "type": "integer",
-                    "description": "",
                     "example": 25
                   }
                 }
@@ -2307,12 +2605,77 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "annual_revenue": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "number",
+                        "enum": [
+                          0,
+                          0.5,
+                          1,
+                          2.5,
+                          5,
+                          10,
+                          20,
+                          50,
+                          100,
+                          500,
+                          1000
+                        ],
+                        "example": 1
+                      },
+                      "max": {
+                        "type": "number",
+                        "enum": [
+                          0.5,
+                          1,
+                          2.5,
+                          5,
+                          10,
+                          20,
+                          50,
+                          100,
+                          500,
+                          1000
+                        ],
+                        "example": 10
+                      },
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "USD",
+                          "AED",
+                          "AUD",
+                          "BRL",
+                          "CAD",
+                          "CNY",
+                          "DKK",
+                          "EUR",
+                          "GBP",
+                          "HKD",
+                          "IDR",
+                          "ILS",
+                          "INR",
+                          "JPY",
+                          "NOK",
+                          "NZD",
+                          "RUB",
+                          "SEK",
+                          "SGD",
+                          "THB",
+                          "TRY",
+                          "TWD"
+                        ],
+                        "example": "CAD"
+                      }
+                    }
+                  },
                   "company_headcounts": {
                     "type": "array",
                     "items": {
                       "type": "string",
                       "enum": [
-                        "Self-employed",
                         "1-10",
                         "11-50",
                         "51-200",
@@ -2323,7 +2686,6 @@
                         "10001+"
                       ]
                     },
-                    "description": "Filter companies by headcount range. Acceptable values are predefined headcount ranges.",
                     "example": [
                       "1001-5000",
                       "5001-10000"
@@ -2334,23 +2696,122 @@
                     "properties": {
                       "min": {
                         "type": "integer",
-                        "description": "Minimum percentage growth in headcount.",
                         "example": -10
                       },
                       "max": {
                         "type": "integer",
-                        "description": "Maximum percentage growth in headcount.",
                         "example": 10
                       }
-                    },
-                    "description": "Filter companies by headcount growth percentage."
+                    }
+                  },
+                  "department_headcount": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "integer",
+                        "nullable": true,
+                        "example": 0
+                      },
+                      "max": {
+                        "type": "integer",
+                        "nullable": true,
+                        "example": 10
+                      },
+                      "department": {
+                        "type": "string",
+                        "enum": [
+                          "Accounting",
+                          "Administrative",
+                          "Arts and Design",
+                          "Business Development",
+                          "Community and Social Services",
+                          "Consulting",
+                          "Education",
+                          "Engineering",
+                          "Entrepreneurship",
+                          "Finance",
+                          "Healthcare Services",
+                          "Human Resources",
+                          "Information Technology",
+                          "Legal",
+                          "Marketing",
+                          "Media and Communication",
+                          "Military and Protective Services",
+                          "Operations",
+                          "Product Management",
+                          "Program and Project Management",
+                          "Purchasing",
+                          "Quality Assurance",
+                          "Real Estate",
+                          "Research",
+                          "Sales",
+                          "Support"
+                        ],
+                        "example": "Accounting"
+                      }
+                    }
+                  },
+                  "department_headcount_growth": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "integer",
+                        "nullable": true,
+                        "example": 0
+                      },
+                      "max": {
+                        "type": "integer",
+                        "nullable": true,
+                        "example": 10
+                      },
+                      "department": {
+                        "type": "string",
+                        "enum": [
+                          "Accounting",
+                          "Administrative",
+                          "Arts and Design",
+                          "Business Development",
+                          "Community and Social Services",
+                          "Consulting",
+                          "Education",
+                          "Engineering",
+                          "Entrepreneurship",
+                          "Finance",
+                          "Healthcare Services",
+                          "Human Resources",
+                          "Information Technology",
+                          "Legal",
+                          "Marketing",
+                          "Media and Communication",
+                          "Military and Protective Services",
+                          "Operations",
+                          "Product Management",
+                          "Program and Project Management",
+                          "Purchasing",
+                          "Quality Assurance",
+                          "Real Estate",
+                          "Research",
+                          "Sales",
+                          "Support"
+                        ],
+                        "example": "Accounting"
+                      }
+                    }
                   },
                   "headquarters_location": {
                     "type": "array",
                     "items": {
                       "type": "integer"
                     },
-                    "description": "",
+                    "example": [
+                      103644278
+                    ]
+                  },
+                  "headquarters_location_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
                     "example": [
                       103644278
                     ]
@@ -2360,37 +2821,186 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "",
                     "example": [
                       3,
                       4
                     ]
                   },
+                  "industry_codes_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      5,
+                      6
+                    ]
+                  },
                   "hiring_on_linkedin": {
-                    "type": "string",
-                    "enum": [
-                      "true",
-                      "false"
-                    ],
-                    "description": "Filter companies hiring on LinkedIn.",
-                    "example": "false"
+                    "type": "boolean",
+                    "example": false
                   },
                   "recent_activities": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Senior leadership changes in last 3 months",
+                        "Funding events in past 12 months"
+                      ]
                     },
-                    "description": "",
                     "example": []
+                  },
+                  "technologies_used": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "jQuery",
+                        "Apache HTTP Server",
+                        "Let's Encrypt",
+                        "Google Analytics",
+                        "Google Marketing Platform",
+                        "Google Tag Manager",
+                        "Google Search Central",
+                        "WordPress.com Hosting",
+                        "Google Ads",
+                        "NGINX Plus",
+                        "jQuery UI",
+                        "cdnjs",
+                        "jsDelivr CDN",
+                        "GoDaddy Premium DNS",
+                        "Google Cloud Web Hosting",
+                        "Google Workspace",
+                        "React",
+                        "YouTube",
+                        "Amazon CloudFront",
+                        "Microsoft Outlook",
+                        "Microsoft Exchange",
+                        "PayPal",
+                        "Sectigo EV SSL Certificates",
+                        "DigiCert Secure Site Pro SSL",
+                        "AdSense",
+                        "GeoTrust QuickSSL Premium",
+                        "Sentry",
+                        "WordPress.org",
+                        "AddThis",
+                        "Jetpack",
+                        "Aura Managed CDN",
+                        "Ruby on Rails",
+                        "WhatsApp Business",
+                        "Varnish Enterprise",
+                        "Stripe",
+                        "Shutterstock",
+                        "Wix Forms & Payments",
+                        "Hotjar | by Contentsquare",
+                        "WPForms",
+                        "Ionos Web Hosting",
+                        "MooTools Core",
+                        "Bing Webmaster Tools",
+                        "AIOSEO",
+                        "TikTok",
+                        "Wix Velo",
+                        "Hetzner Web Hosting",
+                        "Cloudflare Bot Management",
+                        "Squarespace",
+                        "Gravity Forms",
+                        "Amazon EC2",
+                        "Google Identity",
+                        "CentOS",
+                        "Apple Pay",
+                        "Wordfence",
+                        "Joomla!",
+                        "Debian",
+                        "LiteSpeed Cache",
+                        "W3 Total Cache",
+                        "Matomo",
+                        "Hostgator Web Hosting",
+                        "Wix eCommerce",
+                        "Divi",
+                        "WP Rocket",
+                        "Vue.js",
+                        "AngularJS",
+                        "Amazon Simple Storage Service (S3)",
+                        "YUI",
+                        "Vimeo",
+                        "Ubuntu",
+                        "Visual Composer Website Builder",
+                        "Amazon Route 53",
+                        "GoDaddy Professional Business Email",
+                        "OpenSSL library",
+                        "Cloudflare DNS",
+                        "WooCommerce",
+                        "Mailchimp",
+                        "Cloudflare SSL / TLS",
+                        "LiteSpeed Web Server",
+                        "Elementor",
+                        "GoDaddy Managed SSL Service",
+                        "Pinterest",
+                        "Facebook Ads Manager",
+                        "Facebook for Media",
+                        "Bootstrap",
+                        "Meta for Business",
+                        "GSAP",
+                        "ComodoCA DV SSL Certificates",
+                        "GeoTrust QuickSSL Premium Wildcard",
+                        "PositiveSSL DV Wildcard Certificate",
+                        "ASP.NET",
+                        "Google Cloud Platform",
+                        "Facebook SDK for JavaScript",
+                        "cPanel & WHM",
+                        "Yoast",
+                        "Cloudflare CDN",
+                        "reCAPTCHA",
+                        "Internet Information Services",
+                        "Google Maps",
+                        "Video.js",
+                        "Shopify"
+                      ]
+                    },
+                    "example": [
+                      "jQuery",
+                      "Apache HTTP Server",
+                      "Let's Encrypt"
+                    ]
+                  },
+                  "number_of_followers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "1-50",
+                        "51-100",
+                        "101-1000",
+                        "1001-5000",
+                        "5001+"
+                      ]
+                    },
+                    "example": [
+                      "1-50"
+                    ]
+                  },
+                  "fortune": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Fortune 50",
+                        "Fortune 51-100",
+                        "Fortune 101-250",
+                        "Fortune 251-500"
+                      ]
+                    },
+                    "example": [
+                      "Fortune 50"
+                    ]
                   },
                   "keywords": {
                     "type": "string",
-                    "description": "",
                     "example": ""
                   },
                   "limit": {
                     "type": "integer",
-                    "description": "",
                     "example": 1000
                   }
                 },
