@@ -1998,44 +1998,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "x-json-schema-order": [
-                  "current_company_ids",
-                  "title_keywords",
-                  "functions",
-                  "geo_codes",
-                  "past_company_ids",
-                  "industry_codes",
-                  "seniority_levels",
-                  "year_in_current_company",
-                  "year_in_current_position",
-                  "years_of_experience",
-                  "current_company_names",
-                  "past_company_names",
-                  "company_type",
-                  "company_headquarter_location_ids",
-                  "company_headquarter_location_ids_exclude",
-                  "seniority_levels_exclude",
-                  "past_job_titles",
-                  "current_company_ids_exclude",
-                  "title_keywords_exclude",
-                  "functions_exclude",
-                  "geo_codes_exclude",
-                  "past_company_ids_exclude",
-                  "past_job_titles_exclude",
-                  "industry_codes_exclude",
-                  "first_name",
-                  "last_name",
-                  "profile_languages",
-                  "school_ids",
-                  "school_ids_exclude",
-                  "changed_jobs",
-                  "posted_on_linkedin",
-                  "mentioned_in_news",
-                  "keywords",
-                  "zipcode_ids",
-                  "radius",
-                  "limit"
-                ],
                 "properties": {
                   "current_company_ids": {
                     "type": "array",
@@ -2240,7 +2202,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "<a href='https://fdocs.info/tutorial/howto-geocode' target='_blank'>Learn how to find a geo_code</a>"
+                    "description": "[Learn how to find a geo_code](https://fdocs.info/tutorial/howto-geocode)"
                   },
                   "seniority_levels_exclude": {
                     "type": "array",
