@@ -2383,16 +2383,31 @@
                     ]
                   },
                   "changed_jobs": {
-                    "type": "boolean",
-                    "example": true
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "true"
                   },
                   "posted_on_linkedin": {
-                    "type": "boolean",
-                    "example": true
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "true"
                   },
                   "mentioned_in_news": {
-                    "type": "boolean",
-                    "example": true
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "true"
                   },
                   "keywords": {
                     "type": "string",
@@ -2891,8 +2906,13 @@
                     "description": "[All industry codes were list here](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)"
                   },
                   "hiring_on_linkedin": {
-                    "type": "boolean",
-                    "example": false
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "true"
                   },
                   "recent_activities": {
                     "type": "array",
