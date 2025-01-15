@@ -2007,7 +2007,8 @@
                     "example": [
                       162479,
                       1053
-                    ]
+                    ],
+                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
                   },
                   "title_keywords": {
                     "type": "array",
@@ -2017,32 +2018,6 @@
                     "example": [
                       "Director",
                       "Operation"
-                    ]
-                  },
-                  "current_company_ids_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    },
-                    "example": []
-                  },
-                  "title_keywords_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "example": [
-                      "Sales"
-                    ]
-                  },
-                  "current_company_names": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "example": [
-                      "Apple",
-                      "Microsoft"
                     ]
                   },
                   "functions": {
@@ -2083,41 +2058,6 @@
                       "Administrative"
                     ]
                   },
-                  "functions_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "Accounting",
-                        "Administrative",
-                        "Arts and Design",
-                        "Business Development",
-                        "Community and Social Services",
-                        "Consulting",
-                        "Education",
-                        "Engineering",
-                        "Entrepreneurship",
-                        "Finance",
-                        "Healthcare Services",
-                        "Human Resources",
-                        "Information Technology",
-                        "Legal",
-                        "Marketing",
-                        "Media and Communication",
-                        "Military and Protective Services",
-                        "Operations",
-                        "Product Management",
-                        "Program and Project Management",
-                        "Purchasing",
-                        "Quality Assurance",
-                        "Real Estate",
-                        "Research",
-                        "Sales",
-                        "Customer Success and Support"
-                      ]
-                    },
-                    "example": []
-                  },
                   "geo_codes": {
                     "type": "array",
                     "items": {
@@ -2126,17 +2066,8 @@
                     "example": [
                       103644278,
                       102299470
-                    ]
-                  },
-                  "geo_codes_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    },
-                    "example": [
-                      105080838,
-                      102257491
-                    ]
+                    ],
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
                   },
                   "past_company_ids": {
                     "type": "array",
@@ -2145,57 +2076,19 @@
                     },
                     "example": [
                       1009
-                    ]
+                    ],
+                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
                   },
-                  "past_company_ids_exclude": {
+                  "industry_codes": {
                     "type": "array",
                     "items": {
                       "type": "integer"
                     },
                     "example": [
-                      1009
-                    ]
-                  },
-                  "past_company_names": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "example": [
-                      "Apple",
-                      "Microsoft"
-                    ]
-                  },
-                  "company_type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "Public Company",
-                        "Privately Held",
-                        "Non Profit",
-                        "Educational Institution",
-                        "Partnership",
-                        "Self Employed",
-                        "Self Owned",
-                        "Government Agency"
-                      ]
-                    },
-                    "example": []
-                  },
-                  "company_headquarter_location_ids": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    },
-                    "example": []
-                  },
-                  "company_headquarter_location_ids_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    },
-                    "example": []
+                      3,
+                      4
+                    ],
+                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
                   },
                   "seniority_levels": {
                     "type": "array",
@@ -2215,43 +2108,6 @@
                       ]
                     },
                     "example": []
-                  },
-                  "seniority_levels_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "Owner/Partner",
-                        "CXO",
-                        "Vice President",
-                        "Director",
-                        "Experienced Manager",
-                        "Entry Level Manager",
-                        "Strategic",
-                        "Senior",
-                        "Entry Level",
-                        "In Training"
-                      ]
-                    },
-                    "example": []
-                  },
-                  "past_job_titles": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "example": [
-                      "CEO"
-                    ]
-                  },
-                  "past_job_titles_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "example": [
-                      "Founder"
-                    ]
                   },
                   "year_in_current_company": {
                     "type": "array",
@@ -2295,14 +2151,167 @@
                     },
                     "example": []
                   },
-                  "industry_codes": {
+                  "current_company_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Apple",
+                      "Microsoft"
+                    ]
+                  },
+                  "past_company_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Apple",
+                      "Microsoft"
+                    ]
+                  },
+                  "company_type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Public Company",
+                        "Privately Held",
+                        "Non Profit",
+                        "Educational Institution",
+                        "Partnership",
+                        "Self Employed",
+                        "Self Owned",
+                        "Government Agency"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "company_headquarter_location_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [],
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
+                  },
+                  "company_headquarter_location_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [],
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
+                  },
+                  "seniority_levels_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Owner/Partner",
+                        "CXO",
+                        "Vice President",
+                        "Director",
+                        "Experienced Manager",
+                        "Entry Level Manager",
+                        "Strategic",
+                        "Senior",
+                        "Entry Level",
+                        "In Training"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "past_job_titles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "CEO"
+                    ]
+                  },
+                  "current_company_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [],
+                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
+                  },
+                  "title_keywords_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Sales"
+                    ]
+                  },
+                  "functions_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Accounting",
+                        "Administrative",
+                        "Arts and Design",
+                        "Business Development",
+                        "Community and Social Services",
+                        "Consulting",
+                        "Education",
+                        "Engineering",
+                        "Entrepreneurship",
+                        "Finance",
+                        "Healthcare Services",
+                        "Human Resources",
+                        "Information Technology",
+                        "Legal",
+                        "Marketing",
+                        "Media and Communication",
+                        "Military and Protective Services",
+                        "Operations",
+                        "Product Management",
+                        "Program and Project Management",
+                        "Purchasing",
+                        "Quality Assurance",
+                        "Real Estate",
+                        "Research",
+                        "Sales",
+                        "Customer Success and Support"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "geo_codes_exclude": {
                     "type": "array",
                     "items": {
                       "type": "integer"
                     },
                     "example": [
-                      3,
-                      4
+                      105080838,
+                      102257491
+                    ],
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
+                  },
+                  "past_company_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      1009
+                    ],
+                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
+                  },
+                  "past_job_titles_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Founder"
                     ]
                   },
                   "industry_codes_exclude": {
@@ -2845,7 +2854,8 @@
                     },
                     "example": [
                       103644278
-                    ]
+                    ],
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
                   },
                   "headquarters_location_exclude": {
                     "type": "array",
@@ -2854,7 +2864,8 @@
                     },
                     "example": [
                       103644278
-                    ]
+                    ],
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
                   },
                   "industry_codes": {
                     "type": "array",
@@ -2864,7 +2875,8 @@
                     "example": [
                       3,
                       4
-                    ]
+                    ],
+                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
                   },
                   "industry_codes_exclude": {
                     "type": "array",
@@ -2874,7 +2886,8 @@
                     "example": [
                       5,
                       6
-                    ]
+                    ],
+                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
                   },
                   "hiring_on_linkedin": {
                     "type": "boolean",
