@@ -2008,7 +2008,7 @@
                       162479,
                       1053
                     ],
-                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
+                    "description": "Learn how to <a href='/tutorial/howto-find-company-id' target='_blank'>find a company_id</a>"
                   },
                   "title_keywords": {
                     "type": "array",
