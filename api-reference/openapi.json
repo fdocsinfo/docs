@@ -2008,7 +2008,7 @@
                       162479,
                       1053
                     ],
-                    "description": "[Learn how to find a company_id](/tutorial/howto-find-company-id)"
+                    "description": "Learn how to [find a company_id](/tutorial/howto-find-company-id)"
                   },
                   "title_keywords": {
                     "type": "array",
@@ -2067,7 +2067,7 @@
                       103644278,
                       102299470
                     ],
-                    "description": "[Learn how to find a geo_code](/tutorial/howto-geocode)"
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
                   },
                   "past_company_ids": {
                     "type": "array",
@@ -2077,7 +2077,7 @@
                     "example": [
                       1009
                     ],
-                    "description": "[Learn how to find a company_id](/tutorial/howto-find-company-id)"
+                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
                   },
                   "industry_codes": {
                     "type": "array",
@@ -2088,7 +2088,7 @@
                       3,
                       4
                     ],
-                    "description": "[All industry codes were list here](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)"
+                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
                   },
                   "seniority_levels": {
                     "type": "array",
@@ -2194,7 +2194,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "[Learn how to find a geo_code](/tutorial/howto-geocode)"
+                    "description": "[Learn how to find a geo_code](https://fdocs.info/tutorial/howto-geocode)"
                   },
                   "company_headquarter_location_ids_exclude": {
                     "type": "array",
@@ -2202,7 +2202,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "[Learn how to find a geo_code](/tutorial/howto-geocode)"
+                    "description": "<a href='https://fdocs.info/tutorial/howto-geocode' target='_blank'>Learn how to find a geo_code</a>"
                   },
                   "seniority_levels_exclude": {
                     "type": "array",
@@ -2238,7 +2238,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "[Learn how to find a company_id](/tutorial/howto-find-company-id)"
+                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
                   },
                   "title_keywords_exclude": {
                     "type": "array",
@@ -2293,7 +2293,7 @@
                       105080838,
                       102257491
                     ],
-                    "description": "[Learn how to find a geo_code](/tutorial/howto-geocode)"
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
                   },
                   "past_company_ids_exclude": {
                     "type": "array",
@@ -2303,7 +2303,7 @@
                     "example": [
                       1009
                     ],
-                    "description": "[Learn how to find a company_id](/tutorial/howto-find-company-id)"
+                    "description": "Learn how to find a company_id: https://fdocs.info/tutorial/howto-find-company-id"
                   },
                   "past_job_titles_exclude": {
                     "type": "array",
@@ -2322,8 +2322,7 @@
                     "example": [
                       5,
                       6
-                    ],
-                    "description": "[All industry codes were list here](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)"
+                    ]
                   },
                   "first_name": {
                     "type": "string",
@@ -2383,31 +2382,16 @@
                     ]
                   },
                   "changed_jobs": {
-                    "type": "string",
-                    "description": "",
-                    "enum": [
-                      "true",
-                      "false"
-                    ],
-                    "example": "true"
+                    "type": "boolean",
+                    "example": true
                   },
                   "posted_on_linkedin": {
-                    "type": "string",
-                    "description": "",
-                    "enum": [
-                      "true",
-                      "false"
-                    ],
-                    "example": "true"
+                    "type": "boolean",
+                    "example": true
                   },
                   "mentioned_in_news": {
-                    "type": "string",
-                    "description": "",
-                    "enum": [
-                      "true",
-                      "false"
-                    ],
-                    "example": "true"
+                    "type": "boolean",
+                    "example": true
                   },
                   "keywords": {
                     "type": "string",
@@ -2871,7 +2855,7 @@
                     "example": [
                       103644278
                     ],
-                    "description": "[Learn how to find a geo_code](/tutorial/howto-geocode)"
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
                   },
                   "headquarters_location_exclude": {
                     "type": "array",
@@ -2881,7 +2865,7 @@
                     "example": [
                       103644278
                     ],
-                    "description": "[Learn how to find a geo_code](/tutorial/howto-geocode)"
+                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
                   },
                   "industry_codes": {
                     "type": "array",
@@ -2892,7 +2876,7 @@
                       3,
                       4
                     ],
-                    "description": "[All industry codes were list here](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)"
+                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
                   },
                   "industry_codes_exclude": {
                     "type": "array",
@@ -2903,16 +2887,11 @@
                       5,
                       6
                     ],
-                    "description": "[All industry codes were list here](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)"
+                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
                   },
                   "hiring_on_linkedin": {
-                    "type": "string",
-                    "description": "",
-                    "enum": [
-                      "true",
-                      "false"
-                    ],
-                    "example": "true"
+                    "type": "boolean",
+                    "example": false
                   },
                   "recent_activities": {
                     "type": "array",
