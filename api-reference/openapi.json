@@ -2194,7 +2194,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
+                    "description": "[Learn how to find a geo_code](https://fdocs.info/tutorial/howto-geocode)"
                   },
                   "company_headquarter_location_ids_exclude": {
                     "type": "array",
