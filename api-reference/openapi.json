@@ -2009,13 +2009,6 @@
                       1053
                     ]
                   },
-                  "current_company_ids_exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    },
-                    "example": []
-                  },
                   "title_keywords": {
                     "type": "array",
                     "items": {
@@ -2025,6 +2018,13 @@
                       "Director",
                       "Operation"
                     ]
+                  },
+                  "current_company_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": []
                   },
                   "title_keywords_exclude": {
                     "type": "array",
@@ -2048,36 +2048,36 @@
                   "functions": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Accounting",
+                        "Administrative",
+                        "Arts and Design",
+                        "Business Development",
+                        "Community and Social Services",
+                        "Consulting",
+                        "Education",
+                        "Engineering",
+                        "Entrepreneurship",
+                        "Finance",
+                        "Healthcare Services",
+                        "Human Resources",
+                        "Information Technology",
+                        "Legal",
+                        "Marketing",
+                        "Media and Communication",
+                        "Military and Protective Services",
+                        "Operations",
+                        "Product Management",
+                        "Program and Project Management",
+                        "Purchasing",
+                        "Quality Assurance",
+                        "Real Estate",
+                        "Research",
+                        "Sales",
+                        "Customer Success and Support"
+                      ]
                     },
-                    "enum": [
-                      "Accounting",
-                      "Administrative",
-                      "Arts and Design",
-                      "Business Development",
-                      "Community and Social Services",
-                      "Consulting",
-                      "Education",
-                      "Engineering",
-                      "Entrepreneurship",
-                      "Finance",
-                      "Healthcare Services",
-                      "Human Resources",
-                      "Information Technology",
-                      "Legal",
-                      "Marketing",
-                      "Media and Communication",
-                      "Military and Protective Services",
-                      "Operations",
-                      "Product Management",
-                      "Program and Project Management",
-                      "Purchasing",
-                      "Quality Assurance",
-                      "Real Estate",
-                      "Research",
-                      "Sales",
-                      "Customer Success and Support"
-                    ],
                     "example": [
                       "Accounting",
                       "Administrative"
@@ -2086,7 +2086,35 @@
                   "functions_exclude": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Accounting",
+                        "Administrative",
+                        "Arts and Design",
+                        "Business Development",
+                        "Community and Social Services",
+                        "Consulting",
+                        "Education",
+                        "Engineering",
+                        "Entrepreneurship",
+                        "Finance",
+                        "Healthcare Services",
+                        "Human Resources",
+                        "Information Technology",
+                        "Legal",
+                        "Marketing",
+                        "Media and Communication",
+                        "Military and Protective Services",
+                        "Operations",
+                        "Product Management",
+                        "Program and Project Management",
+                        "Purchasing",
+                        "Quality Assurance",
+                        "Real Estate",
+                        "Research",
+                        "Sales",
+                        "Customer Success and Support"
+                      ]
                     },
                     "example": []
                   },
@@ -2141,18 +2169,18 @@
                   "company_type": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Public Company",
+                        "Privately Held",
+                        "Non Profit",
+                        "Educational Institution",
+                        "Partnership",
+                        "Self Employed",
+                        "Self Owned",
+                        "Government Agency"
+                      ]
                     },
-                    "enum": [
-                      "Public Company",
-                      "Privately Held",
-                      "Non Profit",
-                      "Educational Institution",
-                      "Partnership",
-                      "Self Employed",
-                      "Self Owned",
-                      "Government Agency"
-                    ],
                     "example": []
                   },
                   "company_headquarter_location_ids": {
@@ -2172,26 +2200,38 @@
                   "seniority_levels": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Owner/Partner",
+                        "CXO",
+                        "Vice President",
+                        "Director",
+                        "Experienced Manager",
+                        "Entry Level Manager",
+                        "Strategic",
+                        "Senior",
+                        "Entry Level",
+                        "In Training"
+                      ]
                     },
-                    "enum": [
-                      "Owner/Partner",
-                      "CXO",
-                      "Vice President",
-                      "Director",
-                      "Experienced Manager",
-                      "Entry Level Manager",
-                      "Strategic",
-                      "Senior",
-                      "Entry Level",
-                      "In Training"
-                    ],
                     "example": []
                   },
                   "seniority_levels_exclude": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Owner/Partner",
+                        "CXO",
+                        "Vice President",
+                        "Director",
+                        "Experienced Manager",
+                        "Entry Level Manager",
+                        "Strategic",
+                        "Senior",
+                        "Entry Level",
+                        "In Training"
+                      ]
                     },
                     "example": []
                   },
@@ -2216,43 +2256,43 @@
                   "year_in_current_company": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Less than 1 year",
+                        "1 to 2 years",
+                        "3 to 5 years",
+                        "6 to 10 years",
+                        "More than 10 years"
+                      ]
                     },
-                    "enum": [
-                      "Less than 1 year",
-                      "1 to 2 years",
-                      "3 to 5 years",
-                      "6 to 10 years",
-                      "More than 10 years"
-                    ],
                     "example": []
                   },
                   "year_in_current_position": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Less than 1 year",
+                        "1 to 2 years",
+                        "3 to 5 years",
+                        "6 to 10 years",
+                        "More than 10 years"
+                      ]
                     },
-                    "enum": [
-                      "Less than 1 year",
-                      "1 to 2 years",
-                      "3 to 5 years",
-                      "6 to 10 years",
-                      "More than 10 years"
-                    ],
                     "example": []
                   },
                   "years_of_experience": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Less than 1 year",
+                        "1 to 2 years",
+                        "3 to 5 years",
+                        "6 to 10 years",
+                        "More than 10 years"
+                      ]
                     },
-                    "enum": [
-                      "Less than 1 year",
-                      "1 to 2 years",
-                      "3 to 5 years",
-                      "6 to 10 years",
-                      "More than 10 years"
-                    ],
                     "example": []
                   },
                   "industry_codes": {
@@ -2286,32 +2326,32 @@
                   "profile_languages": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "Arabic",
+                        "English",
+                        "Spanish",
+                        "Portuguese",
+                        "Chinese",
+                        "French",
+                        "Italian",
+                        "Russian",
+                        "German",
+                        "Dutch",
+                        "Turkish",
+                        "Tagalog",
+                        "Polish",
+                        "Korean",
+                        "Japanese",
+                        "Malay",
+                        "Norwegian",
+                        "Danish",
+                        "Romanian",
+                        "Swedish",
+                        "Bahasa Indonesia",
+                        "Czech"
+                      ]
                     },
-                    "enum": [
-                      "Arabic",
-                      "English",
-                      "Spanish",
-                      "Portuguese",
-                      "Chinese",
-                      "French",
-                      "Italian",
-                      "Russian",
-                      "German",
-                      "Dutch",
-                      "Turkish",
-                      "Tagalog",
-                      "Polish",
-                      "Korean",
-                      "Japanese",
-                      "Malay",
-                      "Norwegian",
-                      "Danish",
-                      "Romanian",
-                      "Swedish",
-                      "Bahasa Indonesia",
-                      "Czech"
-                    ],
                     "example": []
                   },
                   "school_ids": {
