@@ -29,10 +29,10 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri",
-              "example": "https://www.linkedin.com/in/cjfollini/"
+              "format": "uri"
             },
-            "description": ""
+            "description": "",
+            "example": "https://www.linkedin.com/in/cjfollini/"
           },
           {
             "name": "include_skills",
@@ -6000,7 +6000,8 @@
         "properties": {
           "message": {
             "type": "string",
-            "description": "A message providing details about the search status."
+            "description": "A message providing details about the search status.",
+            "example": "Your search was added to queue (pending) / Found 17/100 profiles (processing) / Found 100/100 employees (done)"
           },
           "status": {
             "type": "string",
