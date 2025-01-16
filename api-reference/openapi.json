@@ -2071,7 +2071,6 @@
                   },
                   "past_company_ids": {
                     "type": "array",
-                    
                     "items": {
                       "type": "integer"
                     },
@@ -2154,7 +2153,7 @@
                   },
                   "current_company_names": {
                     "type": "array",
-                    "description":"In case the **company_id** is not available, use this filter instead.",
+                    "description": "In case the **company_id** is not available, use this filter instead.",
                     "items": {
                       "type": "string"
                     },
@@ -2244,7 +2243,7 @@
                   },
                   "title_keywords_exclude": {
                     "type": "array",
-                    "description":"To exclude some title keywords.",
+                    "description": "To exclude some title keywords.",
                     "items": {
                       "type": "string"
                     },
@@ -2385,23 +2384,36 @@
                     ]
                   },
                   "changed_jobs": {
-                    "type": "boolean",
-                    "description":"Filter for profiles who changed job recently.",
-                    "example": true
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "false"
                   },
                   "posted_on_linkedin": {
-                    "type": "boolean",
-                    "example": true
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "false"
                   },
                   "mentioned_in_news": {
-                    "type": "boolean",
-                    "example": true
-
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "false"
                   },
                   "keywords": {
                     "type": "string",
                     "example": "system",
-                    "description":"Support Boolean keywords as well. For example: AI OR \"machine learning\"."
+                    "description": "Support Boolean keywords as well. For example: AI OR \"machine learning\"."
                   },
                   "zipcode_ids": {
                     "type": "array",
@@ -2414,7 +2426,7 @@
                   },
                   "radius": {
                     "type": "integer",
-                    "description":"To be used together with the **zipcode_ids** filter to define the radius in mile.",
+                    "description": "To be used together with the **zipcode_ids** filter to define the radius in mile.",
                     "default": 5,
                     "enum": [
                       1,
@@ -2897,8 +2909,13 @@
                     "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
                   },
                   "hiring_on_linkedin": {
-                    "type": "boolean",
-                    "example": false
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "false"
                   },
                   "recent_activities": {
                     "type": "array",
