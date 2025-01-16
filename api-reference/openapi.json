@@ -2400,7 +2400,8 @@
                   },
                   "keywords": {
                     "type": "string",
-                    "example": "system"
+                    "example": "system",
+                    "description":"Support Boolean keywords as well. For example: AI OR \"machine learning\"."
                   },
                   "zipcode_ids": {
                     "type": "array",
