@@ -38,7 +38,8 @@
     {
       "group": "Overview",
       "pages": [
-        "introduction"
+        "introduction",
+        "quickstart"
       ]
     },
     {
