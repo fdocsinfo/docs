@@ -2874,7 +2874,7 @@
                     "example": [
                       103644278
                     ],
-                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
+                    "description": "Learn how to [find a geo_code](https://fdocs.info/tutorial/howto-geocode)"
                   },
                   "headquarters_location_exclude": {
                     "type": "array",
@@ -2884,7 +2884,7 @@
                     "example": [
                       103644278
                     ],
-                    "description": "Learn how to find a geo_code: https://fdocs.info/tutorial/howto-geocode"
+                    "description": "To exclude some locations. Learn how to [find a geo_code](https://fdocs.info/tutorial/howto-geocode)"
                   },
                   "industry_codes": {
                     "type": "array",
