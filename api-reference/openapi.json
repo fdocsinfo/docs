@@ -2008,7 +2008,7 @@
                       162479,
                       1053
                     ],
-                    "description": "To filter by current company. Learn how to [find a company_id](/tutorial/howto-find-company-id)"
+                    "description": "To filter by current company. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
                   },
                   "title_keywords": {
                     "type": "array",
@@ -2067,7 +2067,7 @@
                       103644278,
                       102299470
                     ],
-                    "description": "To filter by location. Learn how to [find a geo_code](/tutorial/howto-geocode)"
+                    "description": "To filter by location. Learn how to [find a geo_code](/tutorial/howto-geocode)."
                   },
                   "past_company_ids": {
                     "type": "array",
@@ -2078,7 +2078,7 @@
                     "example": [
                       1009
                     ],
-                    "description": "To filter by past company. Learn how to [find a company_id](/tutorial/howto-find-company-id)"
+                    "description": "To filter by past company. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
                   },
                   "industry_codes": {
                     "type": "array",
@@ -2089,7 +2089,7 @@
                       3,
                       4
                     ],
-                    "description": "All industry codes were list [here]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)"
+                    "description": "All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
                   },
                   "seniority_levels": {
                     "type": "array",
@@ -2154,7 +2154,7 @@
                   },
                   "current_company_names": {
                     "type": "array",
-                    "description":"In case you don't have a company_id, use this filter instead.",
+                    "description":"In case the **company_id** is not available, use this filter instead.",
                     "items": {
                       "type": "string"
                     },
@@ -2240,7 +2240,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "To exclude some companies. Learn how to [find a company_id](/tutorial/howto-find-company-id)"
+                    "description": "To exclude some companies. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
                   },
                   "title_keywords_exclude": {
                     "type": "array",
@@ -2386,6 +2386,7 @@
                   },
                   "changed_jobs": {
                     "type": "boolean",
+                    "description":"Filter for profiles who changed job recently.",
                     "example": true
                   },
                   "posted_on_linkedin": {
@@ -2395,6 +2396,7 @@
                   "mentioned_in_news": {
                     "type": "boolean",
                     "example": true
+
                   },
                   "keywords": {
                     "type": "string",
@@ -2411,6 +2413,7 @@
                   },
                   "radius": {
                     "type": "integer",
+                    "description":"To be used together with the **zipcode_ids** filter to define the radius in mile.",
                     "default": 5,
                     "enum": [
                       1,
