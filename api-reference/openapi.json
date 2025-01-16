@@ -2386,7 +2386,7 @@
                   },
                   "changed_jobs": {
                     "type": "boolean",
-                    "description":"Filter for profiles who changed job recently.",
+                    "description":"Filter for profiles who changed job recently (90 days).",
                     "example": true
                   },
                   "posted_on_linkedin": {
