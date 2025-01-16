@@ -38,8 +38,7 @@
     {
       "group": "Overview",
       "pages": [
-        "introduction",
-        "quickstart"
+        "introduction"
       ]
     },
     {
@@ -62,7 +61,7 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "quickstart"
       ]
     },
     {
