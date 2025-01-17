@@ -738,7 +738,7 @@
           {
             "name": "company_id",
             "in": "query",
-            "description": "",
+            "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id).",
             "required": true,
             "schema": {
               "type": "integer"
@@ -801,7 +801,7 @@
           {
             "name": "company_id",
             "in": "query",
-            "description": "",
+            "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id).",
             "required": true,
             "schema": {
               "type": "integer"
@@ -996,12 +996,12 @@
                   },
                   "keywords": {
                     "type": "string",
-                    "description": "Keywords to refine the search.",
+                    "description": "",
                     "example": ""
                   },
                   "where_they_live": {
                     "type": "array",
-                    "description": "Location IDs representing where the individuals live.",
+                    "description": "Learn how to [find values for where_they_live](https://fdocs.info/tutorial/howto-custom-headcount-inputs#where-they-live)",
                     "items": {
                       "type": "integer"
                     },
@@ -1012,7 +1012,7 @@
                   },
                   "where_they_studied": {
                     "type": "array",
-                    "description": "School IDs representing where the individuals studied.",
+                    "description": "Learn how to [find values for where_they_studied](https://fdocs.info/tutorial/howto-custom-headcount-inputs#where-they-studied)",
                     "items": {
                       "type": "integer"
                     },
@@ -1023,7 +1023,7 @@
                   },
                   "what_they_do": {
                     "type": "array",
-                    "description": "Industry or job function IDs representing what the individuals do.",
+                    "description": "Learn how to [find values for what_they_do](https://fdocs.info/tutorial/howto-custom-headcount-inputs#what-they-do)",
                     "items": {
                       "type": "integer"
                     },
@@ -1034,7 +1034,7 @@
                   },
                   "what_they_are_skilled_at": {
                     "type": "array",
-                    "description": "Skill IDs representing what the individuals are skilled at.",
+                    "description": "Learn how to [find values for what_they_are_skilled_at](https://fdocs.info/tutorial/howto-custom-headcount-inputs#what-they-are-skilled-at)",
                     "items": {
                       "type": "integer"
                     },
@@ -1045,7 +1045,7 @@
                   },
                   "what_they_studied": {
                     "type": "array",
-                    "description": "Field of study IDs representing what the individuals studied.",
+                    "description": "Learn how to [find values for what_they_studied](https://fdocs.info/tutorial/howto-custom-headcount-inputs#what-they-studied)",
                     "items": {
                       "type": "integer"
                     },
@@ -1055,13 +1055,16 @@
                   },
                   "include_subsidiaries": {
                     "type": "string",
-                    "description": "Include subsidiaries in the search. Possible values: 'true', 'false'.",
+                    "description": "Default: true",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
                     "example": "false"
                   }
                 },
                 "required": [
-                  "linkedin_url",
-                  "include_subsidiaries"
+                  "linkedin_url"
                 ]
               }
             }
@@ -1575,7 +1578,7 @@
                       "type": "integer"
                     },
                     "nullable": true,
-                    "description": "List of company IDs.",
+                    "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id).",
                     "example": [
                       1035,
                       1586
@@ -1598,7 +1601,7 @@
                       "type": "integer"
                     },
                     "nullable": true,
-                    "description": "List of company IDs mentioned in the posts.",
+                    "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id).",
                     "example": [
                       1035,
                       1586
@@ -1610,7 +1613,7 @@
                       "type": "integer"
                     },
                     "nullable": true,
-                    "description": "List of company IDs.",
+                    "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id).",
                     "example": [
                       1035,
                       1586
@@ -1622,7 +1625,7 @@
                       "type": "integer"
                     },
                     "nullable": true,
-                    "description": "List of industry codes.",
+                    "description": "All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2).",
                     "example": [
                       3,
                       4
@@ -1631,7 +1634,7 @@
                   "author_keyword": {
                     "type": "string",
                     "nullable": true,
-                    "description": "Keyword to filter posts by author's title or profile.",
+                    "description": "Author title keywords.",
                     "example": "marketing manager"
                   },
                   "page": {
@@ -1734,7 +1737,7 @@
                     "items": {
                       "type": "integer"
                     },
-                    "description": "Filter jobs by specific company IDs.",
+                    "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id).",
                     "example": [
                       1035
                     ]
@@ -1757,7 +1760,7 @@
                         "Hybrid"
                       ]
                     },
-                    "description": "Filter jobs by work environment. Acceptable values include predefined options: On-site, Remote, or Hybrid.",
+                    "description": "",
                     "example": [
                       "Remote",
                       "Hybrid"
@@ -1781,7 +1784,7 @@
                         "Advertising"
                       ]
                     },
-                    "description": "Filter jobs by specific functions. Acceptable values include predefined job functions.",
+                    "description": "",
                     "example": [
                       "Marketing",
                       "Sales"
@@ -1808,7 +1811,7 @@
                         "Other"
                       ]
                     },
-                    "description": "Filter jobs by types. Acceptable values include predefined job types.",
+                    "description": "",
                     "example": [
                       "Full-time",
                       "Internship"
@@ -1816,16 +1819,16 @@
                   },
                   "sort_by": {
                     "type": "string",
-                    "description": "Sort jobs by relevance or most recent.",
+                    "description": "",
                     "enum": [
                       "Most recent",
                       "Most relevant"
                     ],
-                    "example": "Most relevant"
+                    "example": ""
                   },
                   "easy_apply": {
                     "type": "string",
-                    "description": "Filter jobs with the easy apply option. Acceptable values are 'true' or 'false'.",
+                    "description": "",
                     "enum": [
                       "true",
                       "false"
@@ -2895,7 +2898,7 @@
                       3,
                       4
                     ],
-                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
+                    "description": "All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
                   },
                   "industry_codes_exclude": {
                     "type": "array",
@@ -2906,7 +2909,7 @@
                       5,
                       6
                     ],
-                    "description": "All industry codes were list here: https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2"
+                    "description": "All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
                   },
                   "hiring_on_linkedin": {
                     "type": "string",

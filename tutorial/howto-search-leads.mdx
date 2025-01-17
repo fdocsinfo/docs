@@ -86,8 +86,8 @@ Below is how you can do it easily in the Python language, step by step.
             response = requests.get(url, headers=headers, params=querystring)
             response_data = response.json()
 
-            if "results" in response_data and response_data["results"]:
-                all_results.extend(response_data["results"])
+            if response_data.get("data"):
+                all_results.extend(response_data.get("data"))
                 page += 1
             else:
                 #no more results
