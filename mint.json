@@ -56,7 +56,8 @@
         "tutorial/howto-find-company-id",
         "tutorial/howto-custom-headcount-inputs",
         "tutorial/understanding-employee-search-filters",
-        "tutorial/understanding-company-search-filters"
+        "tutorial/understanding-company-search-filters",
+        "tutorial/filters-values-references"
       ]
     },
     {
@@ -86,7 +87,6 @@
         "api-reference/endpoint/get-company-jobs-count"
       ]
     },
-    
     {
       "group": "Employee Search (via Sales Navigator)",
       "pages": [

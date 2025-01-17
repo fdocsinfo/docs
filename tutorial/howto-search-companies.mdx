@@ -72,8 +72,8 @@ Here’s how you can achieve this step-by-step using Python.
             response = requests.get(RESULTS_URL, headers=headers, params=querystring)
             data = response.json()
 
-            if "results" in data and data["results"]:
-                all_results.extend(data["results"])
+            if data.get("data"):
+                all_results.extend(data["data"])
                 page += 1
             else:
                 break
