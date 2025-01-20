@@ -1,16 +1,20 @@
 ---
-title: 'RAPIDAPI best practices'
+title: 'RAPIDAPI Best Practices'
 description: ''
 ---
 
-## Managing your remaining credits
+## Managing Your Remaining Credits
 
-Text
+To check the number of credits used or remaining, after completing any request to our API endpoints, 
+please refer to the response header. The key `x-rapidapi-credits-remaining` will provide you with this information.
 
-## Apply cache to your requests
+## Apply Cache to Your Requests
 
-Text
+Working with APIs is straightforward, but to maximize efficiency and avoid unnecessary costs, we recommend implementing a caching mechanism that allows the following:
+- The code enables making requests.
+- Save the results of successful requests (with status codes 200 or 404) into a directory (cache), with the filename hashed based on the URL and parameters.
+- Before executing a request, search for the result in the cache directory. If not found, proceed with the request.
 
-## Is it able to cancel the subscription though the circle has not ended.
+## Can I Cancel the Subscription Before the Billing Cycle Ends?
 
-Text
+It is not recommended to cancel a subscription when you still have remaining credits/requests on RapidAPI or before the billing cycle ends. Canceling a subscription means you will no longer have access to that API. Unlike many other platforms where you can cancel at any time and continue using until the end of the cycle, this is not possible on RapidAPI.
