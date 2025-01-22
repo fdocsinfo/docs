@@ -1,6 +1,12 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Fresh LinkedIn Data API",
+  "analytics": {
+      "ga4": {
+          "measurementId": "G-MW7TC49CDD"
+      }
+  },
+
   "logo": {
     "dark": "/logo/freshdata-logo.png",
     "light": "/logo/freshdata-logo.png"
