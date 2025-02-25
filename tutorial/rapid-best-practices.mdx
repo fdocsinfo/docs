@@ -5,16 +5,27 @@ description: ''
 
 ## Managing Your Remaining Credits
 
-To check the number of credits used or remaining, after completing any request to our API endpoints, 
+To check the number of credits used or remaining, after completing any request to our API endpoints,
 please refer to the response header. The key `x-rapidapi-credits-remaining` will provide you with this information.
 
 ## Apply Cache to Your Requests
 
 Working with APIs is straightforward, but to maximize efficiency and avoid unnecessary costs, we recommend implementing a caching mechanism that allows the following:
-- The code enables making requests.
-- Save the results of successful requests (with status codes 200 or 404) into a directory (cache), with the filename hashed based on the URL and parameters.
-- Before executing a request, search for the result in the cache directory. If not found, proceed with the request.
+
+* The code enables making requests.
+
+* Save the results of successful requests (with status codes 200 or 404) into a directory (cache), with the filename hashed based on the URL and parameters.
+
+* Before executing a request, search for the result in the cache directory. If not found, proceed with the request.
 
 ## Can I Cancel the Subscription Before the Billing Cycle Ends?
 
-It is not recommended to cancel a subscription when you still have remaining credits/requests on RapidAPI or before the billing cycle ends. Canceling a subscription means you will no longer have access to that API. Unlike many other platforms where you can cancel at any time and continue using until the end of the cycle, this is not possible on RapidAPI.
+It is **not recommended** to cancel a subscription if you still have remaining credits/requests or before the billing cycle ends.
+
+Canceling a subscription on RapidAPI means you will **immediately lose access** to that API, unlike many other platforms where you can cancel at any time and continue using the service until the end of the billing cycle, this is not possible on RapidAPI.
+
+## Should I Upgrade or Downgrade to Another Plan While I Still Have Credits on My Current Plan?
+
+Once again, unlike many other platforms where you can upgrade or downgrade at any time and have your remaining credits carried over, this is **not** possible on RapidAPI—your remaining credits will **disappear** when you switch plans.
+
+This is a known issue with RapidAPI, and we believe they will address it soon. However, until they do, we strongly **advise against** upgrading or downgrading while you still have unused credits on your current plan.
