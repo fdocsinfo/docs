@@ -21,7 +21,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "Get comprehensive profile data, including experience, education history, and current company details. 1 credit per call. Using each extra option will cost another 0.5 credits.",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -235,7 +235,7 @@
     },
     "/get-profile-recent-activity-time": {
       "get": {
-        "description": "Get the time of the latest profile activity",
+        "description": "Get the time of the latest profile activity. 2 credits per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -303,7 +303,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "Get comprehensive profile data, including experience, education history, and current company details. 1 credit per call. Using each extra option will cost another 0.5 credits.",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -518,7 +518,7 @@
     "/google-full-profiles": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": "Discover LinkedIn profiles via Google using details like job title, company, location, or keywords, and perform a comprehensive analysis to generate match scores. This endpoint is optimized to pinpoint LinkedIn contacts with precision based on the basic information provided. Credit Cost: Base cost: 2 credits. Additional cost: 1 credit per selected profile. For example: Selecting 1 profile = 3 credits, Selecting 2 profiles = 4 credits.",
         "requestBody": {
           "required": true,
           "content": {
