@@ -1997,14 +1997,7 @@
     "/search-employees": {
       "post": {
         "summary": "",
-        "description": "- Streamline your  Sales Navigator lead searches effortlessly without connecting your own account. \n\n
-
-- How the Process Works:\n\n
-1. **Step 1: Initiate Search** \n\n Send a request with specific criteria and receive a request_id. Each search costs 50 credits even though there are no results for your search. \n\n
-2. **Step 2: Monitor Progress** \n\nUse the Check Search Status endpoint (free of charge). \n\n
-3. **Step 3: Retrieve Results** \n\nFetch results via the Get Search Result endpoint. Each profile costs 0.5 credits (e.g., 100 results = 50 credits).\n\n
-
-- For demo code and better understanding, please follow this tutorial: **https://fdocs.info/tutorial/howto-search-leads**",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
