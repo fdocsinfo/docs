@@ -21,9 +21,9 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "Get comprehensive profile data, including experience, education history, and current company details. 
-        1 credit per call. 
-        Using each extra option will cost another 0.5 credits.",
+        "description": ["Get comprehensive profile data, including experience, education history, and current company details.",
+        "1 credit per call.",
+        "Using each extra option will cost another 0.5 credits."],
         "parameters": [
           {
             "name": "linkedin_url",
