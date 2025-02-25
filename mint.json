@@ -70,7 +70,8 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/quickstart"
+        "api-reference/quickstart",
+        "api-reference/understanding-credit-usage"
       ]
     },
     {
