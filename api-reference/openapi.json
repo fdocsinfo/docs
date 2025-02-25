@@ -731,7 +731,7 @@
     },
     "/get-company-by-id": {
       "get": {
-        "description": "",
+        "description": "- Retrieve valuable data points using a company’s LinkedIn internal ID. \n\n - 1 credit per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -794,7 +794,7 @@
     },
     "/get-company-insights": {
       "get": {
-        "description": "",
+        "description": "- Get company insights from Linkedin sales navigator. \n\n - 5 credits per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -857,7 +857,7 @@
     },
     "/get-account-iq": {
       "get": {
-        "description": "",
+        "description": "- Get company account IQ from Linkedin sales navigator. \n\n - 5 credits per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -920,7 +920,7 @@
     },
     "/get-company-jobs-count": {
       "get": {
-        "description": "",
+        "description": " - Get the number of job openings a company has posted on LinkedIn. \n\n - 1 credit per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -984,7 +984,7 @@
     "/find-custom-headcount": {
       "post": {
         "summary": "Custom headcount by filters",
-        "description": "",
+        "description": "- Discover the count of employees within a specific company who meet designated criteria. \n\n - 1 credit per call.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1139,7 +1139,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "- Retrieve posts from a person's profile. Pagination is supported for accessing all posts. \n\n - 2 credits per call",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -1237,7 +1237,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "- Get comments of a post. \n\n - 1 credit per call.",
         "parameters": [
           {
             "name": "urn",
@@ -1330,7 +1330,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "- Get reactions of a post. \n\n - 1 credit per call.",
         "parameters": [
           {
             "name": "urn",
@@ -1421,7 +1421,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "- Get posts from a LinkedIn company page.  Pagination is supported to fetch all posts. \n\n - 2 credits per call.",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -1514,7 +1514,7 @@
     "/search-posts": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": "- Simulates LinkedIn's Post Search Function with most important filters.  \n\n - 2 credits per call.",
         "requestBody": {
           "required": true,
           "content": {
