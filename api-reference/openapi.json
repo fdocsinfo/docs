@@ -521,9 +521,7 @@
     "/google-full-profiles": {
       "post": {
         "summary": "",
-        "description": " - Discover LinkedIn profiles via Google using details like job title, company, location, or keywords, and perform a comprehensive analysis to generate match scores. This endpoint is optimized to pinpoint LinkedIn contacts with precision based on the basic information provided. \n\n
-        - Credit Cost: Base cost: 2 credits. Additional cost: 1 credit per selected profile. \n\n 
-- For example: Selecting 1 profile = 3 credits, Selecting 2 profiles = 4 credits.",
+        "description": " - Discover LinkedIn profiles via Google using details like job title, company, location, or keywords, and perform a comprehensive analysis to generate match scores. This endpoint is optimized to pinpoint LinkedIn contacts with precision based on the basic information provided. \n\n - Credit Cost: Base cost: 2 credits. Additional cost: 1 credit per selected profile. \n\n - For example: Selecting 1 profile = 3 credits, Selecting 2 profiles = 4 credits.",
         "requestBody": {
           "required": true,
           "content": {
@@ -617,7 +615,7 @@
     },
     "/get-company-by-linkedinurl": {
       "get": {
-        "description": "",
+        "description": "- Retrieve valuable data points using a company’s LinkedIn URL. \n\n - 1 credit per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -680,7 +678,7 @@
     },
     "/get-company-by-domain": {
       "get": {
-        "description": "",
+        "description": "- Find a company on LinkedIn using its web domain. \n\n - 1 credit per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -733,7 +731,7 @@
     },
     "/get-company-by-id": {
       "get": {
-        "description": "",
+        "description": " - Retrieve valuable data points using a company’s LinkedIn internal ID. \n\n - 1 credit per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -796,7 +794,7 @@
     },
     "/get-company-insights": {
       "get": {
-        "description": "",
+        "description": " - Get company insights from Linkedin sales navigator. \n\n - 5 credits per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -859,7 +857,7 @@
     },
     "/get-account-iq": {
       "get": {
-        "description": "",
+        "description": " - Get company account IQ from Linkedin sales navigator. \n\n - 5 credits per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -922,7 +920,7 @@
     },
     "/get-company-jobs-count": {
       "get": {
-        "description": "",
+        "description": " - Get the number of job openings a company has posted on LinkedIn. \n\n - 1 credit per call.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -986,7 +984,7 @@
     "/find-custom-headcount": {
       "post": {
         "summary": "Custom headcount by filters",
-        "description": "",
+        "description": " - Discover the count of employees within a specific company who meet designated criteria. \n\n - 1 credit per call.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1141,7 +1139,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "- Retrieve posts from a person's profile. Pagination is supported for accessing all posts. \n\n - 2 credits per call",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -1239,7 +1237,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": " - Get comments of a post. \n\n - 1 credit per call.",
         "parameters": [
           {
             "name": "urn",
@@ -1332,7 +1330,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "- Get reactions of a post. \n\n - 1 credit per call.",
         "parameters": [
           {
             "name": "urn",
@@ -1423,7 +1421,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": "- Get posts from a LinkedIn company page.  Pagination is supported to fetch all posts. \n\n - 2 credits per call.",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -1516,7 +1514,7 @@
     "/search-posts": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": "- Simulates LinkedIn's Post Search Function with most important filters.  \n\n - 2 credits per call.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1689,7 +1687,7 @@
     "/search-jobs": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": " - Search jobs posted on LinkedIn. This endpoint is useful for scraping job openings of a specific company on LinkedIn. \n\n - To scrape all results from each search, change the parameter "start" from 0 to 25, 50, etc. until you see less than 25 results returned. \n\n - 2 credits per call.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1910,7 +1908,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "",
+        "description": " - Scrape the full job details, including the company basic information. \n\n - 1 credit per call.",
         "parameters": [
           {
             "name": "job_url",
@@ -1999,7 +1997,8 @@
     "/search-employees": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": " - Streamline your  Sales Navigator lead searches effortlessly without connecting your own account. \n\n - How the Process Works: \n\n >Step 1: Initiate Search \n\n Launch your search with specific criteria via a dedicated endpoint. Upon request, you'll receive a unique "request_id" enabling continuous status checks in Step 2. Each search request deducts 50 credits from your account. \n\n > Step 2: Monitor Search Progress
+Utilize the "Check Search Status" endpoint to keep tabs on your search's progress. This action is entirely complimentary. \n\n > Step 3: Retrieve Results \n\n With your search complete, access the results through the "Get Search Result" endpoint. Retrieving each profile incurs a nominal fee of 0.5 credits. For instance, accessing 100 results consumes 50 credits.",
         "requestBody": {
           "required": true,
           "content": {
