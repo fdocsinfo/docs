@@ -2632,7 +2632,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "- Get search results. Please make sure the search is "done" before calling this endpoint. \n\n - 0.5 credits per retrieved profile. Maximum: 50 credits.",
+        "description": "- Get search results. Please make sure the search is **done** before calling this endpoint. \n\n - 0.5 credits per retrieved profile. Maximum: 50 credits.",
         "parameters": [
           {
             "name": "request_id",
@@ -3268,7 +3268,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "- Get search results. Please make sure the search is "done" before calling this endpoint. \n\n - 0.3 credits per retrieved company. Maximum: 30 credits.",
+        "description": "- Get search results. Please make sure the search is **done** before calling this endpoint. \n\n - 0.3 credits per retrieved company. Maximum: 30 credits.",
         "parameters": [
           {
             "name": "request_id",
