@@ -615,7 +615,7 @@
     },
     "/get-company-by-linkedinurl": {
       "get": {
-        "description": "- Retrieve valuable data points using a company’s LinkedIn URL. \n\n - 1 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -731,7 +731,7 @@
     },
     "/get-company-by-id": {
       "get": {
-        "description": " - Retrieve valuable data points using a company’s LinkedIn internal ID. \n\n - 1 credit per call.",
+        "description": "",
         "security": [
           {
             "ApiKeyAuth": []
@@ -1421,7 +1421,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "- Get posts from a LinkedIn company page.  Pagination is supported to fetch all posts. \n\n - 2 credits per call.",
+        "description": "",
         "parameters": [
           {
             "name": "linkedin_url",
@@ -1514,7 +1514,7 @@
     "/search-posts": {
       "post": {
         "summary": "",
-        "description": "- Simulates LinkedIn's Post Search Function with most important filters.  \n\n - 2 credits per call.",
+        "description": "",
         "requestBody": {
           "required": true,
           "content": {
