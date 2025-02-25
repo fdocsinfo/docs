@@ -1687,7 +1687,7 @@
     "/search-jobs": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": "- Search jobs posted on LinkedIn. This endpoint is useful for scraping job openings of a specific company on LinkedIn. \n\n - To scrape all results from each search, change the parameter **start** from 0 to 25, 50, etc. until you see less than 25 results returned. - 2 credits per call.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1997,7 +1997,18 @@
     "/search-employees": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": "- Streamline your  Sales Navigator lead searches effortlessly without connecting your own account. \n\n
+
+- How the Process Works:\n\n
+
+>**Step 1: Initiate Search**\n\n
+Launch your search with specific criteria via a dedicated endpoint. Upon request, you'll receive a unique **request_id** enabling continuous status checks in Step 2. Each search request deducts 50 credits from your account.\n\n
+
+>**Step 2: Monitor Search Progress**\n\n
+Utilize the **Check Search Status** endpoint to keep tabs on your search's progress. This action is entirely complimentary.\n\n
+
+>**Step 3: Retrieve Results**\n\n
+With your search complete, access the results through the **Get Search Result** endpoint. Retrieving each profile incurs a nominal fee of 0.5 credits. For instance, accessing 100 results consumes 50 credits.",
         "requestBody": {
           "required": true,
           "content": {
