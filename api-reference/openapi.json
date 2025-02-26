@@ -2632,7 +2632,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "- Get search results. Please make sure the search is **done** before calling this endpoint. \n\n - 0.5 credits per retrieved profile. Maximum: 50 credits.",
+        "description": "",
         "parameters": [
           {
             "name": "request_id",
