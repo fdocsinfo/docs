@@ -2652,7 +2652,7 @@
               "type": "integer",
               "example": 1
             },
-            "description": ""
+            "description": "The page number for paginated results. Maximum 100 results returned per page."
           }
         ],
         "responses": {
@@ -3288,7 +3288,7 @@
               "type": "integer",
               "example": 1
             },
-            "description": "The page number for paginated results."
+            "description": "The page number for paginated results. Maximum 100 results returned per page."
           }
         ],
         "responses": {

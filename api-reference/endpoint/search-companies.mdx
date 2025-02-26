@@ -3,18 +3,18 @@ title: 'Search Companies'
 openapi: 'POST /search-companies'
 ---
 
-## Automate LinkedIn Sales Navigator account searches without connecting your own account.
+## Automate LinkedIn Sales Navigator account searches without connecting your own account or cookies.
 
 ### 🛠 How the Process Works
 #### **Step 1️⃣: Initiate Search**
 - Use this endpoint to make a search using your criteria.
-- This endpoint returns a unique **`request_id`**, allowing you to track progress through the [**Check Company Search Status**](https://fdocs.info/api-reference/endpoint/check-search-companies-status) endpoint.
-- Each search costs **25 credits**, even if the search returns **0 results**.
+- This endpoint returns a **`request_id`**, allowing you to track progress through the [**Check Company Search Status**](https://fdocs.info/api-reference/endpoint/check-search-companies-status) endpoint.
+- This step alone costs **25 credits**, even if the search returns **0 results**.
 #### **Step 2️⃣: Monitor Search Progress**
 - Use the [**Check Company Search Status**](https://fdocs.info/api-reference/endpoint/check-search-companies-status) endpoint to track your search.
 - This action is **free of charge**.
 #### **Step 3️⃣: Retrieve Results**
 - Once the search is complete, access the results via the [**Get Companies**](https://fdocs.info/api-reference/endpoint/get-search-companies-results) endpoint.
-- Retrieving each profile incurs **0.3 credits**. For Example: fetching **100 results** will consume **30 credits**.
+- Retrieving each profile incurs **0.3 credits**. For example, fetching **1000 results** will consume **300 credits**. *not include 25 credits at the **step 1***
 
 💡 *For better understanding and demo code, please follow [this tutorial](https://fdocs.info/tutorial/howto-search-companies)*
