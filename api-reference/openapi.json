@@ -2578,7 +2578,7 @@
             "ApiKeyAuth": []
           }
         ],
-        "description": "- Get the status of your search using the request_id given in step 1. \n\n - Free of charge.",
+        "description": "",
         "parameters": [
           {
             "name": "request_id",
