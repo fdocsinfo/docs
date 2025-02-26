@@ -3,12 +3,22 @@ title: 'Search Employees'
 openapi: 'POST /search-employees'
 ---
 
-# Streamline your  Sales Navigator lead searches effortlessly without connecting your own account.
+## Streamline your  Sales Navigator lead searches effortlessly without connecting your own account.
 
-## 🛠 How the Process Works
-### **Step 1️⃣: Initiate Search**
+### 🛠 How the Process Works
+#### **Step 1️⃣: Initiate Search**
 - Launch your search with specific criteria via this endpoint.
 - You'll receive a unique **`request_id`** to track progress via [Check Search Status endpoint](https://fdocs.info/api-reference/endpoint/check-search-status).
 - Each search costs **50 credits**, even if there are no results for your search.
+#### **Step 2️⃣: Monitor Search Progress**
+- Use the [**Check Search Status**](https://fdocs.info/api-reference/endpoint/check-search-status) endpoint to track your search.
+- This action is **free of charge**.
+#### **Step 3️⃣: Retrieve Results**
+- Once the search is complete, access the results via the [**Get Search Result**](https://fdocs.info/api-reference/endpoint/get-search-results) endpoint.
+- Retrieving each profile incurs **0.5 credits**.
+- Example: Fetching **100 results** will consume **50 credits**.
+
+💡 *For better understanding and demo code, please follow [this tutorial](https://fdocs.info/tutorial/howto-search-leads)*
+
 
 
