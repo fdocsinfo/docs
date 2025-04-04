@@ -1532,9 +1532,9 @@
                     "description": "",
                     "enum": [
                       "Latest",
-                      "Relevance"
+                      "Top match"
                     ],
-                    "example": "Latest"
+                    "default": "Top match"
                   },
                   "date_posted": {
                     "type": "string",
