@@ -2469,6 +2469,7 @@
                   },
                   "limit": {
                     "type": "integer",
+                    "description": "Limit the number of results. Default: 25. Maximum 2500.",
                     "example": 25
                   }
                 }
@@ -2529,7 +2530,7 @@
                   },
                   "limit": {
                     "type": "integer",
-                    "description": "Limit the number of results.",
+                    "description": "Limit the number of results. Default: 25. Maximum 2500.",
                     "example": 25
                   }
                 }
@@ -3105,6 +3106,7 @@
                   },
                   "limit": {
                     "type": "integer",
+                    "description": "Limit the number of results. Default: 25. Maximum 1000.",
                     "example": 1000
                   }
                 }
@@ -3165,7 +3167,7 @@
                   },
                   "limit": {
                     "type": "integer",
-                    "description": "",
+                    "description": "Limit the number of results. Default: 25. Maximum 1000.",
                     "example": 25
                   }
                 }
