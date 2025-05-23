@@ -2,11 +2,10 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Fresh LinkedIn Data API",
   "analytics": {
-      "ga4": {
-          "measurementId": "G-MW7TC49CDD"
-      }
+    "ga4": {
+      "measurementId": "G-MW7TC49CDD"
+    }
   },
-
   "logo": {
     "dark": "/logo/freshdata-logo.png",
     "light": "/logo/freshdata-logo.png"
@@ -99,6 +98,7 @@
       "group": "Employee Search (via Sales Navigator)",
       "pages": [
         "api-reference/endpoint/search-employees",
+        "api-reference/endpoint/search-employees-large-scale",
         "api-reference/endpoint/search-employees-by-sales-nav-url",
         "api-reference/endpoint/check-search-status",
         "api-reference/endpoint/get-search-results"
