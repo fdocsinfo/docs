@@ -305,9 +305,7 @@
         ],
         "description": " - Get comprehensive profile data, including experience, education history, and current company details. \n\n
         - 1 credit per call. \n\n
-        - Using each extra option will cost another 0.5 credits.","parameters": [{"name": "linkedin_url","in": "query",
-        "required": true,
-        "schema": {
+        - Using each extra option will cost another 0.5 credits.","parameters": [{"name": "linkedin_url","in": "query","required": true,"schema": {
           "type": "string",
           "format": "uri",
           "example": "https://www.linkedin.com/in/cjfollini/"
@@ -2517,6 +2515,17 @@
           "schema": {
             "type": "object",
             "properties": {
+              "client_id": {
+                "type": "string",
+                "example": "your_secret_client_id",
+                "required": true
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "The LinkedIn Sales Navigator URL for searching employees. Use this parameter if you do not want to use any filters.",
+                "example": "https://www.linkedin.com/sales/search/people?coach=false&query=(filters%3AList((type%3AREGION%2Cvalues%3AList((id%3A103644278%2CselectionType%3AINCLUDED)))%2C(type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A82274765%2CselectionType%3AINCLUDED)))))"
+              },
               "current_company_ids": {
                 "type": "array",
                 "items": {
@@ -2978,12 +2987,6 @@
                   100
                 ],
                 "example": 5
-              },
-              "url": {
-                "type": "string",
-                "format": "uri",
-                "description": "The LinkedIn Sales Navigator URL for searching employees. Use this parameter instead, if you do not want to use any filters.",
-                "example": "https://www.linkedin.com/sales/search/people?coach=false&query=(filters%3AList((type%3AREGION%2Cvalues%3AList((id%3A103644278%2CselectionType%3AINCLUDED)))%2C(type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A82274765%2CselectionType%3AINCLUDED)))))"
               }
             }
           }

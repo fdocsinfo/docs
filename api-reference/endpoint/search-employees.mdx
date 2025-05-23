@@ -9,7 +9,7 @@ openapi: 'POST /search-employees'
 #### **Step 1️⃣: Initiate Search**
 - Launch your search with specific criteria via this endpoint.
 - This endpoint returns a **`request_id`**, allowing you to track progress through the [**Check Search Status**](https://fdocs.info/api-reference/endpoint/check-search-status) endpoint.
-- This step alone costs **50 credits**, even if the search returns **0 results**.
+- This step costs minimum **50 credits**, even if the search returns **0 results** (Excluding cases where the filters you provided are invalid).
 #### **Step 2️⃣: Monitor Search Progress**
 - Use the [**Check Search Status**](https://fdocs.info/api-reference/endpoint/check-search-status) endpoint to track your search.
 - This action is **free of charge**.
