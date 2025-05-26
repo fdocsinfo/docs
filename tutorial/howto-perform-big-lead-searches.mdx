@@ -1,0 +1,186 @@
+---
+title: 'How to search employees without 2500 limit?'
+description: ''
+---
+
+Are you looking for a solution to integrate LinkedIn leads into your sales process automatically? In this article, I’ll show you how to leverage our API to scrape leads from LinkedIn Sales Navigator searches programmatically—without using your own LinkedIn account, without providing any cookies, and without requiring a browser extension. All you need to provide are the search criteria.
+
+## Code demonstration
+
+For instance, let’s say you need a lead list with the following criteria:
+
+* **Job title includes**: owner, founder, or director
+
+* **Location**: United States
+
+* **Industry**: Software Development
+
+* **Company headcount range**: 11-50
+
+* **For more filters**: Please check out this [page](/tutorial/understanding-employee-search-filters)
+
+Below is how you can do it easily in the Python language, step by step.
+
+<Steps>
+  <Step title="Initiate a Search">
+    ```python
+    import requests
+    import time
+
+    # Replace this with your actual API key
+    api_key = "YOUR_API_KEY"
+
+    # API base URL
+    api_host = "fresh-linkedin-profile-data.p.rapidapi.com"
+
+    def initiate_search():
+        url = f"https://{api_host}/big-search-employees"
+        payload = {
+            "geo_codes": [103644278],  # United States
+            "title_keywords": ["Owner", "Founder", "Director"],
+            "industry_codes": [4],  # Software Development
+            "company_headcounts": ["11-50", "51-200"],
+            "limit": 50 #set max number of results to be scraped
+        }
+        headers = {
+            "x-rapidapi-key": api_key,
+            "Content-Type": "application/json"
+        }
+
+        response = requests.post(url, json=payload, headers=headers)
+        response_data = response.json()
+        print("Initiate Search Response:", response_data)
+        return response_data.get("request_id")
+    ```
+  </Step>
+
+  Or if you already have Sales URL instead:
+
+  <Step title="Initiate a Search">
+    ```python
+    import requests
+    import time
+
+    # Replace this with your actual API key
+    api_key = "YOUR_API_KEY"
+
+    # API base URL
+    api_host = "fresh-linkedin-profile-data.p.rapidapi.com"
+
+    def initiate_search():
+        url = f"https://{api_host}/big-search-employees"
+        payload = {
+            "url": "https://www.linkedin.com/sales/search/people?query=(recentSearchParam%3A(id%3A4761785148%2CdoLogHistory%3Atrue)%2Cfilters%3AList((type%3ACURRENT_TITLE%2Cvalues%3AList((text%3Aowner%2CselectionType%3AINCLUDED)%2C(text%3Afounde%2CselectionType%3AINCLUDED)%2C(text%3Adirector%2CselectionType%3AINCLUDED)))%2C(type%3AREGION%2Cvalues%3AList((id%3A103644278%2Ctext%3AUnited%2520States%2CselectionType%3AINCLUDED)))%2C(type%3AINDUSTRY%2Cvalues%3AList((id%3A4%2Ctext%3ASoftware%2520Development%2CselectionType%3AINCLUDED)))%2C(type%3ACOMPANY_HEADCOUNT%2Cvalues%3AList((id%3AC%2Ctext%3A11-50%2CselectionType%3AINCLUDED)))))&sessionId=mNNnxqliStOu7XwuPQM18Q%3D%3D&viewAllFilters=true"
+        }
+        headers = {
+            "x-rapidapi-key": api_key,
+            "Content-Type": "application/json"
+        }
+
+        response = requests.post(url, json=payload, headers=headers)
+        response_data = response.json()
+        print("Initiate Search Response:", response_data)
+        return response_data.get("request_id")
+    ```
+  </Step>
+
+  <Step title="Check Search Progress">
+    ```python
+    def check_search_status(request_id):
+        url = f"https://{api_host}/check-search-status"
+        querystring = {"request_id": request_id}
+        headers = {
+            "x-rapidapi-key": api_key
+        }
+
+        response = requests.get(url, headers=headers, params=querystring)
+        response_data = response.json()
+        print("Check Search Status Response:", response_data)
+        return response_data.get("status") #pending, processing, or done
+
+
+    ```
+  </Step>
+
+  <Step title="Retrieve Search Results">
+    ```python
+    def get_search_results(request_id):
+        url = f"https://{api_host}/get-search-results"
+        headers = {
+            "x-rapidapi-key": api_key
+        }
+
+        all_results = []
+        page = 1
+
+        while True:
+            querystring = {"request_id": request_id, "page": page}
+            response = requests.get(url, headers=headers, params=querystring)
+            response_data = response.json()
+
+            if response_data.get("data"):
+                all_results.extend(response_data.get("data"))
+                page += 1
+            else:
+                #no more results
+                break
+
+        return all_results
+
+    ```
+  </Step>
+
+  <Step title="Put All Together">
+    ```python
+    def main():
+        # initiate search
+        request_id = initiate_search()
+        if not request_id:
+            print("Failed to initiate search")
+            return
+
+        # monitor search progress
+        while True:
+            status = check_search_status(request_id)
+            if status == "done":
+                #search completed
+                break
+            #sleep for a while    
+            time.sleep(30)
+
+        # ready to fetch results
+        results = get_search_results(request_id)
+        print(f"Total Results Fetched: {len(results)}")
+        print("Results:", results)
+
+    if __name__ == "__main__":
+        main()
+    ```
+  </Step>
+</Steps>
+
+## Prerequisites
+
+Before running the script, ensure you have:
+
+1. Permission to use the search feature. Please reach out us at: support@fdocs.info to obtain it.
+2. Python installed on your system.
+3. The requests library installed. You can install it using:
+
+```bash
+pip install requests
+```
+
+## How much does it cost?
+
+Each stage of the search process costs a different number of credits:
+
+1. **Search initiation: 50 credits. Even if the search returns no results you’ll be charged 50 credits. Then each result costs 0.7 credits, and will be charged in advanced before you actually fetch the results.**
+
+2. **Status monitoring**: free of charge. You can check it as frequently as needed until the job is complete.
+
+3. **Result fetching**: free of charge.
+
+For example, if your search yields 1,0000 results, the total credit cost would be:
+
+50 credits + (0.7\*10000 credits) = **7050** credits.
