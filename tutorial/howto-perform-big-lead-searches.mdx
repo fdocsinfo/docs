@@ -3,7 +3,7 @@ title: 'How to search employees without 2500 limit?'
 description: ''
 ---
 
-Are you looking for a solution to integrate LinkedIn leads into your sales process automatically? In this article, I’ll show you how to leverage our API to scrape leads from LinkedIn Sales Navigator searches programmatically—without using your own LinkedIn account, without providing any cookies, and without requiring a browser extension. All you need to provide are the search criteria.
+Having a big employee search? No problem, we now can scrape searches that are up to 50k results without using your own LinkedIn account, without providing any cookies, and without requiring a browser extension. All you need to provide are the search criteria.
 
 ## Code demonstration
 
@@ -115,8 +115,8 @@ Below is how you can do it easily in the Python language, step by step.
             if status == "done":
                 #search completed
                 break
-            #sleep for a while    
-            time.sleep(30)
+            # wait for some minutes
+            time.sleep(300)
 
         # ready to fetch results
         results = get_search_results(request_id)
