@@ -2519,15 +2519,527 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "client_id": {
-                    "type": "string",
-                    "example": "your_secret_client_id",
-                    "required": true
+                  "current_company_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      162479,
+                      1053
+                    ],
+                    "description": "To filter by current company. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
                   },
+                  "title_keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Director",
+                      "Operation"
+                    ]
+                  },
+                  "company_headcounts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Self-employed",
+                        "1-10",
+                        "11-50",
+                        "51-200",
+                        "201-500",
+                        "501-1000",
+                        "1001-5000",
+                        "5001-10000",
+                        "10001+"
+                      ]
+                    },
+                    "example": [
+                      "1001-5000",
+                      "5001-10000"
+                    ]
+                  },
+                  "functions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Accounting",
+                        "Administrative",
+                        "Arts and Design",
+                        "Business Development",
+                        "Community and Social Services",
+                        "Consulting",
+                        "Education",
+                        "Engineering",
+                        "Entrepreneurship",
+                        "Finance",
+                        "Healthcare Services",
+                        "Human Resources",
+                        "Information Technology",
+                        "Legal",
+                        "Marketing",
+                        "Media and Communication",
+                        "Military and Protective Services",
+                        "Operations",
+                        "Product Management",
+                        "Program and Project Management",
+                        "Purchasing",
+                        "Quality Assurance",
+                        "Real Estate",
+                        "Research",
+                        "Sales",
+                        "Customer Success and Support"
+                      ]
+                    },
+                    "example": [
+                      "Accounting",
+                      "Administrative"
+                    ]
+                  },
+                  "geo_codes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      103644278,
+                      102299470
+                    ],
+                    "description": "To filter by location. Learn how to [find a geo_code](/tutorial/howto-geocode)."
+                  },
+                  "past_company_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      1009
+                    ],
+                    "description": "To filter by past company. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
+                  },
+                  "industry_codes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      3,
+                      4
+                    ],
+                    "description": "All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
+                  },
+                  "seniority_levels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Owner/Partner",
+                        "CXO",
+                        "Vice President",
+                        "Director",
+                        "Experienced Manager",
+                        "Entry Level Manager",
+                        "Strategic",
+                        "Senior",
+                        "Entry Level",
+                        "In Training"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "year_in_current_company": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Less than 1 year",
+                        "1 to 2 years",
+                        "3 to 5 years",
+                        "6 to 10 years",
+                        "More than 10 years"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "year_in_current_position": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Less than 1 year",
+                        "1 to 2 years",
+                        "3 to 5 years",
+                        "6 to 10 years",
+                        "More than 10 years"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "years_of_experience": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Less than 1 year",
+                        "1 to 2 years",
+                        "3 to 5 years",
+                        "6 to 10 years",
+                        "More than 10 years"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "current_company_names": {
+                    "type": "array",
+                    "description": "In case the **company_id** is not available, use this filter instead.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Apple",
+                      "Microsoft"
+                    ]
+                  },
+                  "past_company_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Apple",
+                      "Microsoft"
+                    ]
+                  },
+                  "company_type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Public Company",
+                        "Privately Held",
+                        "Non Profit",
+                        "Educational Institution",
+                        "Partnership",
+                        "Self Employed",
+                        "Self Owned",
+                        "Government Agency"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "company_headquarter_location_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [],
+                    "description": "Learn how to [find a geo_code/location_id](/tutorial/howto-geocode)."
+                  },
+                  "company_headquarter_location_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [],
+                    "description": "To exclude some locations. Learn how to [find a geo_code/location_id](/tutorial/howto-geocode)."
+                  },
+                  "seniority_levels_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Owner/Partner",
+                        "CXO",
+                        "Vice President",
+                        "Director",
+                        "Experienced Manager",
+                        "Entry Level Manager",
+                        "Strategic",
+                        "Senior",
+                        "Entry Level",
+                        "In Training"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "past_job_titles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "CEO"
+                    ]
+                  },
+                  "current_company_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [],
+                    "description": "To exclude some companies. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
+                  },
+                  "title_keywords_exclude": {
+                    "type": "array",
+                    "description": "To exclude some title keywords.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Sales"
+                    ]
+                  },
+                  "functions_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Accounting",
+                        "Administrative",
+                        "Arts and Design",
+                        "Business Development",
+                        "Community and Social Services",
+                        "Consulting",
+                        "Education",
+                        "Engineering",
+                        "Entrepreneurship",
+                        "Finance",
+                        "Healthcare Services",
+                        "Human Resources",
+                        "Information Technology",
+                        "Legal",
+                        "Marketing",
+                        "Media and Communication",
+                        "Military and Protective Services",
+                        "Operations",
+                        "Product Management",
+                        "Program and Project Management",
+                        "Purchasing",
+                        "Quality Assurance",
+                        "Real Estate",
+                        "Research",
+                        "Sales",
+                        "Customer Success and Support"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "geo_codes_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      105080838,
+                      102257491
+                    ],
+                    "description": "To exclude some locations. Learn how to [find a geo_code](https://fdocs.info/tutorial/howto-geocode)."
+                  },
+                  "past_company_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      1009
+                    ],
+                    "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id)."
+                  },
+                  "past_job_titles_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Founder"
+                    ]
+                  },
+                  "industry_codes_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      5,
+                      6
+                    ]
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "profile_languages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Arabic",
+                        "English",
+                        "Spanish",
+                        "Portuguese",
+                        "Chinese",
+                        "French",
+                        "Italian",
+                        "Russian",
+                        "German",
+                        "Dutch",
+                        "Turkish",
+                        "Tagalog",
+                        "Polish",
+                        "Korean",
+                        "Japanese",
+                        "Malay",
+                        "Norwegian",
+                        "Danish",
+                        "Romanian",
+                        "Swedish",
+                        "Bahasa Indonesia",
+                        "Czech"
+                      ]
+                    },
+                    "example": []
+                  },
+                  "school_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      123456
+                    ]
+                  },
+                  "school_ids_exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      654321
+                    ]
+                  },
+                  "changed_jobs": {
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "false"
+                  },
+                  "posted_on_linkedin": {
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "false"
+                  },
+                  "mentioned_in_news": {
+                    "type": "string",
+                    "description": "",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "example": "false"
+                  },
+                  "keywords": {
+                    "type": "string",
+                    "example": "system",
+                    "description": "Support Boolean keywords as well. For example: AI OR \"machine learning\"."
+                  },
+                  "zipcode_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": [
+                      90001
+                    ]
+                  },
+                  "radius": {
+                    "type": "integer",
+                    "description": "To be used together with the **zipcode_ids** filter to define the radius in mile.",
+                    "default": 5,
+                    "enum": [
+                      1,
+                      5,
+                      10,
+                      25,
+                      35,
+                      50,
+                      75,
+                      100
+                    ],
+                    "example": 5
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "description": "Limit the number of results. Default: 25. Maximum 2500.",
+                    "example": 25
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchEmployees"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidPayload"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "System Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/big-employee-search2": {
+      "post": {
+        "summary": "",
+        "description": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
                   "url": {
                     "type": "string",
                     "format": "uri",
-                    "description": "The LinkedIn Sales Navigator URL for searching employees. Use this parameter if you do not want to use any filters.",
+                    "description": "The LinkedIn Sales Navigator URL for searching employees. When using this parameter, all other parameters will be ignored.",
                     "example": "https://www.linkedin.com/sales/search/people?coach=false&query=(filters%3AList((type%3AREGION%2Cvalues%3AList((id%3A103644278%2CselectionType%3AINCLUDED)))%2C(type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A82274765%2CselectionType%3AINCLUDED)))))"
                   },
                   "current_company_ids": {
@@ -3003,7 +3515,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchEmployeesLargeScale"
+                  "$ref": "#/components/schemas/BigEmployeeSearch"
                 }
               }
             }
@@ -6541,7 +7053,7 @@
           }
         }
       },
-      "SearchEmployeesLargeScale": {
+      "BigEmployeeSearch": {
         "type": "object",
         "properties": {
           "message": {
