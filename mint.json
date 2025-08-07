@@ -78,7 +78,6 @@
       "group": "Personal Data",
       "pages": [
         "api-reference/endpoint/get-linkedin-profile",
-        // "api-reference/endpoint/get-profile-by-sales-nav-url",
         "api-reference/endpoint/get-profile-recent-activity-time",
         "api-reference/endpoint/google-full-profiles"
       ]
@@ -100,7 +99,6 @@
       "pages": [
         "api-reference/endpoint/search-leads",
         "api-reference/endpoint/lead-search-at-scale",
-        // "api-reference/endpoint/search-employees-by-sales-nav-url",
         "api-reference/endpoint/check-search-status",
         "api-reference/endpoint/get-search-results"
       ]
