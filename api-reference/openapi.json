@@ -14,7 +14,7 @@
     }
   ],
   "paths": {
-    "/get-linkedin-profile": {
+    "/get-personal-profile": {
       "get": {
         "security": [
           {
@@ -31,7 +31,7 @@
               "type": "string",
               "format": "uri"
             },
-            "description": "",
+            "description": "A valid LinkedIn profile URL — both public ID format (https://www.linkedin.com/in/stephenlee4244315) and URN format (https://www.linkedin.com/sales/lead/ACwAAALW9HABcVdR-UuroyOHoL2iuUob1F_yDRY) are accepted.",
             "example": "https://www.linkedin.com/in/cjfollini/"
           },
           {
@@ -296,7 +296,7 @@
         }
       }
     },
-    "/get-linkedin-profile-by-salesnavurl": {
+    "/get-profile-by-sn-url": {
       "get": {
         "security": [
           {
@@ -312,7 +312,8 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://www.linkedin.com/in/cjfollini/"
+              "example": "https://www.linkedin.com/in/cjfollini/",
+              "description": "A valid LinkedIn profile URL — both public ID format (https://www.linkedin.com/in/stephenlee4244315) and URN format (https://www.linkedin.com/sales/lead/ACwAAALW9HABcVdR-UuroyOHoL2iuUob1F_yDRY) are accepted."
             },
             "description": ""
           },
@@ -1991,10 +1992,10 @@
         }
       }
     },
-    "/search-employees": {
+    "/search-leads": {
       "post": {
         "summary": "",
-        "description": "",
+        "description": "Accepts either filters or a Sales Navigator search URL.",
         "requestBody": {
           "required": true,
           "content": {
@@ -2002,6 +2003,11 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://www.linkedin.com/sales/search/people?query=(recentSearchParam%3A(doLogHistory%3Atrue)%2Cfilters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3Aurn%253Ali%253Aorganization%253A18890478%2Ctext%3AFTMO%2CselectionType%3AINCLUDED%2Cparent%3A(id%3A0))))))&sessionId=P1DbKqCXT7CvuwbJNjT8dw%3D%3D&viewAllFilters=true",
+                    "description": "This is the highest-priority filter, used when you already have Sales Navigator search URLs. When you use this filter, all other filters will be ignored except for the limit filter."
+                  },
                   "current_company_ids": {
                     "type": "array",
                     "items": {

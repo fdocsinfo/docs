@@ -98,7 +98,7 @@
     {
       "group": "Employee Search (via Sales Navigator)",
       "pages": [
-        "api-reference/endpoint/search-employees",
+        "api-reference/endpoint/search-leads",
         "api-reference/endpoint/big-employee-search",
         "api-reference/endpoint/search-employees-by-sales-nav-url",
         "api-reference/endpoint/check-search-status",
