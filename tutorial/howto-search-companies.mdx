@@ -22,7 +22,7 @@ Here’s how you can achieve this step-by-step using Python.
     import requests
 
     API_KEY = 'your_api_key_here'
-    SEARCH_URL = "https://fresh-linkedin-profile-data.p.rapidapi.com/search-companies"
+    SEARCH_URL = "https://web-scraping-api2.p.rapidapi.com/search-companies"
 
     def search_companies():
         payload = {
@@ -43,7 +43,7 @@ Here’s how you can achieve this step-by-step using Python.
 
   <Step title="Monitor Search Progress">
     ```python
-    STATUS_URL = "https://fresh-linkedin-profile-data.p.rapidapi.com/check-search-companies-status"
+    STATUS_URL = "https://web-scraping-api2.p.rapidapi.com/check-search-companies-status"
 
     def check_search_status(request_id):
         querystring = {"request_id": request_id}
@@ -58,7 +58,7 @@ Here’s how you can achieve this step-by-step using Python.
 
   <Step title="Retrieve Search Results">
     ```python
-    RESULTS_URL = "https://fresh-linkedin-profile-data.p.rapidapi.com/get-search-companies-results"
+    RESULTS_URL = "https://web-scraping-api2.p.rapidapi.com/get-search-companies-results"
 
     def get_search_results(request_id):
         headers = {
@@ -127,10 +127,10 @@ The API usage cost is broken into three stages:
 
 1. **Search initiation**: 25 credits per request.
 2. **Search status checks**: Free of charge.
-3. **Result fetching**: 0.3 credits per company.
+3. **Result fetching**: 1 credits per company.
 
 For example, if your search returns 100 companies, the total credit cost would be:
 
-25 credits + (0.3 × 100) = **55 credits**.
+25 credits + (1 × 100) = **125 credits**.
 
 This guide demonstrates how you can use the API to automate LinkedIn company searches efficiently and integrate them seamlessly into your workflow. Start leveraging this solution to scale your business insights effortlessly.

@@ -31,10 +31,10 @@ Below is how you can do it easily in the Python language, step by step.
     api_key = "YOUR_API_KEY"
 
     # API base URL
-    api_host = "fresh-linkedin-profile-data.p.rapidapi.com"
+    api_host = "web-scraping-api2.p.rapidapi.com"
 
     def initiate_search():
-        url = f"https://{api_host}/big-search-employees"
+        url = f"https://{api_host}/lead-search-at-scale"
         payload = {
             "geo_codes": [103644278],  # United States
             "title_keywords": ["Owner", "Founder", "Director"],
@@ -145,7 +145,7 @@ pip install requests
 
 Each stage of the search process costs a different number of credits:
 
-1. **Search initiation: 50 credits. Even if the search returns no results you’ll be charged 50 credits. Then each result costs 0.7 credits, and will be charged in advanced before you actually fetch the results.**
+1. **Search initiation: 50 credits. Even if the search returns no results you’ll be charged 50 credits. Then each result costs 1 credits, and will be charged in advanced before you actually fetch the results.**
 
 2. **Status monitoring**: free of charge. You can check it as frequently as needed until the job is complete.
 
@@ -153,4 +153,4 @@ Each stage of the search process costs a different number of credits:
 
 For example, if your search yields 10,000 results, the total credit cost would be:
 
-50 credits + (0.7\*10000 credits) = **7050** credits.
+50 credits + (1\*10000 credits) = **10050** credits.

@@ -2522,7 +2522,7 @@
         }
       }
     },
-    "/big-employee-search": {
+    "/lead-search-at-scale": {
       "post": {
         "summary": "",
         "description": "",
