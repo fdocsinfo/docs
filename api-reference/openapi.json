@@ -2184,7 +2184,7 @@
                   },
                   "current_company_names": {
                     "type": "array",
-                    "description": "In case the **company_id** is not available, use this filter instead. Maximum: 20 elements.",
+                    "description": "In case the **company_id** is not available, use this filter instead. Maximum: 10 elements.",
                     "items": {
                       "type": "string"
                     },
@@ -2202,7 +2202,7 @@
                       "Apple",
                       "Microsoft"
                     ],
-                    "description": "Maximum: 20 elements."
+                    "description": "Maximum: 10 elements."
                   },
                   "company_type": {
                     "type": "array",
@@ -2548,10 +2548,11 @@
                       162479,
                       1053
                     ],
-                    "description": "To filter by current company. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
+                    "description": "To filter by current company. Learn how to [find a company_id](/tutorial/howto-find-company-id). Maximum: 10 elements."
                   },
                   "title_keywords": {
                     "type": "array",
+                    "description": "Maximum: 20 elements.",
                     "items": {
                       "type": "string"
                     },
@@ -2628,7 +2629,7 @@
                       103644278,
                       102299470
                     ],
-                    "description": "To filter by location. Learn how to [find a geo_code](/tutorial/howto-geocode)."
+                    "description": "To filter by location. Learn how to [find a geo_code](/tutorial/howto-geocode). Maximum: 20 elements."
                   },
                   "past_company_ids": {
                     "type": "array",
@@ -2638,7 +2639,7 @@
                     "example": [
                       1009
                     ],
-                    "description": "To filter by past company. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
+                    "description": "To filter by past company. Learn how to [find a company_id](/tutorial/howto-find-company-id). Maximum: 10 elements."
                   },
                   "industry_codes": {
                     "type": "array",
@@ -2714,7 +2715,7 @@
                   },
                   "current_company_names": {
                     "type": "array",
-                    "description": "In case the **company_id** is not available, use this filter instead.",
+                    "description": "In case the **company_id** is not available, use this filter instead. Maximum: 10 elements.",
                     "items": {
                       "type": "string"
                     },
@@ -2725,6 +2726,7 @@
                   },
                   "past_company_names": {
                     "type": "array",
+                    "description": "In case the **company_id** is not available, use this filter instead. Maximum: 10 elements.",
                     "items": {
                       "type": "string"
                     },
@@ -2756,7 +2758,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "Learn how to [find a geo_code/location_id](/tutorial/howto-geocode)."
+                    "description": "Learn how to [find a geo_code/location_id](/tutorial/howto-geocode). Maximum: 20 elements."
                   },
                   "company_headquarter_location_ids_exclude": {
                     "type": "array",
@@ -2764,7 +2766,7 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "To exclude some locations. Learn how to [find a geo_code/location_id](/tutorial/howto-geocode)."
+                    "description": "To exclude some locations. Learn how to [find a geo_code/location_id](/tutorial/howto-geocode). Maximum: 20 elements."
                   },
                   "seniority_levels_exclude": {
                     "type": "array",
@@ -2800,11 +2802,11 @@
                       "type": "integer"
                     },
                     "example": [],
-                    "description": "To exclude some companies. Learn how to [find a company_id](/tutorial/howto-find-company-id)."
+                    "description": "To exclude some companies. Learn how to [find a company_id](/tutorial/howto-find-company-id). Maximum: 10 elements."
                   },
                   "title_keywords_exclude": {
                     "type": "array",
-                    "description": "To exclude some title keywords.",
+                    "description": "Maximum: 20 elements.",
                     "items": {
                       "type": "string"
                     },
@@ -2856,7 +2858,7 @@
                       105080838,
                       102257491
                     ],
-                    "description": "To exclude some locations. Learn how to [find a geo_code](https://fdocs.info/tutorial/howto-geocode)."
+                    "description": "To exclude some locations. Learn how to [find a geo_code](https://fdocs.info/tutorial/howto-geocode). Maximum: 20 elements."
                   },
                   "past_company_ids_exclude": {
                     "type": "array",
@@ -2866,7 +2868,7 @@
                     "example": [
                       1009
                     ],
-                    "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id)."
+                    "description": "Learn how to [find a company_id](https://fdocs.info/tutorial/howto-find-company-id). Maximum: 10 elements."
                   },
                   "past_job_titles_exclude": {
                     "type": "array",
@@ -2928,6 +2930,7 @@
                   },
                   "school_ids": {
                     "type": "array",
+                    "description": "Maximum: 10 elements.",
                     "items": {
                       "type": "integer"
                     },
@@ -2937,6 +2940,7 @@
                   },
                   "school_ids_exclude": {
                     "type": "array",
+                    "description": "Maximum: 10 elements.",
                     "items": {
                       "type": "integer"
                     },
@@ -2978,6 +2982,7 @@
                   },
                   "zipcode_ids": {
                     "type": "array",
+                    "description": "Maximum: 5 elements.",
                     "items": {
                       "type": "integer"
                     },
@@ -3452,7 +3457,7 @@
                       3,
                       4
                     ],
-                    "description": "All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
+                    "description": "Maximum: 20 elements. All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
                   },
                   "industry_codes_exclude": {
                     "type": "array",
@@ -3463,7 +3468,7 @@
                       5,
                       6
                     ],
-                    "description": "All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
+                    "description": "Maximum: 20 elements. All industry codes could be found [on this page]( https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)."
                   },
                   "hiring_on_linkedin": {
                     "type": "string",
